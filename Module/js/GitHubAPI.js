@@ -1,5 +1,4 @@
-// The default code is a module class (inherited from xui.Module)
-// Ensure that all the value of "key/value pair" does not refer to external variables
+// It's a module no UI
 xui.Class('Module.GitHubAPI', 'xui.Module',{
     Instance:{
         // Dependency classes
@@ -29,19 +28,5 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
         }
-        /*,
-        // To determine how properties affects this module
-        propSetAction : function(prop){
-        },
-        // To set all node's style in this modlue
-        customStyle:{}
-    },
-    //To customize the default properties and event handlers
-    Static:{
-        $DataModel:{
-        },
-        $EventHandlers:{
-        }
-    */
     }
 });
