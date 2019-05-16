@@ -341,11 +341,7 @@ xui.Class('App', 'xui.Module',{
                     }
                 })
             );
-            
-            append(
-                xui.create("Module.GitHubAPI", "xui.Module")
-                .setHost(host,"module_githubapi1")
-            );
+ 
             
             append(
                 xui.create("xui.UI.CSSBox")
@@ -373,7 +369,11 @@ xui.Class('App', 'xui.Module',{
                     "background-image":"none"
                 })
             );
-            
+                       
+            append(
+                xui.create("Module.GitHubAPI", "xui.Module")
+                .setHost(host,"module_githubapi1")
+            );
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
