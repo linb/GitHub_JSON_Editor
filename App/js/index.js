@@ -326,6 +326,17 @@ xui.Class('App', 'xui.Module',{
             );
             
             append(
+                xui.create("xui.UI.Block")
+                .setHost(host,"xui_ui_block16")
+                .setDock("bottom")
+                .setLeft("15.833333333333334em")
+                .setTop("49.166666666666664em")
+                .setHeight("1.5em")
+                .setHtml("<i style=\"padding-top:4px;\">\n    Created by&nbsp;\n    <a target=\"_blank\" href=\"https://crossui.com/RADGithub\">\n        CrossUI Web App Builder\n    </a>\n</i>\n")
+                .setBorderType("ridge")
+            );
+            
+            append(
                 xui.create("xui.UI.CSSBox")
                 .setHost(host,"xui_ui_cssbox1")
                 .setClassName("xui-css-can")
