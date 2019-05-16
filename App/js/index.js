@@ -335,7 +335,6 @@ xui.Class('App', 'xui.Module',{
                 .setHtml("<i>\n    Created by&nbsp;\n    <a target=\"_blank\" href=\"https://crossui.com/RADGithub\">\n        CrossUI Web App Builder\n    </a>&nbsp;&nbsp;&nbsp;&nbsp;\n</i>\n")
                 .setBorderType("ridge")
                 .setCustomStyle({
-                    "KEY":{ },
                     "PANEL":{
                         "padding":"4px",
                         "text-align":"right"
