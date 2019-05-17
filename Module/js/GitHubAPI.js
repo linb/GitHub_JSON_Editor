@@ -7,7 +7,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         Required:[],
 
         // To initialize properties
-        properties : {},
+        properties : {
+            OctkitCDN:"https://linb.github.io/CrossUI_Assets/thirdparty/octokit-rest.min.js"
+        },
 
         // To initialize instance(e.g. properties)
         initialize : function(){
@@ -28,6 +30,15 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
         },
-        functions:{ }
+        iniResource:function(module, tid){
+            xui.Thread.suspend(tid);
+            xui.include("Octokit",module.properties.OctkitCDN,function(){
+                xui.Thread.resume(tid);
+            },function(e){
+                xui.Thread.resume(tid);
+                xui.alert(e);
+                console.log(e);
+            });
+        }
     }
 });
