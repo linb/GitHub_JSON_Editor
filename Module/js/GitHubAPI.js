@@ -14,7 +14,13 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             console.log(9);
         },
         githubTokenResponse:function(tokenHash){
-            //
+            var ns=this,
+                paras = xui.urlDecode(tokenHash);
+            // save to cookie
+            if(paras.access_token){
+              ns.setToken(paras.access_token);
+            }
+            ns.ensureGithubAuth();
         }
     },
     Static:{
