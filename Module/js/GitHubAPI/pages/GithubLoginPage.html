@@ -12,7 +12,7 @@
                 window.close();
             }else{
                 // *** Replace it with your own backend please
-                // *** Must return callbackUrl#!access_token=xxxxxxxxxxxxxxxxx
+                // *** Must return {callbackUrl}#!access_token=xxxxxxxxxxxxxxxxx
                 var service = 'https://www.crossui.com/github/login.php', callbackUrl = location.href.split('?')[0];
                 window.location = service + '?callback_url='+callbackUrl;
             }
