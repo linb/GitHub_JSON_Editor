@@ -6,6 +6,10 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         // To initialize properties
         properties : {
         },
+        // To initialize instance(e.g. properties)
+        initialize : function(){
+            window.GithubHandler = this;
+        },        
         ensureGithubAuth:function(){
             console.log(9);
         }
