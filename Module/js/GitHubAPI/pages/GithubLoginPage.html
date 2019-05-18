@@ -1,52 +1,23 @@
-<!doctype html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="theme-color" content="#000000">
-        <title>CrossUI Github Login Layer</title>
-        <link href="css/style.css" type="text/css" rel="stylesheet"/>
-    </head>
-    <body>
-        <div class="pb-login-signup-container">
-            <div class="pb-login-container z-depth-3">
-                <div class="position-absolute top-0 left-0 width-full bg-blue pt-1"></div>
-                <div class="login">
-                    <h5>Log In</h5>
-                    <div class="divider"></div>
-                    <h6 class="subtitle">Log in to CrossUI via GitHub</h6>
-                    <p/>
-                    <div class="pb-auth-btn">
-                        <button id="pb-login-public-only" class="waves-effect waves-light btn blue lighten-2">
-                            <svg aria-hidden="true" class="repo-icon" height="20" version="1.1" viewbox="0 0 12 16" width="20"><path fill-rule="evenodd" d="M4 13H3v-1h1v1zm8-6v7c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h1V4c0-2.2 1.8-4 4-4s4 1.8 4 4v2h1c.55 0 1 .45 1 1zM3.8 6h4.41V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v2H3.8zM11 7H2v7h9V7zM4 8H3v1h1V8zm0 2H3v1h1v-1z"></path></svg>
-                            Log in GitHub
-                        </button>
-                    </div>
-                    <p/>
-                </div>
-                  <p class="permission-info small-print">
-                      GitHub requires we request read/write access to your repositories in order to access your CrossUI projects.
-                  </p>
-                <div class="sign-up-ct">
-                    <p>Don't have an account?<a target="_blank" href="https://github.com/join" > Sign up</a></p>
-                </div>
-            </div>
-        </div>
-    </body>
+<!doctype html onblur="this.focus()">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>CrossUI Github Login</title>
+    <script type="text/javascript">
+        !(function(){
+            var qs=location.hash.replace('#','') ;
+            if(qs && /^access_token=[\w]{40,}/.test(qs) ){
+                window.opener.githubTokenResponse(qs);
+                window.close();
+            }else{
+                // *** Replace it with your own backend please
+                // *** Must return callbackUrl#!access_token=xxxxxxxxxxxxxxxxx
+                var service = 'https://www.crossui.com/github/login.php', callbackUrl = location.href.split('?')[0];
+                window.location = service + '?callback_url='+callbackUrl;
+            }
+        })();
+    </script>
+</head>
+<body onblur="this.focus()"></body>
 </html>
-
-<script type="text/javascript">
-  document.getElementById('pb-login-public-only').onclick=function(){
-    var win = window.open("GithubLoginPage.html", 'githublogin', 'status=no,toolbar=no,menubar=no,location=no,resizable=no,scrollbars=0,titlebar=no,height=680,width=400');
-    window.onfocus = window.onclick = function(){
-      if(!win.closed){
-        window.open('','githublogin');
-      }else{
-        window.onfocus = window.onclick = null;
-      }
-    };
-  };
-  function githubTokenResponse(info){
-    // got token
-    window.parent.GithubHandler.githubTokenResponse(info);
-  };
-</script>
