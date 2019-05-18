@@ -558,12 +558,15 @@ xui.Class('App', 'xui.Module',{
                     },
                     {
                         "desc":"Request list",
-                        "type":"control",
-                        "target":"xui_ui_cssbox1",
-                        "args":[ ],
-                        "method":"destroy"
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.ensureGithubAuth}"
+                        ],
+                        "method":"$Functions.ensureGithubAuth",
+                        "redirection":"other:callback:call"
                     },
-                    undefined
+                    null
                 ]
             }
         }
