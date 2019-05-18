@@ -123,7 +123,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             onGithubReposList: function(requestId/*String, requestid*/, 
                                          repoItems/*List{id,name}, result list*/, 
                                          total/*Number, total count*/,
-                                         page:/*Number, current pate*/,
+                                         page/*Number, current pate*/,
                                          per_page: /*Number, per page count*/
                                         ){}
         }
