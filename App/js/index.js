@@ -367,8 +367,8 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("xui.UI.Block")
                 .setHost(host,"xui_sel_repo")
-                .setLeft("0em")
-                .setTop("3.3333333333333335em")
+                .setLeft("0.8333333333333334em")
+                .setTop("3.6666666666666665em")
                 .setWidth("21em")
                 .setHeight("19.166666666666668em")
                 .setShadow(true)
