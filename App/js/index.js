@@ -274,7 +274,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_block15.append(
                 xui.create("xui.UI.Button")
-                .setHost(host,"xui_btn_repo")
+                .setHost(host,"xui_btn_popRepoList")
                 .setDirtyMark(false)
                 .setClassName("xui-css-can")
                 .setLeft("0.6666666666666666em")
@@ -467,12 +467,12 @@ xui.Class('App', 'xui.Module',{
                         {
                             "desc":"pop wnd",
                             "type":"control",
-                            "target":"xui_ui_block16",
+                            "target":"xui_sel_repo",
                             "args":[
-                                "{page.xui_ui_block16.popUp()}",
+                                "{page.xui_sel_repo.popUp()}",
                                 undefined,
                                 undefined,
-                                "{page.xui_btn_repo}"
+                                "{page.xui_btn_popRepoList}"
                             ],
                             "method":"popUp",
                             "redirection":"other:callback:call"
