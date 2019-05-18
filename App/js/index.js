@@ -380,6 +380,20 @@ xui.Class('App', 'xui.Module',{
 
         customAppend : function(parent, subId, left, top){
             return false;
+        },
+        events:{
+            "onRender":[
+                {
+                    "desc":"动作 1",
+                    "type":"module",
+                    "target":"module_githubapi1",
+                    "args":[
+                        "{page.module_githubapi1.ensureGithubAuth}"
+                    ],
+                    "method":"$Functions.ensureGithubAuth",
+                    "redirection":"other:callback:call"
+                }
+            ]
         }
     }
 });
