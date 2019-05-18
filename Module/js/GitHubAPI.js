@@ -95,26 +95,16 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 page:page|| 1,
                 per_page:per_page || 20
             }).then( (rst) => {
-                rst.data.items.forEach( (v,i) => {
-                    files.push({
+                var repos = [];
+                rst.data.items.forEach( (v, i) => {
+                    repos.push({
                         id: "*."+(i+1),
-                        layer: 0,
-                        location: v.name,
                         name: v.name,
-                        pid: "*",
-                        type: 0,
-                        tag: ""
                     });
                 });
-                xui.tryF(onSuccess,[{data:{
-                    files: files,
-                    sum: rst.data.total_count
-                }}] );
-            } ) .catch(e=>{
-                xui.tryF(onSuccess,[{data:{
-                    files: [],
-                    sum: 0
-                }}] );
+                xui.tryF(onSuccess,[repos, rst.data.total_count, page, per_page]);
+            }) .catch( e => {
+                xui.tryF(onFail,[e] );
             });            
         }
     },
