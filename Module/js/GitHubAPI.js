@@ -88,7 +88,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         },
         listRepos:function(requestId, page, per_page, nameIn, sort, order, onSuccess, onFail){
             var api=this,
-                client = this.getGithubClient();
+                clientWithAuth = this.getGithubClient();
             clientWithAuth.search.repos({
                 q: "user:" +sourceOwner + (nameIn?("+"+nameIn + "+in:name"):""),
                 sort:sort||"updated",
