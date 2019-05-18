@@ -127,7 +127,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                      avatar /*String, user avatar url*/, 
                                      user /*Object, user object*/
                                     ){},
-            onGithubReposList: function(requestId /*String, requestid*/, 
+            onListGithubRepos: function(requestId /*String, requestid*/, 
                                          repoItems /*List{id,name}, result list*/, 
                                          total /*Number, total count*/,
                                          page /*Number, current page*/,
