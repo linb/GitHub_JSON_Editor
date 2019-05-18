@@ -529,8 +529,8 @@ xui.Class('App', 'xui.Module',{
                         "target":"xui_inp_search",
                         "args":[
                             "{page.xui_inp_search.setUIValue()}",
-                            undefined,
-                            undefined,
+                            "none",
+                            "",
                             "{}"
                         ],
                         "method":"setUIValue",
@@ -561,9 +561,14 @@ xui.Class('App', 'xui.Module',{
                         "type":"module",
                         "target":"module_githubapi1",
                         "args":[
-                            "{page.module_githubapi1.ensureGithubAuth}"
+                            "{page.module_githubapi1.listRepos}",
+                            undefined,
+                            undefined,
+                            "forListRepo",
+                            "{1}",
+                            "{20}"
                         ],
-                        "method":"$Functions.ensureGithubAuth",
+                        "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
                     },
                     null
