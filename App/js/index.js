@@ -217,7 +217,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_div26.append(
                 xui.create("xui.UI.Image")
-                .setHost(host,"xui_ui_image5")
+                .setHost(host,"xui_ui_avatar")
                 .setTop("0.8333333333333334em")
                 .setWidth("2.5em")
                 .setHeight("2.5em")
@@ -227,7 +227,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_div26.append(
                 xui.create("xui.UI.Label")
-                .setHost(host,"xui_ui_label2")
+                .setHost(host,"xui_ui_labelUser")
                 .setTop("1em")
                 .setTabindex(2)
                 .setPosition("relative")
@@ -331,15 +331,28 @@ xui.Class('App', 'xui.Module',{
                 .setEvents({
                     "onGithubLogin":[
                         {
-                            "desc":"动作 1",
-                            "type":"other",
-                            "target":"msg",
+                            "desc":"avatar",
+                            "type":"control",
+                            "target":"xui_ui_avatar",
                             "args":[
-                                "{args[0]}",
-                                "{args[1]}",
-                                "{args[2]}"
+                                { },
+                                {
+                                    "src":"{args[1]}"
+                                }
                             ],
-                            "method":"log"
+                            "method":"setProperties"
+                        },
+                        {
+                            "desc":"name",
+                            "type":"control",
+                            "target":"xui_ui_labelUser",
+                            "args":[
+                                { },
+                                {
+                                    "caption":"{args[0]}"
+                                }
+                            ],
+                            "method":"setProperties"
                         }
                     ]
                 })
