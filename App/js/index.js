@@ -384,7 +384,7 @@ xui.Class('App', 'xui.Module',{
         events:{
             "onRender":[
                 {
-                    "desc":"动作 1",
+                    "desc":"action 1",
                     "type":"module",
                     "target":"module_githubapi1",
                     "args":[
