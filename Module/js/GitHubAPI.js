@@ -87,7 +87,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             ns.ensureGithubAuth();
         },
         listRepos:function(requestId, page, per_page, nameIn, sort, order, onSuccess, onFail){
-            var  client = this.getGithubClient();
+            var api=this,
+                client = this.getGithubClient();
             clientWithAuth.search.repos({
                 q: "user:" +sourceOwner + (nameIn?("+"+nameIn + "+in:name"):""),
                 sort:sort||"updated",
@@ -102,7 +103,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                         name: v.name,
                     });
                 });
-                xui.tryF(onSuccess,[repos, rst.data.total_count, page, per_page]);
+                if(false !== xui.tryF(onSuccess,[repos, rst.data.total_count, page, per_page]))
+                    api.fireEvent("onGithubReposList", [requestId, repos, rst.data.total_count, page, per_page]);
             }) .catch( e => {
                 xui.tryF(onFail,[e] );
             });            
@@ -114,7 +116,16 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){}
         },
         $EventHandlers:{
-            onGithubLogin: function(name/*String, user name*/, avatar/*String, user avatar url*/, user/*Object, user object*/){}
+            onGithubLogin: function(name/*String, user name*/, 
+                                     avatar/*String, user avatar url*/, 
+                                     user/*Object, user object*/
+                                    ){},
+            onGithubReposList: function(requestId/*String, requestid*/, 
+                                         repoItems/*List{id,name}, result list*/, 
+                                         total/*Number, total count*/,
+                                         page:/*Number, current pate*/,
+                                         per_page: /*Number, per page count*/,
+                                        ){}
         }
     }
 });
