@@ -12,11 +12,15 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         },        
         ensureGithubAuth:function(){
             console.log(9);
+        },
+        githubTokenResponse:function(info){
+            //
         }
     },
     Static:{
         $Functions:{
-            ensureGithubAuth:function(){}
+            ensureGithubAuth:function(){},
+            githubTokenResponse:function(info/**/){}
         }
     }
 });
