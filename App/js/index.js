@@ -465,6 +465,19 @@ xui.Class('App', 'xui.Module',{
                             "return":false
                         },
                         {
+                            "desc":"pop wnd",
+                            "type":"control",
+                            "target":"xui_ui_block16",
+                            "args":[
+                                "{page.xui_ui_block16.popUp()}",
+                                undefined,
+                                undefined,
+                                "{page.xui_btn_repo}"
+                            ],
+                            "method":"popUp",
+                            "redirection":"other:callback:call"
+                        },
+                        {
                             "desc":"set list",
                             "type":"control",
                             "target":"xui_lst_repos",
