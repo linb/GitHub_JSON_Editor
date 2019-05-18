@@ -19,8 +19,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
     },
     Static:{
         $Functions:{
-            ensureGithubAuth:function(){},
-            githubTokenResponse:function(info/*String, url hash*/){}
+            ensureGithubAuth:function(){}
         }
     }
 });
