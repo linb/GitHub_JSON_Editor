@@ -10,7 +10,15 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         initialize : function(){
             // set a global variable, for other html calling
             window.xui_GithubHandler = this;
-        },        
+        },     
+        getClient:function(){
+            if(this.clientWithAuth){
+                return this.clientWithAuth;
+            }else{
+                this.ensureGithubAuth();
+                throw new Error("No github auth yet!");
+            }
+        },
         ensureGithubAuth:function(){
             var api = this;
             var loginLayer = api.loginLayer;
@@ -39,7 +47,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 api.clientWithAuth = new Octokit({
                     auth: 'token ' + token
                 });
-                api.getInstance().users.getAuthenticated().then(function(rsp){
+                api.getClient().users.getAuthenticated().then(function(rsp){
                     ns._userProfile = rsp.data;
                     ns.fireEvent("onGithubLogin", [rsp.data.avatar_url, rsp.data]);
                     
