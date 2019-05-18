@@ -284,32 +284,24 @@ xui.Class('App', 'xui.Module',{
                 .onClick([
                     {
                         "desc":"Action 1",
-                        "type":"control",
-                        "target":"xui_sel_repo",
+                        "type":"other",
+                        "target":"callback",
                         "args":[
-                            "{page.xui_sel_repo.popUp()}",
-                            undefined,
-                            undefined,
-                            "{page.xui_btn_repo}"
+                            "{page.functions.popRepoSearchBlock}"
                         ],
-                        "method":"popUp",
-                        "redirection":"other:callback:call",
+                        "method":"call",
                         "event":1
                     }
                 ])
                 .onClickDrop([
                     {
                         "desc":"Action 1",
-                        "type":"control",
-                        "target":"xui_sel_repo",
+                        "type":"other",
+                        "target":"callback",
                         "args":[
-                            "{page.xui_sel_repo.popUp()}",
-                            undefined,
-                            undefined,
-                            "{page.xui_btn_repo}"
+                            "{page.functions.popRepoSearchBlock}"
                         ],
-                        "method":"popUp",
-                        "redirection":"other:callback:call",
+                        "method":"call",
                         "event":1
                     }
                 ])
