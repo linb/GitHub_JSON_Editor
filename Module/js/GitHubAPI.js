@@ -20,7 +20,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     .setShowEffects("Slide In TB")
                     .setHideEffects("Slide In TB")
                     .setPanelBgClr("#fff")
-                    .setIframeAutoLoad("pages/GithubLoginLayer.html");
+                    .setIframeAutoLoad("Module/js/GitHubAPI/pages/GithubLoginLayer.html");
                 // ensure effects
                 loginLayer.render(true);
             }
