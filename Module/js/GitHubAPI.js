@@ -5,6 +5,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         Required:["https://linb.github.io/CrossUI_Assets/thirdparty/octokit-rest.min.js"],
         // To initialize properties
         properties : {
+        },
+        init:function(){
+            
         }
     }
 });
