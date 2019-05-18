@@ -517,6 +517,55 @@ xui.Class('App', 'xui.Module',{
             "per_page":null,
             "cur_page":null,
             "json_path":null
+        },
+        functions:{
+            "resetRepoSearchBlock":{
+                "desc":"",
+                "params":[ ],
+                "actions":[
+                    {
+                        "desc":"Empty search",
+                        "type":"control",
+                        "target":"xui_inp_search",
+                        "args":[
+                            "{page.xui_inp_search.setUIValue()}",
+                            undefined,
+                            undefined,
+                            "{}"
+                        ],
+                        "method":"setUIValue",
+                        "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"Empty list",
+                        "type":"control",
+                        "target":"xui_lst_repos",
+                        "args":[ ],
+                        "method":"clearItems"
+                    },
+                    {
+                        "desc":"Reset page",
+                        "type":"control",
+                        "target":"xui_ui_pagebar5",
+                        "args":[
+                            "{page.xui_ui_pagebar5.setUIValue()}",
+                            undefined,
+                            undefined,
+                            "1:1:1"
+                        ],
+                        "method":"setUIValue",
+                        "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"Request list",
+                        "type":"control",
+                        "target":"xui_ui_cssbox1",
+                        "args":[ ],
+                        "method":"destroy"
+                    },
+                    undefined
+                ]
+            }
         }
     }
 });
