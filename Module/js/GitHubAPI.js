@@ -7,7 +7,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         properties : {
         },
         init:function(){
-            
+            console.log(9);
         }
     }
 });
