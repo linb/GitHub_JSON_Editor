@@ -126,6 +126,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                          page /*Number, current page*/,
                                          per_page /*Number, per page count*/
                                         ){}
+            
         }
     }
 });
