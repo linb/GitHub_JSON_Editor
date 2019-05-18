@@ -6,8 +6,13 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         // To initialize properties
         properties : {
         },
-        init:function(){
+        ensureGithubAuth:function(){
             console.log(9);
+        }
+    },
+    Static:{
+        $Functions:{
+            ensureGithubAuth:function(){}
         }
     }
 });
