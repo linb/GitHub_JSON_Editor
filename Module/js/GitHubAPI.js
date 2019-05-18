@@ -109,7 +109,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });            
         } 
-    },
+    }, 
     Static:{
         $Functions:{
             ensureGithubAuth:function(){},
