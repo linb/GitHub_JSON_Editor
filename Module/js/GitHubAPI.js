@@ -118,7 +118,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                  page /*Number, current page*/,
                                  per_page /*Number, per page count*/,
                                  nameIn /*String, search name*/, 
-                                 sort/*String, sort byc*/, 
+                                 sort/*String, sort byc*/,  
                                  order/*String, desc, asc*/, 
                                  onSuccess/*Function*/, onFail/*Function*/){}
         },
