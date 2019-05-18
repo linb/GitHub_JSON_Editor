@@ -8,7 +8,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         },
         // To initialize instance(e.g. properties)
         initialize : function(){
-            // set a global variable
+            // set a global variable, for other html calling
             window.xui_GithubHandler = this;
         },        
         ensureGithubAuth:function(){
