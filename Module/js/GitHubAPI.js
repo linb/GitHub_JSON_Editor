@@ -1,6 +1,6 @@
 // It's a module no UI
 xui.Class('Module.GitHubAPI', 'xui.Module',{
-    Insta nce:{ 
+    Insta  nce:{ 
         // Dependency classes
         Required:["https://linb.github.io/CrossUI_Assets/thirdparty/octokit-rest.min.js"],
         // To initialize properties
