@@ -560,7 +560,7 @@ xui.Class('App', 'xui.Module',{
             "json_path":null
         },
         functions:{
-            "resetRepoSearchBlock":{
+            "popRepoSearchBlock":{
                 "desc":"",
                 "params":[ ],
                 "actions":[
@@ -612,6 +612,7 @@ xui.Class('App', 'xui.Module',{
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
                     },
+                    null,
                     null
                 ]
             }
