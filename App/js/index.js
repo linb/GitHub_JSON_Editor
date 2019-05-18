@@ -475,7 +475,7 @@ xui.Class('App', 'xui.Module',{
                                 {
                                     "left":"{args[0]}",
                                     "symbol":"=",
-                                    "right":"forRepoList"
+                                    "right":"forSelectRepo"
                                 }
                             ]
                         }
@@ -584,7 +584,7 @@ xui.Class('App', 'xui.Module',{
                             "{page.module_githubapi1.listRepos}",
                             undefined,
                             undefined,
-                            "forListRepo",
+                            "forSelectRepo",
                             "{1}",
                             "{20}"
                         ],
