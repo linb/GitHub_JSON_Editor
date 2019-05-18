@@ -4,7 +4,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         // Dependency classes
         Required:["https://linb.github.io/CrossUI_Assets/thirdparty/octokit-rest.min.js"],
         // To initialize properties
-        propert ies : {
+        propert  ies : {
         },
         // To initialize instance(e.g. properties)
         initialize : function(){
