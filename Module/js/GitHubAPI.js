@@ -40,7 +40,13 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 });
                 api.getInstance().users.getAuthenticated().then(function(rsp){
                     ns._userProfile = rsp.data;
-                    ns.fireEvent("onGithubUserInfo", [rsp.data.html_url, rsp.data..avatar_url, rsp.data]);
+                    ns.fireEvent("onGithubUserInfo", [rsp.data.html_url, rsp.data.avatar_url, rsp.data]);
+                    
+                    var action = ns._lastActionConf;
+                    if(action){
+                        action.fun.apply(action.scope, action.params);
+                        delete ns._lastActionConf;
+                    }
                 }, function(err){
                     api.clientWithAuth = null;
                     if(err.message == "Bad credentials"){
@@ -55,10 +61,6 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         setToken: function (token){
             var ns=this;
             xui.Cookies.set("access_token", ns._githubAccessToken = token);
-        },
-        setGithubUserData:function(data){
-            var ns = this;
-
         },
         githubTokenResponse:function(tokenHash){
             var ns=this,
