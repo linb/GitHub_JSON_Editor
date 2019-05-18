@@ -459,6 +459,26 @@ xui.Class('App', 'xui.Module',{
                             "method":"popUp",
                             "redirection":"other:callback:call"
                         }
+                    ],
+                    "onListGithubRepos":[
+                        {
+                            "desc":"Action 1",
+                            "type":"control",
+                            "target":"xui_lst_repos",
+                            "args":[
+                                "{args[1]}",
+                                true,
+                                true
+                            ],
+                            "method":"insertItems",
+                            "conditions":[
+                                {
+                                    "left":"{args[0]}",
+                                    "symbol":"=",
+                                    "right":"forRepoList"
+                                }
+                            ]
+                        }
                     ]
                 })
             );
