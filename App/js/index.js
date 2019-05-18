@@ -35,7 +35,7 @@ xui.Class('App', 'xui.Module',{
                 .setItems([
                     {
                         "id":"before",
-                        "size":260,
+                        "size":220,
                         "min":10,
                         "locked":false,
                         "folded":false,
