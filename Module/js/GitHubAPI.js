@@ -86,7 +86,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }
             ns.ensureGithubAuth();
         },
-        listRepos:function(page, per_page, nameIn, onSuccess, onFail,  sort, order){
+        listRepos:function(requestId, page, per_page, nameIn, sort, order, onSuccess, onFail){
             var  client = this.getGithubClient();
             clientWithAuth.search.repos({
                 q: "user:" +sourceOwner + (nameIn?("+"+nameIn + "+in:name"):""),
