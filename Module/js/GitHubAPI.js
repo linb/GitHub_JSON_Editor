@@ -49,7 +49,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 });
                 api.getClient().users.getAuthenticated().then(function(rsp){
                     api._userProfile = rsp.data;
-                    api.fireEvent("onGithubLogin", [rsp.data.avatar_url, rsp.data]);
+                    api.fireEvent("onGithubLogin", [rsp.data.longin, rsp.data.avatar_url, rsp.data]);
                     
                     var action = api._lastActionConf;
                     if(action){
@@ -90,7 +90,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){}
         },
         $EventHandlers:{
-            onGithubLogin: function(avatar/*String, user avatar url*/, user/*Object, user object*/){}
+            onGithubLogin: function(name/*String, user name*/, avatar/*String, user avatar url*/, user/*Object, user object*/){}
         }
     }
 });
