@@ -279,7 +279,7 @@ xui.Class('App', 'xui.Module',{
                 .setClassName("xui-css-can")
                 .setLeft("0.6666666666666666em")
                 .setTop("0.9333333333333333em")
-                .setCaption("Repo 1")
+                .setCaption("Select Repo")
                 .setType("drop")
                 .setCustomStyle({
                     "KEY":{
