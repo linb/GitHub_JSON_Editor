@@ -328,6 +328,20 @@ xui.Class('App', 'xui.Module',{
             append(
                 xui.create("Module.GitHubAPI", "xui.Module")
                 .setHost(host,"module_githubapi1")
+                .setEvents({
+                    "onGithubLogin":[
+                        {
+                            "desc":"动作 1",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[
+                                "{args[0]}",
+                                "{args[1]}"
+                            ],
+                            "method":"log"
+                        }
+                    ]
+                })
             );
             
             append(
