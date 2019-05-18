@@ -19,7 +19,26 @@ xui.Class('App.RepoSelector', 'xui.Module',{
         iniComponents : function(){
             // [[Code created by CrossUI RAD Studio
             var host=this, children=[], append=function(child){children.push(child.get(0));};
-
+            
+            append(
+                xui.create("xui.UI.Dialog")
+                .setHost(host,"xui_ui_dialog24")
+                .setLeft("20.833333333333332em")
+                .setTop("3.3333333333333335em")
+                .setWidth("18.333333333333332em")
+                .setHeight("29.166666666666668em")
+                .setCaption("Select a repo")
+                .setMinBtn(false)
+                .setMaxBtn(false)
+                .setRestoreBtn(false)
+                .setCloseBtn(false)
+            );
+            
+            host.xui_ui_dialog24.append(
+                xui.create("xui.Module.PageGrid", "xui.Module")
+                .setHost(host,"xui_module_pagegrid1")
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
