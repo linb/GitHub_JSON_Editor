@@ -202,6 +202,8 @@ xui.Class('App', 'xui.Module',{
                 .setLeft("15.833333333333334em")
                 .setTop("0em")
                 .setHeight("4.166666666666667em")
+                .setBorderType("none")
+                .setBackground("#FFFFFF")
                 .setOverflow("hidden")
             );
             
@@ -328,6 +330,59 @@ xui.Class('App', 'xui.Module',{
                         "text-align":"right"
                     }
                 })
+            );
+            
+            append(
+                xui.create("xui.UI.Block")
+                .setHost(host,"xui_sel_repo")
+                .setLeft("0em")
+                .setTop("3.3333333333333335em")
+                .setWidth("21em")
+                .setHeight("19.166666666666668em")
+                .setShadow(true)
+                .setBorderType("flat")
+                .setBackground("#FFFFFF")
+                .setOverflow("hidden")
+            );
+            
+            host.xui_sel_repo.append(
+                xui.create("xui.UI.ComboInput")
+                .setHost(host,"xui_inp_search")
+                .setDirtyMark(false)
+                .setShowDirtyMark(false)
+                .setLeft("0.75em")
+                .setTop("0.6666666666666666em")
+                .setWidth("19.25em")
+                .setDynCheck(true)
+                .setLabelSize("5em")
+                .setLabelCaption("Search")
+                .setType("none")
+                .setImageClass("xui-icon-filter")
+                .setCommandBtn("delete")
+            );
+            
+            host.xui_sel_repo.append(
+                xui.create("xui.UI.List")
+                .setHost(host,"xui_lst_repos")
+                .setDirtyMark(false)
+                .setLeft("0.8333333333333334em")
+                .setTop("3.3333333333333335em")
+                .setWidth("19.166666666666668em")
+                .setHeight("11.666666666666666em")
+                .setSelMode("none")
+                .setLabelSize("auto")
+                .setLabelPos("none")
+                .setValue("a")
+            );
+            
+            host.xui_sel_repo.append(
+                xui.create("xui.UI.PageBar")
+                .setHost(host,"xui_ui_pagebar5")
+                .setLeft("0.75em")
+                .setTop("15.833333333333334em")
+                .setWidth("19.25em")
+                .setHeight("2.1666666666666665em")
+                .setCaption("")
             );
             
             append(
