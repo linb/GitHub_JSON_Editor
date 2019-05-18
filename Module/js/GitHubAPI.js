@@ -90,7 +90,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             var api=this,
                 clientWithAuth = this.getGithubClient();
             clientWithAuth.search.repos({
-                q: "user:" +sourceOwner + (nameIn?("+"+nameIn + "+in:name"):""),
+                q: "user:" +api.getGithubUser() + (nameIn?("+"+nameIn + "+in:name"):""),
                 sort:sort||"updated",
                 order:order || "desc",
                 page:page|| 1,
