@@ -190,23 +190,6 @@ xui.Class('App', 'xui.Module',{
                 xui.create("xui.UI.TreeView")
                 .setHost(host,"xui_ui_treeview1")
                 .setDirtyMark(false)
-                .setItems([
-                    {
-                        "id":"root",
-                        "caption":"Root",
-                        "iniFold":false,
-                        "sub":[
-                            {
-                                "id":"node21",
-                                "caption":"Folder 1"
-                            },
-                            {
-                                "id":"node22",
-                                "caption":"Folder 2"
-                            }
-                        ]
-                    }
-                ])
                 .setLeft("0em")
                 .setTop("0em"),
                 "before"
