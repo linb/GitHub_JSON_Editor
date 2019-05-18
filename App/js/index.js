@@ -415,11 +415,11 @@ xui.Class('App', 'xui.Module',{
                             "method":"setProperties"
                         },
                         {
-                            "desc":"list repo",
+                            "desc":"pop repos list",
                             "type":"control",
-                            "target":"xui_btn_repo",
+                            "target":"xui_sel_repo",
                             "args":[
-                                "{page.xui_btn_repo.popUp()}",
+                                "{page.xui_sel_repo.popUp()}",
                                 undefined,
                                 undefined,
                                 "{page.xui_btn_repo}"
