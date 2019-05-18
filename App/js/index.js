@@ -410,6 +410,13 @@ xui.Class('App', 'xui.Module',{
                     "redirection":"other:callback:call"
                 }
             ]
+        },
+        properties:{
+            "cur_repo":null,
+            "ur_path":null,
+            "per_page":null,
+            "cur_page":null,
+            "json_path":null
         }
     }
 });
