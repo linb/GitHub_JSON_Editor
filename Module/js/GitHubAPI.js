@@ -104,7 +104,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     });
                 });
                 if(false !== xui.tryF(onSuccess,[repos, rst.data.total_count, page, per_page]))
-                    api.fireEvent("onGithubReposList", [requestId, repos, rst.data.total_count, page, per_page]);
+                    api.fireEvent("onListGithubRepos", [requestId, repos, rst.data.total_count, page, per_page]);
             }) .catch( e => {
                 xui.tryF(onFail,[e] );
             });            
