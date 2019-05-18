@@ -113,7 +113,14 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
     Static:{
         $Functions:{
             ensureGithubAuth:function(){},
-            setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){}
+            setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){},
+            listRepos：function(requestId /*String, requestid*/, 
+                                 page /*Number, current page*/,
+                                 per_page /*Number, per page count*/,
+                                 nameIn /*String, search name*/, 
+                                 sort/*String, sort byc*/, 
+                                 order/*String, desc, asc*/, 
+                                 onSuccess/*Function*/, onFail/*Function*/){}
         },
         $EventHandlers:{
             onGithubLogin: function(name /*String, user name*/, 
