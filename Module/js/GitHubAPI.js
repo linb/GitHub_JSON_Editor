@@ -38,8 +38,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 api.clientWithAuth = new Octokit({
                     auth: 'token ' + token
                 });
-                api.getInstance().users.getAuthenticated().then(function(data){
-                    api.setGithubUserData(data.data);
+                api.getInstance().users.getAuthenticated().then(function(rsp){
+                    ns._userProfile = rsp.data;
+                    ns.fireEvent("onGithubUserInfo", [rsp.data.html_url, rsp.data..avatar_url, rsp.data.]);
                 }, function(err){
                     api.clientWithAuth = null;
                     if(err.message == "Bad credentials"){
@@ -57,8 +58,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         },
         setGithubUserData:function(data){
             var ns = this;
-            ns._userProfile = data;
-            ns.fireEvent("onGithubUserInfo", [data.html_url, data.avatar_url, data]);
+
         },
         githubTokenResponse:function(tokenHash){
             var ns=this,
