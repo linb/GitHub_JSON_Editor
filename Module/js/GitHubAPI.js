@@ -11,7 +11,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             // set a global variable, for other html calling
             window.xui_GithubHandler = this;
         },     
-        getClient:function(){
+        getGithubClient:function(){
             if(this.clientWithAuth){
                 return this.clientWithAuth;
             }else{
@@ -47,10 +47,10 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 api.clientWithAuth = new Octokit({
                     auth: 'token ' + token
                 });
-                api.getClient().users.getAuthenticated().then(function(rsp){
+                api.getGithubClient().users.getAuthenticated().then(function(rsp){
                     api._userProfile = rsp.data;
                     api.fireEvent("onGithubLogin", [rsp.data.login, rsp.data.avatar_url, rsp.data]);
-                    
+
                     var action = api._lastActionConf;
                     if(action){
                         action.fun.apply(action.scope, action.params);
@@ -75,7 +75,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             return this._userProfile && this._userProfile.login || "";
         },
         setLastActionConf:function(conf){
-          this._lastActionConf = conf;
+            this._lastActionConf = conf;
         },
         githubTokenResponse:function(tokenHash){
             var ns=this,
@@ -86,8 +86,36 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }
             ns.ensureGithubAuth();
         },
-        listRepos:function(){
-            
+        listRepos:function(page, per_page, nameIn, onSuccess, onFail,  sort, order){
+            var  client = this.getGithubClient();
+            clientWithAuth.search.repos({
+                q: "user:" +sourceOwner + (nameIn?("+"+nameIn + "+in:name"):""),
+                sort:sort||"updated",
+                order:order || "desc",
+                page:page|| 1,
+                per_page:per_page || 20
+            }).then( (rst) => {
+                rst.data.items.forEach( (v,i) => {
+                    files.push({
+                        id: "*."+(i+1),
+                        layer: 0,
+                        location: v.name,
+                        name: v.name,
+                        pid: "*",
+                        type: 0,
+                        tag: ""
+                    });
+                });
+                xui.tryF(onSuccess,[{data:{
+                    files: files,
+                    sum: rst.data.total_count
+                }}] );
+            } ) .catch(e=>{
+                xui.tryF(onSuccess,[{data:{
+                    files: [],
+                    sum: 0
+                }}] );
+            });            
         }
     },
     Static:{
