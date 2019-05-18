@@ -116,15 +116,15 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){}
         },
         $EventHandlers:{
-            onGithubLogin: function(name/*String, user name*/, 
-                                     avatar/*String, user avatar url*/, 
-                                     user/*Object, user object*/
+            onGithubLogin: function(name /*String, user name*/, 
+                                     avatar /*String, user avatar url*/, 
+                                     user /*Object, user object*/
                                     ){},
-            onGithubReposList: function(requestId/*String, requestid*/, 
-                                         repoItems/*List{id,name}, result list*/, 
-                                         total/*Number, total count*/,
-                                         page/*Number, current pate*/,
-                                         per_page/*Number, per page count*/
+            onGithubReposList: function(requestId /*String, requestid*/, 
+                                         repoItems /*List{id,name}, result list*/, 
+                                         total /*Number, total count*/,
+                                         page /*Number, current pate*/,
+                                         per_page /*Number, per page count*/
                                         ){}
         }
     }
