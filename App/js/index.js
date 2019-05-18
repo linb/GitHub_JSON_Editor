@@ -336,7 +336,7 @@ xui.Class('App', 'xui.Module',{
                 .setEvents({
                     "onGithubLogin":[
                         {
-                            "desc":"avatar",
+                            "desc":"set avatar",
                             "type":"control",
                             "target":"xui_ui_avatar",
                             "args":[
@@ -348,7 +348,7 @@ xui.Class('App', 'xui.Module',{
                             "method":"setProperties"
                         },
                         {
-                            "desc":"name",
+                            "desc":"set name",
                             "type":"control",
                             "target":"xui_ui_labelUser",
                             "args":[
@@ -358,6 +358,16 @@ xui.Class('App', 'xui.Module',{
                                 }
                             ],
                             "method":"setProperties"
+                        },
+                        {
+                            "desc":"list repo",
+                            "type":"module",
+                            "target":"module_githubapi1",
+                            "args":[
+                                "{page.module_githubapi1.setLastActionConf}"
+                            ],
+                            "method":"$Functions.setLastActionConf",
+                            "redirection":"other:callback:call"
                         }
                     ]
                 })
