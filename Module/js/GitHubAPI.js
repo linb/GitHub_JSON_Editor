@@ -62,6 +62,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             var ns=this;
             xui.Cookies.set("access_token", ns._githubAccessToken = token);
         },
+        setLastActionConf:function(conf){
+          this._lastActionConf = conf;
+        },
         githubTokenResponse:function(tokenHash){
             var ns=this,
                 paras = xui.urlDecode(tokenHash);
@@ -74,7 +77,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
     },
     Static:{
         $Functions:{
-            ensureGithubAuth:function(){}
+            ensureGithubAuth:function(){},
+            setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){}
         },
         $EventHandlers:{
             onGithubUserInfo: function(html_url, avatar, user){}
