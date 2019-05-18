@@ -281,6 +281,38 @@ xui.Class('App', 'xui.Module',{
                 .setTop("0.9333333333333333em")
                 .setCaption("Select Repo")
                 .setType("drop")
+                .onClick([
+                    {
+                        "desc":"Action 1",
+                        "type":"control",
+                        "target":"xui_sel_repo",
+                        "args":[
+                            "{page.xui_sel_repo.popUp()}",
+                            undefined,
+                            undefined,
+                            "{page.xui_btn_repo}"
+                        ],
+                        "method":"popUp",
+                        "redirection":"other:callback:call",
+                        "event":1
+                    }
+                ])
+                .onClickDrop([
+                    {
+                        "desc":"Action 1",
+                        "type":"control",
+                        "target":"xui_sel_repo",
+                        "args":[
+                            "{page.xui_sel_repo.popUp()}",
+                            undefined,
+                            undefined,
+                            "{page.xui_btn_repo}"
+                        ],
+                        "method":"popUp",
+                        "redirection":"other:callback:call",
+                        "event":1
+                    }
+                ])
                 .setCustomStyle({
                     "KEY":{
                         "font-size":"1.25em"
@@ -449,11 +481,11 @@ xui.Class('App', 'xui.Module',{
                     "cursor":"pointer"
                 })
                 .setHoverStatus({
-                    "background-color":"#cccccc",
+                    "background-color":"#EEEEEE",
                     "background-image":"none"
                 })
                 .setActiveStatus({
-                    "background-color":"#999",
+                    "background-color":"#CCCCCC",
                     "background-image":"none"
                 })
             );
