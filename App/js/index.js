@@ -607,7 +607,7 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             "forSelectRepo",
                             "{1}",
-                            "{20}"
+                            "{page.xui_ui_pagebar5.getPageCount()}"
                         ],
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
