@@ -40,7 +40,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 });
                 api.getInstance().users.getAuthenticated().then(function(rsp){
                     ns._userProfile = rsp.data;
-                    ns.fireEvent("onGithubUserInfo", [rsp.data.html_url, rsp.data..avatar_url, rsp.data.]);
+                    ns.fireEvent("onGithubUserInfo", [rsp.data.html_url, rsp.data..avatar_url, rsp.data]);
                 }, function(err){
                     api.clientWithAuth = null;
                     if(err.message == "Bad credentials"){
