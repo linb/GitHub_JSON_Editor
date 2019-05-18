@@ -223,6 +223,11 @@ xui.Class('App', 'xui.Module',{
                 .setHeight("2.5em")
                 .setPosition("relative")
                 .setSrc("{xui.ini.img_pic}")
+                .setCustomStyle({
+                    "KEY":{
+                        "border-radius":"16px 16px 16px 16px"
+                    }
+                })
             );
             
             host.xui_ui_div26.append(
