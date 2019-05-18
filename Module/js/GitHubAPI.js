@@ -49,7 +49,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 });
                 api.getClient().users.getAuthenticated().then(function(rsp){
                     api._userProfile = rsp.data;
-                    api.fireEvent("onGithubLogin", [rsp.data.longin, rsp.data.avatar_url, rsp.data]);
+                    api.fireEvent("onGithubLogin", [rsp.data.login, rsp.data.avatar_url, rsp.data]);
                     
                     var action = api._lastActionConf;
                     if(action){
