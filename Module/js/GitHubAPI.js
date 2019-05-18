@@ -48,13 +48,13 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     auth: 'token ' + token
                 });
                 api.getClient().users.getAuthenticated().then(function(rsp){
-                    ns._userProfile = rsp.data;
-                    ns.fireEvent("onGithubLogin", [rsp.data.avatar_url, rsp.data]);
+                    api._userProfile = rsp.data;
+                    api.fireEvent("onGithubLogin", [rsp.data.avatar_url, rsp.data]);
                     
-                    var action = ns._lastActionConf;
+                    var action = api._lastActionConf;
                     if(action){
                         action.fun.apply(action.scope, action.params);
-                        delete ns._lastActionConf;
+                        delete api._lastActionConf;
                     }
                 }, function(err){
                     api.clientWithAuth = null;
