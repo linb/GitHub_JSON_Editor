@@ -108,7 +108,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }) .catch( e => {
                 xui.tryF(onFail,[e] );
             });            
-        }
+        } 
     },
     Static:{
         $Functions:{
