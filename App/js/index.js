@@ -416,12 +416,15 @@ xui.Class('App', 'xui.Module',{
                         },
                         {
                             "desc":"list repo",
-                            "type":"module",
-                            "target":"module_githubapi1",
+                            "type":"control",
+                            "target":"xui_btn_repo",
                             "args":[
-                                "{page.module_githubapi1.setLastActionConf}"
+                                "{page.xui_btn_repo.popUp()}",
+                                undefined,
+                                undefined,
+                                "{page.xui_btn_repo}"
                             ],
-                            "method":"$Functions.setLastActionConf",
+                            "method":"popUp",
                             "redirection":"other:callback:call"
                         }
                     ]
