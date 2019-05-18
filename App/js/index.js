@@ -69,13 +69,13 @@ xui.Class('App', 'xui.Module',{
                 ])
                 .setLeft("0em")
                 .setTop("0em")
-                .setValue("code"),
+                .setValue("editor"),
                 "main"
             );
             
             host.xui_ui_tabs2.append(
                 xui.create("xui.UI.Input")
-                .setHost(host,"xui_ui_input1")
+                .setHost(host,"xui_json_txt")
                 .setDirtyMark(false)
                 .setDock("fill")
                 .setLeft("5em")
@@ -91,7 +91,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_tabs2.append(
                 xui.create("xui.Module.JSONEditor", "xui.Module")
-                .setHost(host,"xui_module_jsoneditor2"),
+                .setHost(host,"xui_json_editor"),
                 "editor"
             );
             
@@ -107,7 +107,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_block8.append(
                 xui.create("xui.UI.Button")
-                .setHost(host,"xui_ui_button23")
+                .setHost(host,"xui_btn_save")
                 .setDirtyMark(false)
                 .setLeft("2.5em")
                 .setTop("0.5833333333333334em")
@@ -118,7 +118,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_layout4.append(
                 xui.create("xui.UI.ToolBar")
-                .setHost(host,"xui_ui_toolbar5")
+                .setHost(host,"xui_tb_files")
                 .setItems([
                     {
                         "id":"grp1",
@@ -154,7 +154,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_layout4.append(
                 xui.create("xui.UI.TreeGrid")
-                .setHost(host,"xui_ui_treegrid22")
+                .setHost(host,"xui_grid_files")
                 .setDirtyMark(false)
                 .setLeft("0em")
                 .setTop("0em")
@@ -188,7 +188,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_layout3.append(
                 xui.create("xui.UI.TreeView")
-                .setHost(host,"xui_ui_treeview1")
+                .setHost(host,"xui_tv_folders")
                 .setDirtyMark(false)
                 .setLeft("0em")
                 .setTop("0em"),
@@ -210,7 +210,7 @@ xui.Class('App', 'xui.Module',{
             host.xui_ui_block15.append(
                 xui.create("xui.UI.Div")
                 .setHost(host,"xui_ui_div26")
-                .setHoverPop("xui_ui_list39")
+                .setHoverPop("xui_lst_usermenu")
                 .setTop("0.16666666666666666em")
                 .setWidth("auto")
                 .setHeight("3.3333333333333335em")
@@ -274,7 +274,7 @@ xui.Class('App', 'xui.Module',{
             
             host.xui_ui_block15.append(
                 xui.create("xui.UI.Button")
-                .setHost(host,"xui_ui_button46")
+                .setHost(host,"xui_btn_repo")
                 .setDirtyMark(false)
                 .setClassName("xui-css-can")
                 .setLeft("0.6666666666666666em")
@@ -290,7 +290,7 @@ xui.Class('App', 'xui.Module',{
             
             append(
                 xui.create("xui.UI.List")
-                .setHost(host,"xui_ui_list39")
+                .setHost(host,"xui_lst_usermenu")
                 .setDirtyMark(false)
                 .setItems([
                     {
