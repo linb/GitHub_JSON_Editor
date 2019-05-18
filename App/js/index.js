@@ -462,7 +462,22 @@ xui.Class('App', 'xui.Module',{
                     ],
                     "onListGithubRepos":[
                         {
-                            "desc":"Action 1",
+                            "desc":"ensure request",
+                            "type":"none",
+                            "target":"none",
+                            "args":[ ],
+                            "method":"none",
+                            "conditions":[
+                                {
+                                    "left":"{args[0]}",
+                                    "symbol":"!=",
+                                    "right":"forSelectRepo"
+                                }
+                            ],
+                            "return":false
+                        },
+                        {
+                            "desc":"set list",
                             "type":"control",
                             "target":"xui_lst_repos",
                             "args":[
@@ -470,14 +485,20 @@ xui.Class('App', 'xui.Module',{
                                 true,
                                 true
                             ],
-                            "method":"insertItems",
-                            "conditions":[
-                                {
-                                    "left":"{args[0]}",
-                                    "symbol":"=",
-                                    "right":"forSelectRepo"
-                                }
-                            ]
+                            "method":"insertItems"
+                        },
+                        {
+                            "desc":"set page",
+                            "type":"control",
+                            "target":"xui_ui_pagebar5",
+                            "args":[
+                                "{page.xui_ui_pagebar5.setTotalCount()}",
+                                undefined,
+                                undefined,
+                                "{args[2]}"
+                            ],
+                            "method":"setTotalCount",
+                            "redirection":"other:callback:call"
                         }
                     ]
                 })
