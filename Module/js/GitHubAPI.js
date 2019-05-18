@@ -71,6 +71,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             var ns=this;
             xui.Cookies.set("access_token", ns._githubAccessToken = token);
         },
+        getGithubUser:function(){
+            return this._userProfile && this._userProfile.login || "";
+        },
         setLastActionConf:function(conf){
           this._lastActionConf = conf;
         },
@@ -82,6 +85,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 ns.setToken(paras.access_token);
             }
             ns.ensureGithubAuth();
+        },
+        listRepos:function(){
+            
         }
     },
     Static:{
