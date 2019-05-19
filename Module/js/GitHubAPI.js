@@ -112,6 +112,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             });            
         },
         listFiles:function(requestId, repo, parentPath, fileType, fileExt, filter, onSuccess, onFail){
+            debug();
             var api=this,
                 clientWithAuth = this.getGithubClient();            
             clientWithAuth.repos.getContents({
