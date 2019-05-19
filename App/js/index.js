@@ -389,14 +389,15 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"callback",
                         "args":[
-                            "{xui.resetRun()}",
+                            "{page.functions.doSearch}",
                             undefined,
                             undefined,
-                            "queryRepoListByName",
+                            "{1}",
                             "{page.functions.doSearch}",
                             "500",
                             [1]],
-                            "method":"call"
+                            "method":"call",
+                            "timeout":500
                         }
                     ])
             );
