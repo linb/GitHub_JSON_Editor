@@ -202,43 +202,9 @@ xui.Class('App', 'xui.Module',{
             );
             
             host.xui_ui_layout3.append(
-                xui.create("xui.UI.Tabs")
-                .setHost(host,"xui_ui_tabs2")
-                .setItems([
-                    {
-                        "id":"code",
-                        "caption":"JSON Code"
-                    },
-                    {
-                        "id":"editor",
-                        "caption":"JSON Editor"
-                    }
-                ])
-                .setLeft("0em")
-                .setTop("0em")
-                .setValue("editor"),
-                "main"
-            );
-            
-            host.xui_ui_tabs2.append(
-                xui.create("xui.UI.Input")
-                .setHost(host,"xui_json_txt")
-                .setDirtyMark(false)
-                .setDock("fill")
-                .setLeft("5em")
-                .setTop("4.166666666666667em")
-                .setWidth("18em")
-                .setHeight("10em")
-                .setLabelSize("8em")
-                .setLabelPos("none")
-                .setMultiLines(true),
-                "code"
-            );
-            
-            host.xui_ui_tabs2.append(
                 xui.create("xui.Module.JSONEditor", "xui.Module")
                 .setHost(host,"xui_json_editor"),
-                "editor"
+                "main"
             );
             
             append(
