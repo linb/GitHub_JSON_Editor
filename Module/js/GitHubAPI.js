@@ -109,7 +109,10 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }).catch(function(e){
                 xui.tryF(onFail,[e] );
             });            
-        } 
+        },
+        listFiles:function(requestId, parentPath, type, regexp, onSuccess, onFail){
+            
+        }
     }, 
     Static:{
         $Functions:{
