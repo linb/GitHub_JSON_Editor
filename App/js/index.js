@@ -393,7 +393,7 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             undefined,
                             "queryRepoListByName",
-                            "{page.functions.doSearch}",
+                            "{page.functions.doSearch()}",
                             "500",
                             [1]],
                             "method":"call"
