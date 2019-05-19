@@ -30,6 +30,24 @@ xui.Class('App', 'xui.Module',{
             );
             
             host.xui_ui_layout3.append(
+                xui.create("xui.UI.Panel")
+                .setHost(host,"xui_panel_left")
+                .setLeft("9.166666666666666em")
+                .setTop("7.5em")
+                .setCaption("Panel")
+                .setNoFrame(true),
+                "before"
+            );
+            
+            host.xui_panel_left.append(
+                xui.create("xui.UI.TreeView")
+                .setHost(host,"xui_tv_folders")
+                .setDirtyMark(false)
+                .setLeft("0em")
+                .setTop("0em")
+            );
+            
+            host.xui_ui_layout3.append(
                 xui.create("xui.UI.Layout")
                 .setHost(host,"xui_ui_layout4")
                 .setItems([
@@ -183,15 +201,6 @@ xui.Class('App', 'xui.Module',{
                     }
                 ])
                 .setTreeMode("none"),
-                "before"
-            );
-            
-            host.xui_ui_layout3.append(
-                xui.create("xui.UI.TreeView")
-                .setHost(host,"xui_tv_folders")
-                .setDirtyMark(false)
-                .setLeft("0em")
-                .setTop("0em"),
                 "before"
             );
             
@@ -363,6 +372,7 @@ xui.Class('App', 'xui.Module',{
                 .setTop("3.6666666666666665em")
                 .setWidth("21em")
                 .setHeight("19.166666666666668em")
+                .setVisibility("hidden")
                 .setShadow(true)
                 .setBorderType("flat")
                 .setBackground("#FFFFFF")
@@ -703,6 +713,7 @@ xui.Class('App', 'xui.Module',{
                     null,
                     null,
                     null,
+                    null,
                     null
                 ]
             },
@@ -734,6 +745,7 @@ xui.Class('App', 'xui.Module',{
                     },
                     null,
                     null,
+                    null,
                     null
                 ]
             },
@@ -756,7 +768,20 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"setItems"
                     },
-                    undefined
+                    {
+                        "desc":"set caption",
+                        "type":"control",
+                        "target":"xui_panel_left",
+                        "args":[
+                            "{page.xui_panel_left.setCaption()}",
+                            undefined,
+                            undefined,
+                            "Repo : {args[0]}"
+                        ],
+                        "method":"setCaption",
+                        "redirection":"other:callback:call"
+                    },
+                    null
                 ]
             }
         }
