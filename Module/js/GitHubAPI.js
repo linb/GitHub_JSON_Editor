@@ -110,7 +110,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });            
         },
-        listFiles:function(requestId, parentPath, type, regexp, onSuccess, onFail){
+        listFilesInRepo:function(requestId, repo, parentPath, fileType, regexp, onSuccess, onFail){
             
         }
     }, 
