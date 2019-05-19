@@ -810,7 +810,7 @@ xui.Class('App', 'xui.Module',{
                 ]
             },
             "loadRepoRootFiles":{
-                "desc":"",
+                "desc":"load root files",
                 "params":[
                     {
                         "id":"repoName",
@@ -856,7 +856,10 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             undefined,
                             "fetchRoot",
-                            "{global.repoName}"
+                            "{global.repoName}",
+                            undefined,
+                            undefined,
+                            "json"
                         ],
                         "method":"$Functions.listFiles",
                         "redirection":"other:callback:call"
