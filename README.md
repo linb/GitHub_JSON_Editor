@@ -9,3 +9,5 @@ This project is published at: https://linb.github.io/GitHub_JSON_Editor/index.ht
 The debug url is: https://linb.github.io/GitHub_JSON_Editor/debug.html
 
 Click [here](https://crossui.com/RADGithub/#!from=github&owner=linb&repo=GitHub_JSON_Editor) to edit this project in CrossUI Builder
+
+> <i>Powered by [CrossUI](https://crossui.com)</i>
