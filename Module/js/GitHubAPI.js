@@ -122,7 +122,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 var files=[];
                 rst.data.forEach(function(v,i){
                     if(!type || type=="all" || type==v.type){
-                        if(!filter || (xui.isFun(filter) ? filter(v,i) : xui.isReg(filter) ? filter.test(v.name) : false)){
+                        if(!filter || (xui.isFun(filter) ? filter(v,i) : filter ? new RegExp(filter||"").test(v.name) : false)){
                             files.push({
                                 id: v.path,
                                 name: v.name,
@@ -155,25 +155,25 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                 repo /*String, repo name */, 
                                 parentPath/*String, parent path*/, 
                                 fileType /*String: file,dir,all*/, 
-                                filter /*RegExp/Function, filter*/, 
+                                filter /*Function/String, filter*/, 
                                 onSuccess /*Function*/, onFail/*Function*/){}
 
         },
         $EventHandlers :{
             onGithubLogin : function(name /*String, user name*/, 
-                                     avatar /*String, user avatar url*/, 
-                                     user /*Object, user object*/
-                                    ){},
+                                avatar /*String, user avatar url*/, 
+                                user /*Object, user object*/
+                                ){},
             onListGithubRepos : function(requestId /*String, requestid*/, 
-                                         repoItems /*List{id,name}, result list*/, 
-                                         total /*Number, total count*/,
-                                         page /*Number, current page*/,
-                                         per_page /*Number, per page count*/
-                                        ){},
+                                repoItems /*List{id,name}, result list*/, 
+                                total /*Number, total count*/,
+                                page /*Number, current page*/,
+                                per_page /*Number, per page count*/
+                                ){},
             onListGithubFiles : function(requestId /*String, requestid*/, 
-                                         fileItems /*List{id,name,type,sha}, result list*/, 
-                                         parentPath /*String, parent path*/
-                                        ){}
+                                fileItems /*List{id,name,type,sha}, result list*/, 
+                                parentPath /*String, parent path*/
+                                ){}
         }
     }
 });
