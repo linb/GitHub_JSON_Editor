@@ -385,21 +385,18 @@ xui.Class('App', 'xui.Module',{
                 .setCommandBtn("delete")
                 .onChange([
                     {
-                        "desc":"Action 1",
+                        "desc":"search",
                         "type":"other",
                         "target":"callback",
                         "args":[
                             "{page.functions.doSearch}",
                             undefined,
                             undefined,
-                            "{1}",
-                            "{page.functions.doSearch}",
-                            "500",
-                            [1]],
-                            "method":"call",
-                            "timeout":500
-                        }
-                    ])
+                            "{1}"
+                        ],
+                        "method":"call"
+                    }
+                ])
             );
             
             host.xui_sel_repo.append(
