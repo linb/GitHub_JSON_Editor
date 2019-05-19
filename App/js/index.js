@@ -392,11 +392,13 @@ xui.Class('App', 'xui.Module',{
                             "{xui.resetRun()}",
                             undefined,
                             undefined,
-                            "queryRepoListByName"
-                        ],
-                        "method":"call"
-                    }
-                ])
+                            "queryRepoListByName",
+                            "{page.functions.doSearch}",
+                            "500",
+                            [1]],
+                            "method":"call"
+                        }
+                    ])
             );
             
             host.xui_sel_repo.append(
