@@ -107,6 +107,20 @@ xui.Class('App', 'xui.Module',{
                         "method":"global"
                     }
                 ])
+                .onItemSelected([
+                    {
+                        "desc":"Action 1",
+                        "type":"control",
+                        "target":"xui_tabs_json",
+                        "args":[
+                            "{args[1]}",
+                            true,
+                            true
+                        ],
+                        "method":"insertItems",
+                        "event":2
+                    }
+                ])
             );
             
             host.xui_panel_left.append(
@@ -203,8 +217,11 @@ xui.Class('App', 'xui.Module',{
             );
             
             host.xui_ui_layout3.append(
-                xui.create("xui.Module.JSONEditor", "xui.Module")
-                .setHost(host,"xui_json_editor"),
+                xui.create("xui.UI.Tabs")
+                .setHost(host,"xui_tabs_json")
+                .setLeft("0em")
+                .setTop("0em")
+                .setValue("a"),
                 "main"
             );
             
