@@ -10,7 +10,7 @@ xui.Class('App', 'xui.Module',{
                 .setItems([
                     {
                         "id":"before",
-                        "size":200,
+                        "size":260,
                         "min":10,
                         "locked":false,
                         "folded":false,
@@ -35,7 +35,35 @@ xui.Class('App', 'xui.Module',{
                 .setLeft("9.166666666666666em")
                 .setTop("7.5em")
                 .setCaption("No Repo seleted")
-                .setNoFrame(true),
+                .setNoFrame(true)
+                .setPopBtn(true)
+                .beforePop([
+                    {
+                        "desc":"if",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{global.repoName}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false,
+                        "event":2
+                    },
+                    {
+                        "desc":"goto github",
+                        "type":"other",
+                        "target":"url",
+                        "args":[
+                            "https://github.com/{global.githubUser} /{global.repoName} "
+                        ],
+                        "method":"open----_blank"
+                    }
+                ]),
                 "before"
             );
             
@@ -540,6 +568,16 @@ xui.Class('App', 'xui.Module',{
                             "method":"setProperties"
                         },
                         {
+                            "desc":"set name to global",
+                            "type":"other",
+                            "target":"var",
+                            "args":[
+                                "githubUser",
+                                "{args[0]}"
+                            ],
+                            "method":"global"
+                        },
+                        {
                             "desc":"pop repos list",
                             "type":"other",
                             "target":"callback",
@@ -736,6 +774,7 @@ xui.Class('App', 'xui.Module',{
                     null,
                     null,
                     null,
+                    null,
                     null
                 ]
             },
@@ -765,6 +804,7 @@ xui.Class('App', 'xui.Module',{
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
                     },
+                    null,
                     null,
                     null,
                     null,
@@ -802,6 +842,16 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"setCaption",
                         "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"set var to global",
+                        "type":"other",
+                        "target":"var",
+                        "args":[
+                            "repoName",
+                            "{args[0]}"
+                        ],
+                        "method":"global"
                     },
                     null
                 ]
