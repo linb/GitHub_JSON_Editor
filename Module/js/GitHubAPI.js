@@ -126,7 +126,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 rst.data.forEach(function(v,i){
                     if(!fileType || fileType=="all" || fileType==v.type){
                         if(!filter || (xui.isFun(filter) ? filter(v,i) : true)){
-                            if(!fileExt || new RegExp("\\.[" + fileExt + "]$").test(v.name)){
+                            if(v.type!='file' || !fileExt || new RegExp("\\.[" + fileExt + "]$").test(v.name)){
                                 files.push({
                                     id: v.path,
                                     name: v.name,
