@@ -132,6 +132,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                     name: v.name,
                                     type: v.type,
                                     isFolder: v.type=="dir",
+                                    sub:v.type=="dir",
                                     sha: v.sha,
                                     tagVar:v
                                 });
