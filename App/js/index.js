@@ -858,7 +858,7 @@ xui.Class('App', 'xui.Module',{
                             "fetchRoot",
                             "{global.repoName}",
                             undefined,
-                            undefined,
+                            "all",
                             "json"
                         ],
                         "method":"$Functions.listFiles",
