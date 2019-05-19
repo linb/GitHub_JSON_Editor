@@ -34,7 +34,7 @@ xui.Class('App', 'xui.Module',{
                 .setHost(host,"xui_panel_left")
                 .setLeft("9.166666666666666em")
                 .setTop("7.5em")
-                .setCaption("Panel")
+                .setCaption("No Repo seleted")
                 .setNoFrame(true),
                 "before"
             );
