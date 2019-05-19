@@ -95,9 +95,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 order:order || "desc",
                 page:page|| 1,
                 per_page:per_page || 20
-            }).then( (rst) => {
+            }).then( function(rst){
                 var repos = [];
-                rst.data.items.forEach( (v, i) => {
+                rst.data.items.forEach( function(v, i){
                     repos.push({
                         id:v.name,
                         caption:v.name,
