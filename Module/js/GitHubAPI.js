@@ -57,7 +57,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                         action.fun.apply(action.scope, action.params);
                         delete api._lastActionConf;
                     }
-                }, function(err){
+                }, function(e){
+                    console.error(e);
                     api.clientWithAuth = null;
                     if(err.message == "Bad credentials"){
                         showGithubLogInLayer();
@@ -109,6 +110,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onListGithubRepos", args);
             }).catch(function(e){
+                console.error(e);                
                 xui.tryF(onFail,[e] );
             });            
         },
@@ -140,6 +142,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onListGithubFiles", args);                
             }).catch(function(e){
+                console.error(e);
                 xui.tryF(onFail,[e] );
             });
         }
