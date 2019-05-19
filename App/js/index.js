@@ -37,33 +37,36 @@ xui.Class('App', 'xui.Module',{
                 .setCaption("No Repo seleted")
                 .setNoFrame(true)
                 .setPopBtn(true)
-                .beforePop([
-                    {
-                        "desc":"if",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
-                        "conditions":[
-                            {
-                                "left":"{global.repoName}",
-                                "symbol":"empty",
-                                "right":""
-                            }
-                        ],
-                        "return":false,
-                        "event":2
-                    },
-                    {
-                        "desc":"goto github",
-                        "type":"other",
-                        "target":"url",
-                        "args":[
-                            "https://github.com/{global.githubUser} /{global.repoName} "
-                        ],
-                        "method":"open----_blank"
-                    }
-                ]),
+                .beforePop({
+                    "return":"{false}",
+                    "actions":[
+                        {
+                            "desc":"if",
+                            "type":"none",
+                            "target":"none",
+                            "args":[ ],
+                            "method":"none",
+                            "conditions":[
+                                {
+                                    "left":"{global.repoName}",
+                                    "symbol":"empty",
+                                    "right":""
+                                }
+                            ],
+                            "return":false,
+                            "event":2
+                        },
+                        {
+                            "desc":"goto github",
+                            "type":"other",
+                            "target":"url",
+                            "args":[
+                                "https://github.com/{global.githubUser}/{global.repoName} "
+                            ],
+                            "method":"open----_blank"
+                        }
+                    ]
+                }),
                 "before"
             );
             
