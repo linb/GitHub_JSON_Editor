@@ -71,7 +71,7 @@ xui.Class('App', 'xui.Module',{
             );
             
             host.xui_panel_left.append(
-                xui.create("xui.UI.TreeBar")
+                xui.create("xui.UI.TreeView")
                 .setHost(host,"xui_tv_folders")
                 .setDirtyMark(false)
                 .setLeft("0em")
