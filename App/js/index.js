@@ -158,6 +158,22 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "return":false,
                         "event":3
+                    },
+                    {
+                        "desc":"refresh",
+                        "type":"other",
+                        "target":"callback",
+                        "args":[
+                            "{page.functions.refreshRoot}"
+                        ],
+                        "method":"call",
+                        "conditions":[
+                            {
+                                "left":"{args[1].id}",
+                                "symbol":"=",
+                                "right":"refresh"
+                            }
+                        ]
                     }
                 ])
             );
