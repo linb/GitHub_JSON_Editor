@@ -158,6 +158,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                 parentPath/*String, parent path*/, 
                                 fileType /*String: file,dir,all*/, 
                                 fileExt /*String, file extension, js|css|html*/, 
+                                filter /*Function, filter*/, 
                                 onSuccess /*Function*/, onFail/*Function*/){}
 
         },
