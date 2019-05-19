@@ -113,7 +113,6 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             });            
         },
         listFiles:function(requestId, repo, parentPath, fileType, fileExt, filter, onSuccess, onFail){
-            debugger;
             var api=this,
                 clientWithAuth = this.getGithubClient();            
             clientWithAuth.repos.getContents({
@@ -124,7 +123,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 debugger;
                 var files=[];
                 rst.data.forEach(function(v,i){
-                    if(!type || type=="all" || type==v.type){
+                    if(!fileType || fileType=="all" || fileType==v.type){
                         if(!filter || (xui.isFun(filter) ? filter(v,i) : true)){
                             if(!fileExt || new RegExp("\\.[" + fileExt + "]$").test(v.name)){
                                 files.push({
