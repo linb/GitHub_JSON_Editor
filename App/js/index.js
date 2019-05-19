@@ -215,7 +215,6 @@ xui.Class('App', 'xui.Module',{
                 .setBackground("#FFFFFF")
                 .setOverflow("hidden")
                 .setCustomStyle({
-                    "KEY":{ },
                     "PANEL":{
                         "$gradient":{
                             "stops":[
