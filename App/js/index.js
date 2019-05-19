@@ -426,7 +426,6 @@ xui.Class('App', 'xui.Module',{
                 .setBorderType("ridge")
                 .setCustomStyle({
                     "PANEL":{
-                        "padding":"4px",
                         "text-align":"right"
                     }
                 })
