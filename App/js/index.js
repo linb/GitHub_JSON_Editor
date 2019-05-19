@@ -594,11 +594,13 @@ xui.Class('App', 'xui.Module',{
                             "type":"control",
                             "target":"xui_lst_repos",
                             "args":[
-                                "{args[1]}",
-                                true,
-                                true
+                                "{page.xui_lst_repos.setItems()}",
+                                "none",
+                                "true",
+                                "{args[1]}"
                             ],
-                            "method":"setItems"
+                            "method":"setItems",
+                            "redirection":"other:callback:call"
                         },
                         {
                             "desc":"set total",
@@ -653,10 +655,13 @@ xui.Class('App', 'xui.Module',{
                             "type":"control",
                             "target":"xui_tv_folders",
                             "args":[
+                                "{page.xui_tv_folders.setItems()}",
+                                "{args[1]}",
                                 "",
                                 "{args[1]}"
                             ],
-                            "method":"setItems"
+                            "method":"setItems",
+                            "redirection":"other:callback:call"
                         }
                     ]
                 })
