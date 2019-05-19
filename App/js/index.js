@@ -410,6 +410,15 @@ xui.Class('App', 'xui.Module',{
                 .setPageCount(3)
                 .onPageSet([
                     {
+                        "desc":"busy ui",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[ ],
+                        "method":"busy",
+                        "okFlag":"_prompt_ok",
+                        "koFlag":"_prompt_cancel"
+                    },
+                    {
                         "desc":"query list",
                         "type":"module",
                         "target":"module_githubapi1",
@@ -525,6 +534,13 @@ xui.Class('App', 'xui.Module',{
                             ],
                             "method":"setTotalCount",
                             "redirection":"other:callback:call"
+                        },
+                        {
+                            "desc":"free ui",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[ ],
+                            "method":"free"
                         }
                     ]
                 })
@@ -591,6 +607,13 @@ xui.Class('App', 'xui.Module',{
                 "params":[ ],
                 "actions":[
                     {
+                        "desc":"busy ui",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[ ],
+                        "method":"busy"
+                    },
+                    {
                         "desc":"Empty search",
                         "type":"control",
                         "target":"xui_inp_search",
@@ -638,8 +661,6 @@ xui.Class('App', 'xui.Module',{
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
                     },
-                    null,
-                    null,
                     null
                 ]
             }
