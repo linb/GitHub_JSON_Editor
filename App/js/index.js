@@ -394,7 +394,8 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             "{1}"
                         ],
-                        "method":"call"
+                        "method":"call",
+                        "timeout":500
                     }
                 ])
             );
@@ -677,6 +678,7 @@ xui.Class('App', 'xui.Module',{
                     null,
                     null,
                     null,
+                    null,
                     null
                 ]
             },
@@ -686,11 +688,6 @@ xui.Class('App', 'xui.Module',{
                     {
                         "id":"page",
                         "type":"Number",
-                        "desc":""
-                    },
-                    {
-                        "id":"nameFilter",
-                        "type":"String",
                         "desc":""
                     }
                 ],
@@ -711,6 +708,7 @@ xui.Class('App', 'xui.Module',{
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
                     },
+                    null,
                     null
                 ]
             }
