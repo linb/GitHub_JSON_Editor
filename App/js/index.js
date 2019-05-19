@@ -408,6 +408,23 @@ xui.Class('App', 'xui.Module',{
                 .setHeight("2.1666666666666665em")
                 .setCaption("")
                 .setPageCount(3)
+                .onPageSet([
+                    {
+                        "desc":"query list",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.listRepos}",
+                            undefined,
+                            undefined,
+                            "forSelectRepo",
+                            "{args[1]}",
+                            "{args[3]}"
+                        ],
+                        "method":"$Functions.listRepos",
+                        "redirection":"other:callback:call"
+                    }
+                ])
             );
             
             append(
@@ -490,7 +507,7 @@ xui.Class('App', 'xui.Module',{
                             "method":"insertItems"
                         },
                         {
-                            "desc":"set page",
+                            "desc":"set total",
                             "type":"control",
                             "target":"xui_ui_pagebar5",
                             "args":[
