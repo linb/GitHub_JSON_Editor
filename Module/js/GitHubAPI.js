@@ -137,6 +137,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                         }
                     }
                 }); 
+                debugger;
                 var args = [requestId, files, parentPath];
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onListGithubFiles", args);                
