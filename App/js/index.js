@@ -319,6 +319,15 @@ xui.Class('App', 'xui.Module',{
             );
             
             host.xui_ui_block15.append(
+                xui.create("xui.UI.Span")
+                .setHost(host,"xui_ui_span182")
+                .setLeft("0.9166666666666666em")
+                .setTop("1.5833333333333333em")
+                .setHeight("1.6666666666666667em")
+                .setHtml("<svg aria-label=\"Repository\" class=\"octicon octicon-repo flex-shrink-0\" viewBox=\"0 0 12 16\" version=\"1.1\" width=\"12\" height=\"16\" role=\"img\"><path fill-rule=\"evenodd\" d=\"M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z\"></path></svg>")
+            );
+            
+            host.xui_ui_block15.append(
                 xui.create("xui.UI.Label")
                 .setHost(host,"xui_ui_label1")
                 .setDock("center")
@@ -338,7 +347,7 @@ xui.Class('App', 'xui.Module',{
                 .setHost(host,"xui_btn_popRepoList")
                 .setDirtyMark(false)
                 .setClassName("xui-css-can")
-                .setLeft("0.6666666666666666em")
+                .setLeft("2em")
                 .setTop("0.9333333333333333em")
                 .setCaption("Select Repo")
                 .setType("drop")
