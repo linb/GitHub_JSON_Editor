@@ -99,8 +99,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 var repos = [];
                 rst.data.items.forEach( (v, i) => {
                     repos.push({
-                        id: "*."+(i+1),
-                        name: v.name,
+                        id:v.name,
+                        caption:v.name,
+                        tagVar:v
                     });
                 });
                 if(false !== xui.tryF(onSuccess,[repos, rst.data.total_count, page, per_page]))
