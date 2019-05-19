@@ -413,6 +413,28 @@ xui.Class('App', 'xui.Module',{
                 .setLabelSize("auto")
                 .setLabelPos("none")
                 .setValue("a")
+                .onItemSelected([
+                    {
+                        "desc":"hide me",
+                        "type":"control",
+                        "target":"xui_sel_repo",
+                        "args":[ ],
+                        "method":"hide",
+                        "event":2
+                    },
+                    {
+                        "desc":"load repo layer 1",
+                        "type":"other",
+                        "target":"callback",
+                        "args":[
+                            "{page.functions.loadRepoFolders}",
+                            undefined,
+                            undefined,
+                            "{args[1].id}"
+                        ],
+                        "method":"call"
+                    }
+                ])
             );
             
             host.xui_sel_repo.append(
@@ -680,6 +702,7 @@ xui.Class('App', 'xui.Module',{
                     null,
                     null,
                     null,
+                    null,
                     null
                 ]
             },
@@ -710,7 +733,30 @@ xui.Class('App', 'xui.Module',{
                         "redirection":"other:callback:call"
                     },
                     null,
+                    null,
                     null
+                ]
+            },
+            "loadRepoFolders":{
+                "desc":"",
+                "params":[
+                    {
+                        "id":"repoName",
+                        "type":"String",
+                        "desc":""
+                    }
+                ],
+                "actions":[
+                    {
+                        "desc":"fill treeview layer1",
+                        "type":"control",
+                        "target":"xui_tv_folders",
+                        "args":[
+                            ""
+                        ],
+                        "method":"setItems"
+                    },
+                    undefined
                 ]
             }
         }
