@@ -674,15 +674,23 @@ xui.Class('App', 'xui.Module',{
                     },
                     null,
                     null,
+                    null,
+                    null,
+                    null,
                     null
                 ]
             },
             "doSearch":{
-                "desc":"do search by options",
+                "desc":"do search",
                 "params":[
                     {
                         "id":"page",
                         "type":"Number",
+                        "desc":""
+                    },
+                    {
+                        "id":"nameFilter",
+                        "type":"String",
                         "desc":""
                     }
                 ],
