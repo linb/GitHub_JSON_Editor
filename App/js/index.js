@@ -680,7 +680,7 @@ xui.Class('App', 'xui.Module',{
                             "type":"other",
                             "target":"callback",
                             "args":[
-                                "{functions.treeviewCallback}",
+                                "{global.treeviewCallback}",
                                 undefined,
                                 undefined,
                                 "{args[1]}"
