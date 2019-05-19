@@ -76,6 +76,25 @@ xui.Class('App', 'xui.Module',{
                 .setDirtyMark(false)
                 .setLeft("0em")
                 .setTop("0em")
+                .onGetContent([
+                    {
+                        "desc":"fetchFolderContent",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.listFiles}",
+                            undefined,
+                            undefined,
+                            "{args[1].id}",
+                            "{global.repoName}",
+                            "{args[1].id}",
+                            "",
+                            "json"
+                        ],
+                        "method":"$Functions.listFiles",
+                        "redirection":"other:callback:call"
+                    }
+                ])
             );
             
             host.xui_panel_left.append(
