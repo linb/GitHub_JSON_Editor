@@ -511,7 +511,7 @@ xui.Class('App', 'xui.Module',{
                                 true,
                                 true
                             ],
-                            "method":"insertItems"
+                            "method":"settItems"
                         },
                         {
                             "desc":"set total",
