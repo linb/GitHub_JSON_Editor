@@ -751,18 +751,7 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
-                    },
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                    }
                 ]
             },
             "doSearch":{
@@ -790,13 +779,7 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
-                    },
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
+                    }
                 ]
             },
             "loadRepoFolders":{
@@ -845,9 +828,7 @@ xui.Class('App', 'xui.Module',{
                             "{args[0]}"
                         ],
                         "method":"global"
-                    },
-                    null,
-                    null
+                    }
                 ]
             }
         }
