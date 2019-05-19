@@ -78,112 +78,7 @@ xui.Class('App', 'xui.Module',{
                 .setTop("0em")
             );
             
-            host.xui_ui_layout3.append(
-                xui.create("xui.UI.Layout")
-                .setHost(host,"xui_ui_layout4")
-                .setItems([
-                    {
-                        "id":"before",
-                        "size":220,
-                        "min":10,
-                        "locked":false,
-                        "folded":false,
-                        "hidden":false,
-                        "cmd":true,
-                        "pos":"before"
-                    },
-                    {
-                        "id":"main",
-                        "size":80,
-                        "min":10
-                    }
-                ])
-                .setLeft("0em")
-                .setTop("0em"),
-                "main"
-            );
-            
-            host.xui_ui_layout4.append(
-                xui.create("xui.UI.Tabs")
-                .setHost(host,"xui_ui_tabs2")
-                .setItems([
-                    {
-                        "id":"code",
-                        "caption":"JSON Code"
-                    },
-                    {
-                        "id":"editor",
-                        "caption":"JSON Editor"
-                    }
-                ])
-                .setLeft("0em")
-                .setTop("0em")
-                .setValue("editor"),
-                "main"
-            );
-            
-            host.xui_ui_tabs2.append(
-                xui.create("xui.UI.Input")
-                .setHost(host,"xui_json_txt")
-                .setDirtyMark(false)
-                .setDock("fill")
-                .setLeft("5em")
-                .setTop("4.166666666666667em")
-                .setWidth("18em")
-                .setHeight("10em")
-                .setLabelSize("8em")
-                .setLabelPos("none")
-                .setLabelCaption("")
-                .setMultiLines(true),
-                "code"
-            );
-            
-            host.xui_ui_tabs2.append(
-                xui.create("xui.Module.JSONEditor", "xui.Module")
-                .setHost(host,"xui_json_editor"),
-                "editor"
-            );
-            
-            host.xui_ui_layout4.append(
-                xui.create("xui.UI.Block")
-                .setHost(host,"xui_ui_block8")
-                .setDock("bottom")
-                .setLeft("28.333333333333332em")
-                .setTop("0em")
-                .setHeight("3.3333333333333335em"),
-                "main"
-            );
-            
-            host.xui_ui_block8.append(
-                xui.create("xui.UI.Button")
-                .setHost(host,"xui_btn_save")
-                .setDirtyMark(false)
-                .setLeft("2.5em")
-                .setTop("0.5833333333333334em")
-                .setWidth("7.5em")
-                .setCaption("Save")
-                .setImageClass("xui-uicmd-save")
-                .onClick([
-                    {
-                        "desc":"if",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
-                        "conditions":[
-                            {
-                                "left":"{global.currentJSON}",
-                                "symbol":"empty",
-                                "right":""
-                            }
-                        ],
-                        "return":false,
-                        "event":1
-                    }
-                ])
-            );
-            
-            host.xui_ui_layout4.append(
+            host.xui_panel_left.append(
                 xui.create("xui.UI.ToolBar")
                 .setHost(host,"xui_tb_files")
                 .setItems([
@@ -233,42 +128,86 @@ xui.Class('App', 'xui.Module',{
                         "return":false,
                         "event":3
                     }
-                ]),
-                "before"
+                ])
             );
             
-            host.xui_ui_layout4.append(
-                xui.create("xui.UI.TreeGrid")
-                .setHost(host,"xui_grid_files")
-                .setDirtyMark(false)
-                .setLeft("0em")
+            host.xui_ui_layout3.append(
+                xui.create("xui.UI.Block")
+                .setHost(host,"xui_ui_block8")
+                .setDock("bottom")
+                .setLeft("28.333333333333332em")
                 .setTop("0em")
-                .setRowNumbered(true)
-                .setGridHandlerCaption("No.")
-                .setRowHandlerWidth("2em")
-                .setHeader([
+                .setHeight("3.3333333333333335em"),
+                "main"
+            );
+            
+            host.xui_ui_block8.append(
+                xui.create("xui.UI.Button")
+                .setHost(host,"xui_btn_save")
+                .setDirtyMark(false)
+                .setLeft("2.5em")
+                .setTop("0.5833333333333334em")
+                .setWidth("7.5em")
+                .setCaption("Save")
+                .setImageClass("xui-uicmd-save")
+                .onClick([
                     {
-                        "id":"name",
-                        "caption":"File Name",
-                        "type":"label",
-                        "flexSize":true,
-                        "width":"8em"
-                    },
-                    {
-                        "id":"url",
-                        "caption":"URL",
-                        "type":"label",
-                        "width":"24em"
-                    },
-                    {
-                        "id":"size",
-                        "caption":"Size",
-                        "type":"label",
-                        "width":"8em"
+                        "desc":"if",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{global.currentJSON}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false,
+                        "event":1
                     }
                 ])
-                .setTreeMode("none"),
-                "before"
+            );
+            
+            host.xui_ui_layout3.append(
+                xui.create("xui.UI.Tabs")
+                .setHost(host,"xui_ui_tabs2")
+                .setItems([
+                    {
+                        "id":"code",
+                        "caption":"JSON Code"
+                    },
+                    {
+                        "id":"editor",
+                        "caption":"JSON Editor"
+                    }
+                ])
+                .setLeft("0em")
+                .setTop("0em")
+                .setValue("editor"),
+                "main"
+            );
+            
+            host.xui_ui_tabs2.append(
+                xui.create("xui.UI.Input")
+                .setHost(host,"xui_json_txt")
+                .setDirtyMark(false)
+                .setDock("fill")
+                .setLeft("5em")
+                .setTop("4.166666666666667em")
+                .setWidth("18em")
+                .setHeight("10em")
+                .setLabelSize("8em")
+                .setLabelPos("none")
+                .setMultiLines(true),
+                "code"
+            );
+            
+            host.xui_ui_tabs2.append(
+                xui.create("xui.Module.JSONEditor", "xui.Module")
+                .setHost(host,"xui_json_editor"),
+                "editor"
             );
             
             append(
