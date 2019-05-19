@@ -89,7 +89,9 @@ xui.Class('App', 'xui.Module',{
                             "{global.repoName}",
                             "{args[1].id}",
                             "",
-                            "json"
+                            "json",
+                            undefined,
+                            ""
                         ],
                         "method":"$Functions.listFiles",
                         "redirection":"other:callback:call"
@@ -644,22 +646,7 @@ xui.Class('App', 'xui.Module',{
                     ],
                     "onListGithubFiles":[
                         {
-                            "desc":"if",
-                            "type":"none",
-                            "target":"none",
-                            "args":[ ],
-                            "method":"none",
-                            "conditions":[
-                                {
-                                    "left":"{args[0]}",
-                                    "symbol":"!=",
-                                    "right":"fetchRoot"
-                                }
-                            ],
-                            "return":false
-                        },
-                        {
-                            "desc":"fill tree view",
+                            "desc":"fill root",
                             "type":"control",
                             "target":"xui_tv_folders",
                             "args":[
@@ -669,7 +656,14 @@ xui.Class('App', 'xui.Module',{
                                 "{args[1]}"
                             ],
                             "method":"setItems",
-                            "redirection":"other:callback:call"
+                            "redirection":"other:callback:call",
+                            "conditions":[
+                                {
+                                    "left":"{args[0]}",
+                                    "symbol":"=",
+                                    "right":"fetchRoot"
+                                }
+                            ]
                         }
                     ]
                 })
