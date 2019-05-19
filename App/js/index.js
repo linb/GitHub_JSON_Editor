@@ -95,6 +95,16 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"$Functions.listFiles",
                         "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"set callback",
+                        "type":"other",
+                        "target":"var",
+                        "args":[
+                            "treeviewCallback",
+                            "{args[2]}"
+                        ],
+                        "method":"global"
                     }
                 ])
             );
@@ -664,6 +674,18 @@ xui.Class('App', 'xui.Module',{
                                     "right":"fetchRoot"
                                 }
                             ]
+                        },
+                        {
+                            "desc":"fill sub",
+                            "type":"other",
+                            "target":"callback",
+                            "args":[
+                                "{functions.treeviewCallback}",
+                                undefined,
+                                undefined,
+                                "{args[1]}"
+                            ],
+                            "method":"call"
                         }
                     ]
                 })
