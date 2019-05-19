@@ -144,22 +144,6 @@ xui.Class('App', 'xui.Module',{
                 .setTop("7.5em")
                 .onClick([
                     {
-                        "desc":"if",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
-                        "conditions":[
-                            {
-                                "left":"{global.currentPath}",
-                                "symbol":"empty",
-                                "right":""
-                            }
-                        ],
-                        "return":false,
-                        "event":3
-                    },
-                    {
                         "desc":"refresh",
                         "type":"other",
                         "target":"callback",
@@ -173,7 +157,8 @@ xui.Class('App', 'xui.Module',{
                                 "symbol":"=",
                                 "right":"refresh"
                             }
-                        ]
+                        ],
+                        "event":3
                     }
                 ])
             );
