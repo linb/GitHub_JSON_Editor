@@ -126,12 +126,12 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                  sort/*String, sort byc*/,  
                                  order/*String, desc, asc*/, 
                                  onSuccess/*Function*/, onFail/*Function*/){},
-            listFiles:function(requestId, 
-                                repo, 
-                                parentPath, 
-                                fileType/*file,dir,all*/, 
-                                regexp, 
-                                onSuccess/*Function*/, onFail/*Function*/){},
+            listFiles:function(requestId /*String, requestid*/, 
+                                repo /*String, repo name */, 
+                                parentPath/*String, parent path*/, 
+                                fileType/*String: file,dir,all*/, 
+                                regexp/*RegExp, filter*/, 
+                                onSuccess/*Function*/, onFail/*Function*/){}
             
         },
         $EventHandlers:{
