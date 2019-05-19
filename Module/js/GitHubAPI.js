@@ -111,7 +111,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });            
         },
-        listFiles:function(requestId, repo, parentPath, fileType, filter, onSuccess, onFail){
+        listFiles:function(requestId, repo, parentPath, fileType, fileExt, filter, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();            
             clientWithAuth.repos.getContents({
@@ -122,13 +122,15 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 var files=[];
                 rst.data.forEach(function(v,i){
                     if(!type || type=="all" || type==v.type){
-                        if(!filter || (xui.isFun(filter) ? filter(v,i) : filter ? new RegExp(filter||"").test(v.name) : false)){
-                            files.push({
-                                id: v.path,
-                                name: v.name,
-                                type: v.type,
-                                sha: v.sha
-                            });
+                        if(!filter || (xui.isFun(filter) ? filter(v,i) : true)){
+                            if(!fileExt || new RegExp("\\.[" + fileExt + "]$").test(v.name)){
+                                files.push({
+                                    id: v.path,
+                                    name: v.name,
+                                    type: v.type,
+                                    sha: v.sha
+                                });
+                            }
                         }
                     }
                 }); 
@@ -155,7 +157,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                 repo /*String, repo name */, 
                                 parentPath/*String, parent path*/, 
                                 fileType /*String: file,dir,all*/, 
-                                filter /*Function/String, filter*/, 
+                                fileExt /*String, file extension, js|css|html*/, 
                                 onSuccess /*Function*/, onFail/*Function*/){}
 
         },
