@@ -623,6 +623,17 @@ xui.Class('App', 'xui.Module',{
                     ],
                     "onListGithubFiles":[
                         {
+                            "desc":"debug",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[
+                                "{args[0]}",
+                                "{args[1]}",
+                                "{args[2]}"
+                            ],
+                            "method":"log"
+                        },
+                        {
                             "desc":"if",
                             "type":"none",
                             "target":"none",
