@@ -620,6 +620,33 @@ xui.Class('App', 'xui.Module',{
                             "args":[ ],
                             "method":"free"
                         }
+                    ],
+                    "onListGithubFiles":[
+                        {
+                            "desc":"if",
+                            "type":"none",
+                            "target":"none",
+                            "args":[ ],
+                            "method":"none",
+                            "conditions":[
+                                {
+                                    "left":"{args[0]}",
+                                    "symbol":"!=",
+                                    "right":"fetchRoot"
+                                }
+                            ],
+                            "return":false
+                        },
+                        {
+                            "desc":"fill tree view",
+                            "type":"control",
+                            "target":"xui_tv_folders",
+                            "args":[
+                                "",
+                                "{args[1]}"
+                            ],
+                            "method":"setItems"
+                        }
                     ]
                 })
             );
@@ -782,7 +809,7 @@ xui.Class('App', 'xui.Module',{
                     }
                 ]
             },
-            "loadRepoFolders":{
+            "loadRepoRootFiles":{
                 "desc":"",
                 "params":[
                     {
@@ -798,15 +825,6 @@ xui.Class('App', 'xui.Module',{
                 ],
                 "actions":[
                     {
-                        "desc":"fill treeview layer1",
-                        "type":"control",
-                        "target":"xui_tv_folders",
-                        "args":[
-                            ""
-                        ],
-                        "method":"setItems"
-                    },
-                    {
                         "desc":"set caption",
                         "type":"control",
                         "target":"xui_panel_left",
@@ -814,7 +832,7 @@ xui.Class('App', 'xui.Module',{
                             "{page.xui_panel_left.setCaption()}",
                             undefined,
                             undefined,
-                            "Repo : {args[0]}"
+                            "Repo: {args[0]}"
                         ],
                         "method":"setCaption",
                         "redirection":"other:callback:call"
@@ -828,6 +846,20 @@ xui.Class('App', 'xui.Module',{
                             "{args[0]}"
                         ],
                         "method":"global"
+                    },
+                    {
+                        "desc":"fetchFiles",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.listFiles}",
+                            undefined,
+                            undefined,
+                            "fetchRoot",
+                            "{global.repoName}"
+                        ],
+                        "method":"$Functions.listFiles",
+                        "redirection":"other:callback:call"
                     }
                 ]
             }
