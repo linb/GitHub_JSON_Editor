@@ -11,6 +11,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             // set a global variable, for other html calling
             window.xui_GithubHandler = this;
         },     
+        // api
         getGithubClient:function(){
             if(this.clientWithAuth){
                 return this.clientWithAuth;
