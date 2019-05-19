@@ -395,7 +395,8 @@ xui.Class('App', 'xui.Module',{
                             "{1}"
                         ],
                         "method":"call",
-                        "timeout":500
+                        "timeout":500,
+                        "resetid":"searchName"
                     }
                 ])
             );
