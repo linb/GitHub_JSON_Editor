@@ -119,7 +119,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 repo:repo,
                 path: parentPath||""
             }).then(function(rst){
-                rst.data.forEach( (v,i) => {
+                var files=[];
+                rst.data.forEach(function(v,i){
                     if(!type || type=="all" || type==v.type){
                         if(!filter || (xui.isFun(filter) ? filter(v,i) : xui.isReg(filter) ? filter.test(v.name) : false)){
                             files.push({
@@ -131,7 +132,12 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                         }
                     }
                 });
-            }) );
+                var args = [requestId, files, parentPath];
+                if(false !== xui.tryF(onSuccess, args))
+                    api.fireEvent("onListGithubFiles", args);                
+            }).catch(function(e){
+                xui.tryF(onFail,[e] );
+            });
         }
     }, 
     Static:{
