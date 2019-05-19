@@ -159,18 +159,18 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                 onSuccess /*Function*/, onFail/*Function*/){}
 
         },
-        $EventHandlers:{
-            onGithubLogin: function(name /*String, user name*/, 
+        $EventHandlers :{
+            onGithubLogin : function(name /*String, user name*/, 
                                      avatar /*String, user avatar url*/, 
                                      user /*Object, user object*/
                                     ){},
-            onListGithubRepos: function(requestId /*String, requestid*/, 
+            onListGithubRepos : function(requestId /*String, requestid*/, 
                                          repoItems /*List{id,name}, result list*/, 
                                          total /*Number, total count*/,
                                          page /*Number, current page*/,
                                          per_page /*Number, per page count*/
                                         ){},
-            onListGithubFiles: function(requestId /*String, requestid*/, 
+            onListGithubFiles : function(requestId /*String, requestid*/, 
                                          fileItems /*List{id,name,type,sha}, result list*/, 
                                          parentPath /*String, parent path*/
                                         ){}
