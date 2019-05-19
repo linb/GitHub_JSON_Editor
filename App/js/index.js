@@ -109,7 +109,7 @@ xui.Class('App', 'xui.Module',{
                 ])
                 .onItemSelected([
                     {
-                        "desc":"Action 1",
+                        "desc":"add tab",
                         "type":"control",
                         "target":"xui_tabs_json",
                         "args":[
@@ -119,6 +119,15 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"insertItems",
                         "event":2
+                    },
+                    {
+                        "desc":"active tab",
+                        "type":"control",
+                        "target":"xui_tabs_json",
+                        "args":[
+                            "{args[1].id}"
+                        ],
+                        "method":"setValue"
                     }
                 ])
             );
