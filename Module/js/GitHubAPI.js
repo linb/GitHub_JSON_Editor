@@ -122,7 +122,6 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 repo:repo,
                 path: parentPath||""
             }).then(function(rst){
-                debugger;
                 var files=[];
                 rst.data.forEach(function(v,i){
                     if(!fileType || fileType=="all" || fileType==v.type){
