@@ -104,13 +104,14 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                         tagVar:v
                     });
                 });
-                if(false !== xui.tryF(onSuccess,[repos, rst.data.total_count||0, page, per_page]))
-                    api.fireEvent("onListGithubRepos", [requestId, repos, rst.data.total_count||0, page, per_page]);
+                var args = [requestId, repos, rst.data.total_count||0, page, per_page];
+                if(false !== xui.tryF(onSuccess, args))
+                    api.fireEvent("onListGithubRepos", args);
             }).catch(function(e){
                 xui.tryF(onFail,[e] );
             });            
         },
-        listFilesInRepo:function(requestId, repo, parentPath, fileType, regexp, onSuccess, onFail){
+        listFiles:function(requestId, repo, parentPath, fileType/*file,dir,all*/, regexp, onSuccess, onFail){
             
         }
     }, 
@@ -124,7 +125,14 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                  nameIn /*String, search name*/, 
                                  sort/*String, sort byc*/,  
                                  order/*String, desc, asc*/, 
-                                 onSuccess/*Function*/, onFail/*Function*/){}
+                                 onSuccess/*Function*/, onFail/*Function*/){},
+            listFiles:function(requestId, 
+                                repo, 
+                                parentPath, 
+                                fileType/*file,dir,all*/, 
+                                regexp, 
+                                onSuccess/*Function*/, onFail/*Function*/){},
+            
         },
         $EventHandlers:{
             onGithubLogin: function(name /*String, user name*/, 
