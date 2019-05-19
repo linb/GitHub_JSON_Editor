@@ -214,6 +214,29 @@ xui.Class('App', 'xui.Module',{
                 .setBorderType("none")
                 .setBackground("#FFFFFF")
                 .setOverflow("hidden")
+                .setCustomStyle({
+                    "KEY":{ },
+                    "PANEL":{
+                        "$gradient":{
+                            "stops":[
+                                {
+                                    "pos":"0%",
+                                    "clr":"#CEF8FF"
+                                },
+                                {
+                                    "pos":"50%",
+                                    "clr":"#7FE0F8"
+                                },
+                                {
+                                    "pos":"100%",
+                                    "clr":"#9BF1FF"
+                                }
+                            ],
+                            "type":"linear",
+                            "orient":"L"
+                        }
+                    }
+                })
             );
             
             host.xui_ui_block15.append(
