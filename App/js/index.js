@@ -133,7 +133,7 @@ xui.Class('App', 'xui.Module',{
                 .setHeight("10em")
                 .setLabelSize("8em")
                 .setLabelPos("none")
-                .setLabelCaption("多行输入框")
+                .setLabelCaption("")
                 .setMultiLines(true),
                 "code"
             );
