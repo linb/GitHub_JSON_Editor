@@ -383,6 +383,20 @@ xui.Class('App', 'xui.Module',{
                 .setType("none")
                 .setImageClass("xui-icon-filter")
                 .setCommandBtn("delete")
+                .onChange([
+                    {
+                        "desc":"Action 1",
+                        "type":"other",
+                        "target":"callback",
+                        "args":[
+                            "{xui.resetRun()}",
+                            undefined,
+                            undefined,
+                            "queryRepoListByName"
+                        ],
+                        "method":"call"
+                    }
+                ])
             );
             
             host.xui_sel_repo.append(
@@ -420,18 +434,15 @@ xui.Class('App', 'xui.Module',{
                     },
                     {
                         "desc":"query list",
-                        "type":"module",
-                        "target":"module_githubapi1",
+                        "type":"other",
+                        "target":"callback",
                         "args":[
-                            "{page.module_githubapi1.listRepos}",
+                            "{page.functions.doSearch}",
                             undefined,
                             undefined,
-                            "forSelectRepo",
-                            "{args[1]}",
-                            "{args[3]}"
+                            "{args[1]}"
                         ],
-                        "method":"$Functions.listRepos",
-                        "redirection":"other:callback:call",
+                        "method":"call",
                         "conditions":[
                             {
                                 "left":"{args[4]}",
@@ -657,6 +668,37 @@ xui.Class('App', 'xui.Module',{
                             "forSelectRepo",
                             "{1}",
                             "{page.xui_ui_pagebar5.getPageCount()}"
+                        ],
+                        "method":"$Functions.listRepos",
+                        "redirection":"other:callback:call"
+                    },
+                    null,
+                    null,
+                    null
+                ]
+            },
+            "doSearch":{
+                "desc":"do search by options",
+                "params":[
+                    {
+                        "id":"page",
+                        "type":"Number",
+                        "desc":""
+                    }
+                ],
+                "actions":[
+                    {
+                        "desc":"search",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.listRepos}",
+                            undefined,
+                            undefined,
+                            "forSelectRepo",
+                            "{args[0]}",
+                            "{page.xui_ui_pagebar5.getPageCount()}",
+                            "{page.xui_inp_search.getValue()}"
                         ],
                         "method":"$Functions.listRepos",
                         "redirection":"other:callback:call"
