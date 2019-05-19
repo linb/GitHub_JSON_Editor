@@ -169,8 +169,11 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                          total /*Number, total count*/,
                                          page /*Number, current page*/,
                                          per_page /*Number, per page count*/
-                                        ){}  
-
+                                        ){},
+            onListGithubFiles: function(requestId /*String, requestid*/, 
+                                         fileItems /*List{id,name,type,sha}, result list*/, 
+                                         parentPath /*String, parent path*/
+                                        ){}
         }
     }
 });
