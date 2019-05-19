@@ -499,19 +499,6 @@ xui.Class('App', 'xui.Module',{
                             "return":false
                         },
                         {
-                            "desc":"pop wnd",
-                            "type":"control",
-                            "target":"xui_sel_repo",
-                            "args":[
-                                "{page.xui_sel_repo.popUp()}",
-                                undefined,
-                                undefined,
-                                "{page.xui_btn_popRepoList}"
-                            ],
-                            "method":"popUp",
-                            "redirection":"other:callback:call"
-                        },
-                        {
                             "desc":"set list",
                             "type":"control",
                             "target":"xui_lst_repos",
@@ -644,6 +631,19 @@ xui.Class('App', 'xui.Module',{
                             "1:1:1"
                         ],
                         "method":"setUIValue",
+                        "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"show search wnd",
+                        "type":"control",
+                        "target":"xui_sel_repo",
+                        "args":[
+                            "{page.xui_sel_repo.popUp()}",
+                            undefined,
+                            undefined,
+                            "{page.xui_btn_popRepoList}"
+                        ],
+                        "method":"popUp",
                         "redirection":"other:callback:call"
                     },
                     {
