@@ -163,6 +163,24 @@ xui.Class('App', 'xui.Module',{
                 .setWidth("7.5em")
                 .setCaption("Save")
                 .setImageClass("xui-uicmd-save")
+                .onClick([
+                    {
+                        "desc":"if",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{global.currentJSON}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false,
+                        "event":1
+                    }
+                ])
             );
             
             host.xui_ui_layout4.append(
@@ -197,7 +215,25 @@ xui.Class('App', 'xui.Module',{
                         "caption":"grp2"
                     }
                 ])
-                .setTop("7.5em"),
+                .setTop("7.5em")
+                .onClick([
+                    {
+                        "desc":"if",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{global.currentPath}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false,
+                        "event":3
+                    }
+                ]),
                 "before"
             );
             
