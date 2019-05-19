@@ -111,8 +111,27 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });            
         },
-        listFiles:function(requestId, repo, parentPath, fileType/*file,dir,all*/, regexp, onSuccess, onFail){
-            
+        listFiles:function(requestId, repo, parentPath, fileType, filter, onSuccess, onFail){
+            var api=this,
+                clientWithAuth = this.getGithubClient();            
+            clientWithAuth.repos.getContents({
+                owner:api.getGithubUser(),
+                repo:repo,
+                path: parentPath||""
+            }).then(function(rst){
+                rst.data.forEach( (v,i) => {
+                    if(!type || type=="all" || type==v.type){
+                        if(!filter || (xui.isFun(filter) ? filter(v,i) : xui.isReg(filter) ? filter.test(v.name) : false)){
+                            files.push({
+                                id: v.path,
+                                name: v.name,
+                                type: v.type,
+                                sha: v.sha
+                            });
+                        }
+                    }
+                });
+            }) );
         }
     }, 
     Static:{
@@ -120,19 +139,19 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             ensureGithubAuth:function(){},
             setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){},
             listRepos:function(requestId /*String, requestid*/, 
-                                 page /*Number, current page*/,
-                                 per_page /*Number, per page count*/,
-                                 nameIn /*String, search name*/, 
-                                 sort/*String, sort byc*/,  
-                                 order/*String, desc, asc*/, 
-                                 onSuccess/*Function*/, onFail/*Function*/){},
+                                page /*Number, current page*/,
+                                per_page /*Number, per page count*/,
+                                nameIn /*String, search name*/, 
+                                sort/*String, sort byc*/,  
+                                order/*String, desc, asc*/, 
+                                onSuccess/*Function*/, onFail/*Function*/){},
             listFiles:function(requestId /*String, requestid*/, 
                                 repo /*String, repo name */, 
                                 parentPath/*String, parent path*/, 
-                                fileType/*String: file,dir,all*/, 
-                                regexp/*RegExp, filter*/, 
-                                onSuccess/*Function*/, onFail/*Function*/){}
-            
+                                fileType /*String: file,dir,all*/, 
+                                filter /*RegExp/Function, filter*/, 
+                                onSuccess /*Function*/, onFail/*Function*/){}
+
         },
         $EventHandlers:{
             onGithubLogin: function(name /*String, user name*/, 
@@ -145,7 +164,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                          page /*Number, current page*/,
                                          per_page /*Number, per page count*/
                                         ){}  
-             
+
         }
     }
 });
