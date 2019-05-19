@@ -329,7 +329,7 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"callback",
                         "args":[
-                            "{page.functions.popRepoSearchBlock}"
+                            "{page.functions.popRepoSearchWnd}"
                         ],
                         "method":"call",
                         "event":1
@@ -341,7 +341,7 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"callback",
                         "args":[
-                            "{page.functions.popRepoSearchBlock}"
+                            "{page.functions.popRepoSearchWnd}"
                         ],
                         "method":"call",
                         "event":1
@@ -431,7 +431,7 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"callback",
                         "args":[
-                            "{page.functions.doSearch}",
+                            "{page.functions.doRepoSearch}",
                             undefined,
                             undefined,
                             "{1}"
@@ -469,7 +469,7 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"callback",
                         "args":[
-                            "{page.functions.loadRepoRootFiles}",
+                            "{page.functions.loadRootFiles}",
                             undefined,
                             undefined,
                             "{args[1].id}"
@@ -503,7 +503,7 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"callback",
                         "args":[
-                            "{page.functions.doSearch}",
+                            "{page.functions.doRepoSearch}",
                             undefined,
                             undefined,
                             "{args[1]}"
@@ -564,7 +564,7 @@ xui.Class('App', 'xui.Module',{
                             "type":"other",
                             "target":"callback",
                             "args":[
-                                "{page.functions.popRepoSearchBlock}"
+                                "{page.functions.popRepoSearchWnd}"
                             ],
                             "method":"call"
                         }
@@ -712,7 +712,7 @@ xui.Class('App', 'xui.Module',{
             "json_path":null
         },
         functions:{
-            "popRepoSearchBlock":{
+            "popRepoSearchWnd":{
                 "desc":"pop repo search wnd",
                 "params":[ ],
                 "actions":[
@@ -786,7 +786,7 @@ xui.Class('App', 'xui.Module',{
                     }
                 ]
             },
-            "doSearch":{
+            "doRepoSearch":{
                 "desc":"do search",
                 "params":[
                     {
@@ -814,7 +814,7 @@ xui.Class('App', 'xui.Module',{
                     }
                 ]
             },
-            "loadRepoRootFiles":{
+            "loadRootFiles":{
                 "desc":"load root files",
                 "params":[
                     {
