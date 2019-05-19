@@ -870,6 +870,28 @@ xui.Class('App', 'xui.Module',{
                         "redirection":"other:callback:call"
                     }
                 ]
+            },
+            "refreshRoot":{
+                "desc":"refresh root files",
+                "actions":[
+                    {
+                        "desc":"fetchFiles",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.listFiles}",
+                            undefined,
+                            undefined,
+                            "fetchRoot",
+                            "{global.repoName}",
+                            undefined,
+                            "all",
+                            "json"
+                        ],
+                        "method":"$Functions.listFiles",
+                        "redirection":"other:callback:call"
+                    }
+                ]
             }
         }
     }
