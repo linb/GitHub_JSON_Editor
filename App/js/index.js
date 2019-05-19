@@ -761,6 +761,7 @@ xui.Class('App', 'xui.Module',{
                     null,
                     null,
                     null,
+                    null,
                     null
                 ]
             },
@@ -794,6 +795,7 @@ xui.Class('App', 'xui.Module',{
                     null,
                     null,
                     null,
+                    null,
                     null
                 ]
             },
@@ -802,6 +804,11 @@ xui.Class('App', 'xui.Module',{
                 "params":[
                     {
                         "id":"repoName",
+                        "type":"String",
+                        "desc":""
+                    },
+                    {
+                        "id":"parentPath",
                         "type":"String",
                         "desc":""
                     }
@@ -839,6 +846,7 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"global"
                     },
+                    null,
                     null
                 ]
             }
