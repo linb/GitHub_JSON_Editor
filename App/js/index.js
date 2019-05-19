@@ -407,6 +407,7 @@ xui.Class('App', 'xui.Module',{
                 .setWidth("19.25em")
                 .setHeight("2.1666666666666665em")
                 .setCaption("")
+                .setPageCount(3)
             );
             
             append(
