@@ -473,7 +473,7 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"callback",
                         "args":[
-                            "{page.functions.loadRepoFolders}",
+                            "{page.functions.loadRepoRootFiles}",
                             undefined,
                             undefined,
                             "{args[1].id}"
