@@ -101,7 +101,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 var repos = [];
                 rst.data.items.forEach( function(v, i){
                     repos.push({
-                        id:v.path,
+                        id:v.name,
                         caption:v.name,
                         tagVar:v
                     });
