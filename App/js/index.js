@@ -422,7 +422,14 @@ xui.Class('App', 'xui.Module',{
                             "{args[3]}"
                         ],
                         "method":"$Functions.listRepos",
-                        "redirection":"other:callback:call"
+                        "redirection":"other:callback:call",
+                        "conditions":[
+                            {
+                                "left":"{args[4]}",
+                                "symbol":"!=",
+                                "right":"inited"
+                            }
+                        ]
                     }
                 ])
             );
