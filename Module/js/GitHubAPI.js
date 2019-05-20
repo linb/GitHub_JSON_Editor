@@ -213,9 +213,14 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             readFile:function(requestId /*String, requestid*/, 
                                repo /*String, repo name */, 
                                path/*String, file path*/, 
-                               decode /*Boolean, decoded*/,
+                               decode /*Boolean, need to decode?*/,
                                onSuccess /*Function*/, onFail/*Function*/){},
-            newFile
+            newFile:function(requestId /*String, requestid*/, 
+                              repo /*String, repo name */, 
+                              path/*String, file path*/, 
+                              content /*String, file content*/, 
+                              encode /*Boolean, need to encode?*/,
+                              onSuccess /*Function*/, onFail/*Function*/){}
         },
         $EventHandlers :{
             onGithubLogin : function(name /*String, user name*/, 
@@ -235,14 +240,13 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             onReadGithubFile : function(requestId /*String, requestid*/, 
                                          content /*String, file content*/, 
                                          sha /*String, file sha*/,
-                                         decode /*Boolean, decoded*/
+                                         decoded /*Boolean, decoded?*/
                                         ){},
             onNewGithubFile : function(requestId /*String, requestid*/, 
-                                         path /*String, file path*/, 
-                                         name /*String, file name*/, 
-                                         sha /*String, file sha*/,
-                                         decode /*Boolean, decoded*/
-                                        ){},
+                                        path /*String, file path*/, 
+                                        name /*String, file name*/, 
+                                        sha /*String, file sha*/
+                                       ){},
         }
     }
 });
