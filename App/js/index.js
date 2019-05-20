@@ -266,45 +266,6 @@ xui.Class('App', 'xui.Module',{
             );
             
             host.xui_ui_layout3.append(
-                xui.create("xui.UI.Block")
-                .setHost(host,"xui_ui_block8")
-                .setDock("bottom")
-                .setLeft("28.333333333333332em")
-                .setTop("0em")
-                .setHeight("3.3333333333333335em"),
-                "main"
-            );
-            
-            host.xui_ui_block8.append(
-                xui.create("xui.UI.Button")
-                .setHost(host,"xui_btn_save")
-                .setDirtyMark(false)
-                .setLeft("2.5em")
-                .setTop("0.5833333333333334em")
-                .setWidth("7.5em")
-                .setCaption("Save")
-                .setImageClass("xui-uicmd-save")
-                .onClick([
-                    {
-                        "desc":"if",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
-                        "conditions":[
-                            {
-                                "left":"{global.currentJSON}",
-                                "symbol":"empty",
-                                "right":""
-                            }
-                        ],
-                        "return":false,
-                        "event":1
-                    }
-                ])
-            );
-            
-            host.xui_ui_layout3.append(
                 xui.create("xui.UI.Tabs")
                 .setHost(host,"xui_tabs_json")
                 .setLeft("0em")
