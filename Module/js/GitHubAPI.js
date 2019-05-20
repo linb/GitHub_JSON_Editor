@@ -164,7 +164,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     xui.tryF(onFail,[e] );
                 }
                 else{
-                    var args = [requestId, decode ? Base64.decode( rst.data.content ): rst.data.content, rst.data.sha];
+                    var args = [requestId, decode ? Base64.decode( rst.data.content ): rst.data.content, rst.data.sha, decode];
                     if(false !== xui.tryF(onSuccess, args))
                         api.fireEvent("onReadGithubFile", args);                           
                 }
@@ -183,7 +183,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 message:"Created by CrossUI Github JSON Editor",
                 content: encode ? Base64.encode( content ) : content
             }).then(function(rsp){
-                var args = [requestId, rsp.data.content.name, rst.data.sha, encode];
+                var args = [requestId, rsp.data.content.name, rsp.data.content.path, rst.data.sha, encode];
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onNewGithubFile", args);                
             }).catch(function(e){
@@ -214,7 +214,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                repo /*String, repo name */, 
                                path/*String, file path*/, 
                                decode /*Boolean, decoded*/,
-                               onSuccess /*Function*/, onFail/*Function*/){}
+                               onSuccess /*Function*/, onFail/*Function*/){},
+            newFile
         },
         $EventHandlers :{
             onGithubLogin : function(name /*String, user name*/, 
@@ -233,9 +234,15 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                          ){},
             onReadGithubFile : function(requestId /*String, requestid*/, 
                                          content /*String, file content*/, 
-                                         decode /*Boolean, decoded*/,
-                                         sha /*String, file sha*/
-                                        ){}
+                                         sha /*String, file sha*/,
+                                         decode /*Boolean, decoded*/
+                                        ){},
+            onNewGithubFile : function(requestId /*String, requestid*/, 
+                                         path /*String, file path*/, 
+                                         name /*String, file name*/, 
+                                         sha /*String, file sha*/,
+                                         decode /*Boolean, decoded*/
+                                        ){},
         }
     }
 });
