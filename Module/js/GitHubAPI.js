@@ -183,7 +183,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 message:"Created by CrossUI Github JSON Editor",
                 content: encode ? Base64.encode( content ) : content
             }).then(function(rsp){
-                var args = [requestId, rsp.data.content.name, rsp.data.content.path, rst.data.sha, encode];
+                var args = [requestId, rsp.data.content.name, rsp.data.content.path, rst.data.sha];
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onNewGithubFile", args);                
             }).catch(function(e){
