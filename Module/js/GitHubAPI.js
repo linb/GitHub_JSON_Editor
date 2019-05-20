@@ -176,7 +176,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });
         },
-        newFile :function(requestId, repo, path, content, encode, onSuccess, onFail){
+        newFile : function(requestId, repo, path, content, encode, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();  
             clientWithAuth.repos.createFile({
@@ -193,6 +193,25 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 console.error(e);
                 xui.tryF(onFail,[e] );
             });            
+        },
+        updateFile : function(requestId, repo, path, sha, content, encode, onSuccess, onFail){
+            var api=this,
+                clientWithAuth = this.getGithubClient();              
+            clientWithAuth.repos.updateFile({
+                owner:api.getGithubUser(),
+                repo:repo,
+                path:path,
+                sha:sha,                    
+                message:"Updated by CrossUI GitHub JSON Editor",
+                content: encode? Base64.encode( content ) : content
+            }).then(function(rsp){
+                var args = [requestId, rsp.data.content.sha];
+                if(false !== xui.tryF(onSuccess, args))
+                    api.fireEvent("onUpdateGithubFile", args);                    
+            }).catch(function(e){
+                console.error(e);
+                xui.tryF(onFail,[e] );
+            });
         }
     }, 
     Static:{
@@ -223,6 +242,13 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                               path/*String, file path*/, 
                               content /*String, file content*/, 
                               encode /*Boolean, need to encode?*/,
+                              onSuccess /*Function*/, onFail/*Function*/){},
+            updateFile:function(requestId /*String, requestid*/, 
+                              repo /*String, repo name */, 
+                              path/*String, file path*/, 
+                              sha/*String, GitHub file sha*/, 
+                              content /*String, file content*/, 
+                              encode /*Boolean, need to encode?*/,
                               onSuccess /*Function*/, onFail/*Function*/){}
         },
         $EventHandlers :{
@@ -242,13 +268,16 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                          ){},
             onReadGithubFile : function(requestId /*String, requestid*/, 
                                          content /*String, file content*/, 
-                                         sha /*String, file sha*/,
+                                         sha/*String, GitHub file sha*/, 
                                          decoded /*Boolean, decoded?*/
                                         ){},
             onNewGithubFile : function(requestId /*String, requestid*/, 
                                         path /*String, file path*/, 
                                         name /*String, file name*/, 
-                                        sha /*String, file sha*/
+                                        sha/*String, GitHub file sha*/
+                                       ){},
+            onUpdateGithubFile : function(requestId /*String, requestid*/, 
+                                        sha/*String, GitHub file sha*/
                                        ){}
         }
     }
