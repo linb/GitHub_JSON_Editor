@@ -98,14 +98,14 @@ xui.$cache.functions = {
 // [[Global Data
 xui.$cache.data = {
     "$DATE_FORMAT":"gmt",
-    "treeviewCallback":null
+    "treeviewCallback":null,
+    "repoName":null
 };
 // ]]Global Data
 // [[Constant Data
 xui.constant = {
 };
 // ]]Constant Data
-
 
 // [[Develop Env Setting
 xui.ini.$DevEnv = {
