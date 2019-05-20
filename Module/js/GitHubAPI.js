@@ -91,7 +91,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }
             ns.ensureGithubAuth();
         },
-        listRepos:function(requestId, page, per_page, nameIn, sort, order, onSuccess, onFail){
+        
+        // APIs
+        listRepos : function(requestId, page, per_page, nameIn, sort, order, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();
             clientWithAuth.search.repos({
@@ -117,7 +119,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });            
         },
-        listFiles:function(requestId, repo, parentPath, fileType, fileExt, filter, onSuccess, onFail){
+        listFiles : function(requestId, repo, parentPath, fileType, fileExt, filter, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();            
             clientWithAuth.repos.getContents({
@@ -152,7 +154,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });
         },
-        readFile:function(requestId, repo, path, decode, onSuccess, onFail){
+        readFile : function(requestId, repo, path, decode, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();        
             clientWithAuth.repos.getContents({
@@ -213,7 +215,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });
         },
-        updateFile : function(requestId, repo, path, sha, onSuccess, onFail){
+        deleteFile : function(requestId, repo, path, sha, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();              
             clientWithAuth.repos.deleteFile({
