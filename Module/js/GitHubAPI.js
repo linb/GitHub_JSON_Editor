@@ -167,7 +167,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 else{
                 var args = [requestId, Base64.decode( rst.data.content ), rst.data.sha];
                 if(false !== xui.tryF(onSuccess, args))
-                    api.fireEvent("onListGithubFiles", args);                           
+                    api.fireEvent("onReadGithubFile", args);                           
                 }
             }).catch(function(e){
                 console.error(e);
