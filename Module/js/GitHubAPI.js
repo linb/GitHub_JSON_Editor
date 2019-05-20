@@ -5,7 +5,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         Required:[
             "https://linb.github.io/CrossUI_Assets/thirdparty/base64.min.js",
             "https://linb.github.io/CrossUI_Assets/thirdparty/octokit-rest.min.js"
-                 ],
+        ],
         // To initialize properties
         properties : {
         },
@@ -91,7 +91,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }
             ns.ensureGithubAuth();
         },
-        
+
         // APIs
         listRepos : function(requestId, page, per_page, nameIn, sort, order, onSuccess, onFail){
             var api=this,
@@ -116,7 +116,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     api.fireEvent("onListGithubRepos", args);
             }).catch(function(e){
                 console.error(e);                
-                xui.tryF(onFail,[e] );
+                if(false!==xui.tryF(onFail,[e] )){
+                    api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                }
             });            
         },
         listFiles : function(requestId, repo, parentPath, fileType, fileExt, filter, onSuccess, onFail){
@@ -151,7 +153,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     api.fireEvent("onListGithubFiles", args);                
             }).catch(function(e){
                 console.error(e);
-                xui.tryF(onFail,[e] );
+                if(false!==xui.tryF(onFail,[e] )){
+                    api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                }
             });
         },
         readFile : function(requestId, repo, path, decode, onSuccess, onFail){
@@ -166,7 +170,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 if(rst.data[0]){
                     var e="This's a folder, not a file!";
                     console.error(e);
-                    xui.tryF(onFail,[e] );
+                    if(false!==xui.tryF(onFail,[e] )){
+                        api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                    }
                 }
                 else{
                     var args = [requestId, decode ? Base64.decode( rst.data.content ): rst.data.content, rst.data.sha, decode];
@@ -175,7 +181,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 }
             }).catch(function(e){
                 console.error(e);
-                xui.tryF(onFail,[e] );
+                if(false!==xui.tryF(onFail,[e] )){
+                    api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                }
             });
         },
         createFile : function(requestId, repo, path, content, encode, onSuccess, onFail){
@@ -258,25 +266,26 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                decode /*Boolean, need to decode?*/,
                                onSuccess /*Function*/, onFail/*Function*/){},
             createFile:function(requestId /*String, requestid*/, 
-                              repo /*String, repo name */, 
-                              path/*String, file path*/, 
-                              content /*String, file content*/, 
-                              encode /*Boolean, need to encode?*/,
-                              onSuccess /*Function*/, onFail/*Function*/){},
+                                 repo /*String, repo name */, 
+                                 path/*String, file path*/, 
+                                 content /*String, file content*/, 
+                                 encode /*Boolean, need to encode?*/,
+                                 onSuccess /*Function*/, onFail/*Function*/){},
             updateFile:function(requestId /*String, requestid*/, 
-                              repo /*String, repo name */, 
-                              path/*String, file path*/, 
-                              sha/*String, GitHub file sha*/, 
-                              content /*String, file content*/, 
-                              encode /*Boolean, need to encode?*/,
-                              onSuccess /*Function*/, onFail/*Function*/){},
+                                 repo /*String, repo name */, 
+                                 path/*String, file path*/, 
+                                 sha/*String, GitHub file sha*/, 
+                                 content /*String, file content*/, 
+                                 encode /*Boolean, need to encode?*/,
+                                 onSuccess /*Function*/, onFail/*Function*/){},
             deleteFile:function(requestId /*String, requestid*/, 
-                              repo /*String, repo name */, 
-                              path/*String, file path*/, 
-                              sha/*String, GitHub file sha*/, 
-                              onSuccess /*Function*/, onFail/*Function*/){}
+                                 repo /*String, repo name */, 
+                                 path/*String, file path*/, 
+                                 sha/*String, GitHub file sha*/, 
+                                 onSuccess /*Function*/, onFail/*Function*/){}
         },
         $EventHandlers :{
+            onError : function(error /*Strin, error message*/){},
             onGithubLogin : function(name /*String, user name*/, 
                                       avatar /*String, user avatar url*/, 
                                       user /*Object, user object*/
@@ -297,18 +306,18 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                          decoded /*Boolean, decoded?*/
                                         ){},
             onCreateGithubFile : function(requestId /*String, requestid*/, 
-                                        path /*String, file path*/, 
-                                        name /*String, file name*/, 
-                                        sha/*String, GitHub file sha*/
-                                       ){},
+                                           path /*String, file path*/, 
+                                           name /*String, file name*/, 
+                                           sha/*String, GitHub file sha*/
+                                          ){},
             onUpdateGithubFile : function(requestId /*String, requestid*/, 
-                                        path /*String, file path*/, 
-                                        sha/*String, GitHub file sha*/
-                                       ){},
+                                           path /*String, file path*/, 
+                                           sha/*String, GitHub file sha*/
+                                          ){},
             onDeleteGithubFile : function(requestId /*String, requestid*/, 
-                                        path /*String, file path*/, 
-                                        sha/*String, GitHub file sha*/
-                                       ){}
+                                           path /*String, file path*/, 
+                                           sha/*String, GitHub file sha*/
+                                          ){}
         }
     }
 });
