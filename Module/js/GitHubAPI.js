@@ -165,13 +165,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 }
                 // file
                 else{
-                    xui.tryF(onSuccess,[ {
-                        data:{
-                            type:'file',
-                            tag: rst.data.sha,
-                            file: Base64.decode( rst.data.content )
-                        }
-                    }] );
+                var args = [requestId, Base64.decode( rst.data.content ), rst.data.sha];
+                if(false !== xui.tryF(onSuccess, args))
+                    api.fireEvent("onListGithubFiles", args);                           
                 }
             }).catch(function(e){
                 console.error(e);
@@ -216,6 +212,10 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             onListGithubFiles : function(requestId /*String, requestid*/, 
                                           fileItems /*List{id,name,type,sha}, result list*/, 
                                           parentPath /*String, parent path*/
+                                         ){},
+            onReadGithubFile :  function(requestId /*String, requestid*/, 
+                                          content /*String, file content*/, 
+                                          sha /*String, file sha*/
                                          ){}
         }
     }
