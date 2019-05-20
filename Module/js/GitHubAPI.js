@@ -176,7 +176,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });
         },
-        newFile : function(requestId, repo, path, content, encode, onSuccess, onFail){
+        createFile : function(requestId, repo, path, content, encode, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();  
             clientWithAuth.repos.createFile({
@@ -188,7 +188,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }).then(function(rsp){
                 var args = [requestId, rsp.data.content.name, rsp.data.content.path, rst.data.sha];
                 if(false !== xui.tryF(onSuccess, args))
-                    api.fireEvent("onNewGithubFile", args);                
+                    api.fireEvent("onCreateGithubFile", args);                
             }).catch(function(e){
                 console.error(e);
                 xui.tryF(onFail,[e] );
@@ -205,9 +205,27 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 message:"Updated by CrossUI GitHub JSON Editor",
                 content: encode? Base64.encode( content ) : content
             }).then(function(rsp){
-                var args = [requestId, rsp.data.content.sha];
+                var args = [requestId, path, rsp.data.content.sha];
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onUpdateGithubFile", args);                    
+            }).catch(function(e){
+                console.error(e);
+                xui.tryF(onFail,[e] );
+            });
+        },
+        updateFile : function(requestId, repo, path, sha, onSuccess, onFail){
+            var api=this,
+                clientWithAuth = this.getGithubClient();              
+            clientWithAuth.repos.deleteFile({
+                owner:api.getGithubUser(),
+                repo:repo,
+                path:path,
+                sha:sha,                    
+                message:"Deleted by CrossUI GitHub JSON Editor"
+            }).then(function(rsp){
+                var args = [requestId, path, sha];
+                if(false !== xui.tryF(onSuccess, args))
+                    api.fireEvent("onDeleteGithubFile", args);                    
             }).catch(function(e){
                 console.error(e);
                 xui.tryF(onFail,[e] );
@@ -237,7 +255,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                path/*String, file path*/, 
                                decode /*Boolean, need to decode?*/,
                                onSuccess /*Function*/, onFail/*Function*/){},
-            newFile:function(requestId /*String, requestid*/, 
+            createFile:function(requestId /*String, requestid*/, 
                               repo /*String, repo name */, 
                               path/*String, file path*/, 
                               content /*String, file content*/, 
@@ -249,6 +267,11 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                               sha/*String, GitHub file sha*/, 
                               content /*String, file content*/, 
                               encode /*Boolean, need to encode?*/,
+                              onSuccess /*Function*/, onFail/*Function*/){},
+            deleteFile:function(requestId /*String, requestid*/, 
+                              repo /*String, repo name */, 
+                              path/*String, file path*/, 
+                              sha/*String, GitHub file sha*/, 
                               onSuccess /*Function*/, onFail/*Function*/){}
         },
         $EventHandlers :{
@@ -271,12 +294,17 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                          sha/*String, GitHub file sha*/, 
                                          decoded /*Boolean, decoded?*/
                                         ){},
-            onNewGithubFile : function(requestId /*String, requestid*/, 
+            onCreateGithubFile : function(requestId /*String, requestid*/, 
                                         path /*String, file path*/, 
                                         name /*String, file name*/, 
                                         sha/*String, GitHub file sha*/
                                        ){},
             onUpdateGithubFile : function(requestId /*String, requestid*/, 
+                                        path /*String, file path*/, 
+                                        sha/*String, GitHub file sha*/
+                                       ){},
+            onDeleteGithubFile : function(requestId /*String, requestid*/, 
+                                        path /*String, file path*/, 
                                         sha/*String, GitHub file sha*/
                                        ){}
         }
