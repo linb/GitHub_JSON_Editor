@@ -289,6 +289,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                  path/*String, file path*/, 
                                  sha/*String, GitHub file sha*/, 
                                  onSuccess /*Function*/, onFail/*Function*/){}
+            // TODO: createDir / updateDir / deleteDir / renameDir
         },
         $EventHandlers :{
             onError : function(error /*Strin, error message*/){},
