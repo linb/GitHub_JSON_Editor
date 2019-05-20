@@ -108,7 +108,9 @@ xui.Class('App', 'xui.Module',{
                     }
                 ])
                 .onItemSelected({
-                    "newbies":{ },
+                    "newbies":{
+                        "ha4nz8ly":"xui.UI.Input"
+                    },
                     "actions":[
                         {
                             "desc":"pick item",
@@ -152,6 +154,58 @@ xui.Class('App', 'xui.Module',{
                                 "{args[1].id}"
                             ],
                             "method":"setValue"
+                        },
+                        {
+                            "desc":"crete textarea",
+                            "type":"control",
+                            "target":"{temp.newbies.ha4nz8ly}",
+                            "args":[
+                                {
+                                    "multiLines":true,
+                                    "dock":"fill",
+                                    "dirtyMark":false,
+                                    "showDirtyMark":false
+                                },
+                                { }
+                            ],
+                            "method":"setProperties"
+                        },
+                        {
+                            "desc":"add textarea",
+                            "type":"control",
+                            "target":"{temp.newbies.ha4nz8ly}",
+                            "args":[
+                                "{page.xui_tabs_json}",
+                                "{args[1].id}"
+                            ],
+                            "method":"show"
+                        },
+                        {
+                            "desc":"set callback",
+                            "type":"other",
+                            "target":"callback",
+                            "args":[
+                                "fileReadCallback",
+                                "{temp.newbies.ha4nz8ly.setUIValue()}"
+                            ],
+                            "method":"set"
+                        },
+                        {
+                            "desc":"to read file",
+                            "type":"module",
+                            "target":"module_githubapi1",
+                            "args":[
+                                "{page.module_githubapi1.readFile}",
+                                undefined,
+                                undefined,
+                                "readFile",
+                                "{global.repoName}",
+                                "{args[1].id}",
+                                "{true}",
+                                "{global.fileReadCallback}"
+                            ],
+                            "method":"$Functions.readFile",
+                            "redirection":"other:callback:call"
                         }
                     ]
                 })
@@ -925,6 +979,7 @@ xui.Class('App', 'xui.Module',{
             },
             "refreshRoot":{
                 "desc":"refresh root files",
+                 "params":[ ],
                 "actions":[
                     {
                         "desc":"fetchFiles",
