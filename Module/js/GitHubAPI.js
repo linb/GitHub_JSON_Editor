@@ -149,7 +149,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 xui.tryF(onFail,[e] );
             });
         },
-        readFile:function(requestId, repo, path, onSuccess, onFail){
+        readFile:function(requestId, repo, path, decode, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();        
             clientWithAuth.repos.getContents({
@@ -163,16 +163,33 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     console.error(e);
                     xui.tryF(onFail,[e] );
                 }
-                // file
                 else{
-                var args = [requestId, Base64.decode( rst.data.content ), rst.data.sha];
-                if(false !== xui.tryF(onSuccess, args))
-                    api.fireEvent("onReadGithubFile", args);                           
+                    var args = [requestId, decode ? Base64.decode( rst.data.content ): rst.data.content, rst.data.sha];
+                    if(false !== xui.tryF(onSuccess, args))
+                        api.fireEvent("onReadGithubFile", args);                           
                 }
             }).catch(function(e){
                 console.error(e);
                 xui.tryF(onFail,[e] );
             });
+        },
+        newFile :function(requestId, repo, path, content, encode, onSuccess, onFail){
+            var api=this,
+                clientWithAuth = this.getGithubClient();  
+            clientWithAuth.repos.createFile({
+                owner:api.getGithubUser(),
+                repo:repo,
+                path: path,
+                message:"Created by CrossUI Github JSON Editor",
+                content: encode ? Base64.encode( content ) : content
+            }).then(function(rsp){
+                var args = [requestId, rsp.data.content.name, rst.data.sha, encode];
+                if(false !== xui.tryF(onSuccess, args))
+                    api.fireEvent("onNewGithubFile", args);                
+            }).catch(function(e){
+                console.error(e);
+                xui.tryF(onFail,[e] );
+            });            
         }
     }, 
     Static:{
@@ -196,6 +213,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             readFile:function(requestId /*String, requestid*/, 
                                repo /*String, repo name */, 
                                path/*String, file path*/, 
+                               decode /*Boolean, decoded*/,
                                onSuccess /*Function*/, onFail/*Function*/){}
         },
         $EventHandlers :{
@@ -214,9 +232,10 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                           parentPath /*String, parent path*/
                                          ){},
             onReadGithubFile : function(requestId /*String, requestid*/, 
-                                          content /*String, file content*/, 
-                                          sha /*String, file sha*/
-                                         ){}
+                                         content /*String, file content*/, 
+                                         decode /*Boolean, decoded*/,
+                                         sha /*String, file sha*/
+                                        ){}
         }
     }
 });
