@@ -1,7 +1,7 @@
 // It's a module no UI
 xui.Class('Module.GitHubAPI', 'xui.Module',{
     Instance:{
-        // Dependency classes
+        // Dependency libs
         Required:[
             "https://linb.github.io/CrossUI_Assets/thirdparty/base64.min.js",
             "https://linb.github.io/CrossUI_Assets/thirdparty/octokit-rest.min.js"
