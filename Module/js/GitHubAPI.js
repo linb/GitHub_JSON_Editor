@@ -213,7 +213,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                           fileItems /*List{id,name,type,sha}, result list*/, 
                                           parentPath /*String, parent path*/
                                          ){},
-            onReadGithubFile :  function(requestId /*String, requestid*/, 
+            onReadGithubFile : function(requestId /*String, requestid*/, 
                                           content /*String, file content*/, 
                                           sha /*String, file sha*/
                                          ){}
