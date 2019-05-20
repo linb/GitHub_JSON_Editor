@@ -175,9 +175,6 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                 repo /*String, repo name */, 
                                 path/*String, file path*/, 
                                 onSuccess /*Function*/, onFail/*Function*/){}
-            
-        }
-
         },
         $EventHandlers :{
             onGithubLogin : function(name /*String, user name*/, 
