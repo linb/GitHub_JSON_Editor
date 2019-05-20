@@ -148,6 +148,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 console.error(e);
                 xui.tryF(onFail,[e] );
             });
+        },
+        readFile:function(requestId, repo, path, onSuccess, onFail){
+            
         }
     }, 
     Static:{
@@ -167,7 +170,13 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                 fileType /*String: file,dir,all*/, 
                                 fileExt /*String, file extension, js|css|html*/, 
                                 filter /*Function, filter*/, 
+                                onSuccess /*Function*/, onFail/*Function*/){},
+            readFile:function(requestId /*String, requestid*/, 
+                                repo /*String, repo name */, 
+                                path/*String, file path*/, 
                                 onSuccess /*Function*/, onFail/*Function*/){}
+            
+        }
 
         },
         $EventHandlers :{
