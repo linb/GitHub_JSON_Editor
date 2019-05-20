@@ -185,10 +185,10 @@ xui.Class('App', 'xui.Module',{
                             "type":"other",
                             "target":"callback",
                             "args":[
-                                "fileReadCallback",
-                                "{temp.newbies.ha4nz8ly.setUIValue()}"
+                                "callback",
+                                "{temp.newbies.ha4nz8ly.setValue}"
                             ],
-                            "method":"set"
+                            "method":"setmp"
                         },
                         {
                             "desc":"to read file",
@@ -202,7 +202,7 @@ xui.Class('App', 'xui.Module',{
                                 "{global.repoName}",
                                 "{args[1].id}",
                                 "{true}",
-                                "{global.fileReadCallback}"
+                                "{temp.callback}"
                             ],
                             "method":"$Functions.readFile",
                             "redirection":"other:callback:call"
