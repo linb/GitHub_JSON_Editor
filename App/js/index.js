@@ -107,29 +107,54 @@ xui.Class('App', 'xui.Module',{
                         "method":"global"
                     }
                 ])
-                .onItemSelected([
-                    {
-                        "desc":"add tab",
-                        "type":"control",
-                        "target":"xui_tabs_json",
-                        "args":[
-                            "{args[1]}",
-                            true,
-                            true
-                        ],
-                        "method":"insertItems",
-                        "event":2
-                    },
-                    {
-                        "desc":"active tab",
-                        "type":"control",
-                        "target":"xui_tabs_json",
-                        "args":[
-                            "{args[1].id}"
-                        ],
-                        "method":"setValue"
-                    }
-                ])
+                .onItemSelected({
+                    "newbies":{ },
+                    "actions":[
+                        {
+                            "desc":"pick item",
+                            "type":"other",
+                            "target":"var",
+                            "args":[
+                                "item",
+                                "{args[1]}"
+                            ],
+                            "method":"temp",
+                            "event":2
+                        },
+                        {
+                            "desc":"adjust item",
+                            "type":"other",
+                            "target":"var",
+                            "args":[
+                                "item.closeBtn",
+                                "{true}"
+                            ],
+                            "method":"temp",
+                            "event":2
+                        },
+                        {
+                            "desc":"add tab",
+                            "type":"control",
+                            "target":"xui_tabs_json",
+                            "args":[
+                                "{temp.item}",
+                                true,
+                                true
+                            ],
+                            "method":"insertItems",
+                            "event":2
+                        },
+                        {
+                            "desc":"active tab",
+                            "type":"control",
+                            "target":"xui_tabs_json",
+                            "args":[
+                                "{args[1].id}"
+                            ],
+                            "method":"setValue"
+                        }
+                    ]
+                })
             );
             
             host.xui_panel_left.append(
