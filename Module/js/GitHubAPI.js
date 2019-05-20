@@ -201,7 +201,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     api.fireEvent("onCreateGithubFile", args);                
             }).catch(function(e){
                 console.error(e);
-                xui.tryF(onFail,[e] );
+                if(false!==xui.tryF(onFail,[e] )){
+                    api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                }
             });            
         },
         updateFile : function(requestId, repo, path, sha, content, encode, onSuccess, onFail){
@@ -220,7 +222,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     api.fireEvent("onUpdateGithubFile", args);                    
             }).catch(function(e){
                 console.error(e);
-                xui.tryF(onFail,[e] );
+                if(false!==xui.tryF(onFail,[e] )){
+                    api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                }
             });
         },
         deleteFile : function(requestId, repo, path, sha, onSuccess, onFail){
@@ -238,7 +242,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     api.fireEvent("onDeleteGithubFile", args);                    
             }).catch(function(e){
                 console.error(e);
-                xui.tryF(onFail,[e] );
+                if(false!==xui.tryF(onFail,[e] )){
+                    api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                }
             });
         }
     }, 
