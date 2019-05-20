@@ -246,7 +246,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                         path /*String, file path*/, 
                                         name /*String, file name*/, 
                                         sha /*String, file sha*/
-                                       ){},
+                                       ){}
         }
     }
 });
