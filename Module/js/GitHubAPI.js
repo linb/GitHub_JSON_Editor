@@ -152,16 +152,16 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
     }, 
     Static:{
         $Functions:{
-            ensureGithubAuth:function(){},
-            setLastActionConf:function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){},
-            listRepos:function(requestId /*String, requestid*/, 
+            ensureGithubAuth : function(){},
+            setLastActionConf : function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){},
+            listRepos : function(requestId /*String, requestid*/, 
                                 page /*Number, current page*/,
                                 per_page /*Number, per page count*/,
                                 nameIn /*String, search name*/, 
                                 sort/*String, sort byc*/,  
                                 order/*String, desc, asc*/, 
                                 onSuccess/*Function*/, onFail/*Function*/){},
-            listFiles:function(requestId /*String, requestid*/, 
+            listFiles : function(requestId /*String, requestid*/, 
                                 repo /*String, repo name */, 
                                 parentPath/*String, parent path*/, 
                                 fileType /*String: file,dir,all*/, 
@@ -172,19 +172,19 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         },
         $EventHandlers :{
             onGithubLogin : function(name /*String, user name*/, 
-                                avatar /*String, user avatar url*/, 
-                                user /*Object, user object*/
-                                ){},
+                                      avatar /*String, user avatar url*/, 
+                                      user /*Object, user object*/
+                                     ){},
             onListGithubRepos : function(requestId /*String, requestid*/, 
-                                repoItems /*List{id,name}, result list*/, 
-                                total /*Number, total count*/,
-                                page /*Number, current page*/,
-                                per_page /*Number, per page count*/
-                                ){},
+                                          repoItems /*List{id,name}, result list*/, 
+                                          total /*Number, total count*/,
+                                          page /*Number, current page*/,
+                                          per_page /*Number, per page count*/
+                                         ){},
             onListGithubFiles : function(requestId /*String, requestid*/, 
-                                fileItems /*List{id,name,type,sha}, result list*/, 
-                                parentPath /*String, parent path*/
-                                ){}
+                                          fileItems /*List{id,name,type,sha}, result list*/, 
+                                          parentPath /*String, parent path*/
+                                         ){}
         }
     }
 });
