@@ -159,12 +159,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }).then(function(rst){
                 // folder
                 if(rst.data[0]){
-                    xui.tryF(onSuccess,[ {
-                        data:{
-                            type:'dir',
-                            tag: rst.data.sha
-                        }
-                    }] );
+                    var e="This's a folder, not a file!";
+                    console.error(e);
+                    xui.tryF(onFail,[e] );
                 }
                 // file
                 else{
@@ -177,7 +174,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     }] );
                 }
             }).catch(function(e){
-                xui.tryF(onFail,[e]);
+                console.error(e);
+                xui.tryF(onFail,[e] );
             });
         }
     }, 
