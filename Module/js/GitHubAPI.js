@@ -266,32 +266,6 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 }
             });
         },
-        functions:{
-            "a":{
-                "desc":"bd",
-                "params":[
-                    {
-                        "id":"asd",
-                        "type":"String",
-                        "desc":""
-                    },
-                    {
-                        "id":"ads",
-                        "type":"String",
-                        "desc":""
-                    }
-                ],
-                "actions":[
-                    {
-                        "desc":"Action 1",
-                        "type":"other",
-                        "target":"msg",
-                        "args":[ ],
-                        "method":"log"
-                    }
-                ]
-            }
-        },
         iniComponents:function(){
             // [[Code created by CrossUI RAD Studio
             var host=this, children=[], append=function(child){children.push(child.get(0));};
