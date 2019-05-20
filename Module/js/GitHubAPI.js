@@ -168,7 +168,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }).then(function(rst){
                 var args = [requestId, path];
                 if(false !== xui.tryF(onSuccess, args))
-                    api.fireEvent("onGithubFileDetected", args);     
+                    api.fireEvent("onIfGithubFileExists", args);     
             }).catch(function(e){
                 console.error(e);
                 if(false!==xui.tryF(onFail,[e] )){
@@ -329,7 +329,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                           fileItems /*List{id,name,type,sha}, result list*/, 
                                           parentPath /*String, parent path*/
                                          ){},
-            onGithubFileDetected : function(requestId /*String, requestid*/, 
+            onIfGithubFileExists : function(requestId /*String, requestid*/, 
                                           path /*String, parent path*/
                                          ){},
             onReadGithubFile : function(requestId /*String, requestid*/, 
