@@ -158,6 +158,24 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 }
             });
         },
+        fileExist:function(repo, path, onSuccess, onFail){
+            var api=this,
+                clientWithAuth = this.getGithubClient();  
+            clientWithAuth.repos.getContents({
+                owner:api.getGithubUser(),
+                repo:repo,
+                path: path
+            }).then(function(rst){
+                var args = [requestId, path];
+                if(false !== xui.tryF(onSuccess, args))
+                    api.fireEvent("onGithubFileDetected", args);     
+            }).catch(function(e){
+                console.error(e);
+                if(false!==xui.tryF(onFail,[e] )){
+                    api.fireEvent("onError", [xui.Debugger.getErrMsg(e)]);
+                }
+            });
+        },
         readFile : function(requestId, repo, path, decode, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();        
@@ -266,6 +284,10 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                   fileExt /*String, file extension, js|css|html*/, 
                                   filter /*Function, filter*/, 
                                   onSuccess /*Function*/, onFail/*Function*/){},
+            fileExist:function(requestId /*String, requestid*/, 
+                               repo /*String, repo name */, 
+                               path/*String, file path*/, 
+                               onSuccess /*Function*/, onFail/*Function*/){},
             readFile:function(requestId /*String, requestid*/, 
                                repo /*String, repo name */, 
                                path/*String, file path*/, 
@@ -306,6 +328,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             onListGithubFiles : function(requestId /*String, requestid*/, 
                                           fileItems /*List{id,name,type,sha}, result list*/, 
                                           parentPath /*String, parent path*/
+                                         ){},
+            onGithubFileDetected : function(requestId /*String, requestid*/, 
+                                          path /*String, parent path*/
                                          ){},
             onReadGithubFile : function(requestId /*String, requestid*/, 
                                          content /*String, file content*/, 
