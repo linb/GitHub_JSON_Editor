@@ -180,16 +180,6 @@ xui.Class('App', 'xui.Module',{
                             "method":"show"
                         },
                         {
-                            "desc":"set callback",
-                            "type":"other",
-                            "target":"callback",
-                            "args":[
-                                "setJson",
-                                "{temp.newbies.clfjj5fi.functions.setjson}"
-                            ],
-                            "method":"set"
-                        },
-                        {
                             "desc":"to read file",
                             "type":"module",
                             "target":"module_githubapi1",
@@ -201,7 +191,7 @@ xui.Class('App', 'xui.Module',{
                                 "{global.repoName}",
                                 "{args[1].id}",
                                 "{true}",
-                                "{temp.setJson}"
+                                "callback"
                             ],
                             "method":"$Functions.readFile",
                             "redirection":"other:callback:call"
