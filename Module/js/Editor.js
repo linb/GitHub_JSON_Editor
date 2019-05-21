@@ -137,7 +137,31 @@ xui.Class('Module.Editor', 'xui.Module',{
                     }
                 ]
             }
-        }
+        },
+            events:{
+                "onGlobalMessage":{
+                    "newbies":{ },
+                        "actions":[
+                            {
+                                "desc":"refresh sha",
+                                "type":"other",
+                                "target":"var",
+                                "args":[
+                                    "sha",
+                                    "{args[1]}"
+                                ],
+                                "method":"page.properties",
+                                "conditions":[
+                                    {
+                                        "left":"{args[0]}",
+                                        "symbol":"=",
+                                        "right":"{page.properties.path}"
+                                    }
+                                ]
+                            }
+                        ]
+                }
+            }
     },
     // export
     Static:{
