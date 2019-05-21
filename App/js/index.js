@@ -729,7 +729,7 @@ xui.Class('App', 'xui.Module',{
                                 "type":"control",
                                 "target":"xui_tv_folders",
                                 "args":[
-                                    "{args[0]}",
+                                    "{args[1]}",
                                     "{temp.updateItem}"
                                 ],
                                 "method":"updateItem"
@@ -739,7 +739,7 @@ xui.Class('App', 'xui.Module',{
                                 "type":"control",
                                 "target":"xui_tabs_json",
                                 "args":[
-                                    "{args[0]}",
+                                    "{args[1]}",
                                     "{temp.updateItem}"
                                 ],
                                 "method":"updateItem"
