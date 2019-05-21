@@ -59,7 +59,8 @@ xui.Class('Module.Editor', 'xui.Module',{
                                 "json"
                             ],
                             "method":"getUIValue",
-                            "redirection":"other:callback:call"
+                            "redirection":"other:callback:call",
+                            "event":1
                         },
                         {
                             "desc":"post msg",
@@ -70,7 +71,7 @@ xui.Class('Module.Editor', 'xui.Module',{
                                 "none",
                                 "",
                                 "saveFile",
-                                "{page.properties.pash}",
+                                "{page.properties.path}",
                                 "{page.properties.sha}",
                                 "{temp.json}"
                             ],
