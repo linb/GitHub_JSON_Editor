@@ -755,6 +755,20 @@ xui.Class('App', 'xui.Module',{
                                     5000
                                 ],
                                 "method":"message"
+                            },
+                            {
+                                "desc":"to module",
+                                "type":"other",
+                                "target":"msg",
+                                "args":[
+                                    "{xui.broadcast()}",
+                                    undefined,
+                                    undefined,
+                                    "{args[1]}",
+                                    "{args[2]}"
+                                ],
+                                "method":"gbroadcast",
+                                "redirection":"other:callback:call"
                             }
                         ]
                     }
