@@ -112,14 +112,25 @@ xui.Class('Module.Editor', 'xui.Module',{
                 ],
                 "actions":[
                     {
-                        "desc":"Action 1",
+                        "desc":"fomat",
+                        "type":"other",
+                        "target":"var",
+                        "args":[
+                            "json",
+                            "{args[1]}"
+                        ],
+                        "method":"temp",
+                        "adjust":"{xui.Coder.formatText}"
+                    },
+                    {
+                        "desc":"set json",
                         "type":"control",
                         "target":"xui_ui_textarea",
                         "args":[
                             "{page.xui_ui_textarea.setUIValue()}",
                             undefined,
                             undefined,
-                            "{args[1]}"
+                            "{temp.json}"
                         ],
                         "method":"setUIValue",
                         "redirection":"other:callback:call"
