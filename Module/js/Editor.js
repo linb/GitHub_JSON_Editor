@@ -55,7 +55,7 @@ xui.Class('Module.Editor', 'xui.Module',{
         propSetAction : function(prop){
         },
         functions:{
-            "set json":{
+            "setjson":{
                 "desc":"",
                 "params":[
                     {
