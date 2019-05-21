@@ -46,6 +46,44 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setTop("0.6666666666666666em")
                 .setWidth("10em")
                 .setCaption("Save")
+                .onClick({
+                    "newbies":{ },
+                    "actions":[
+                        {
+                            "desc":"get json",
+                            "type":"control",
+                            "target":"xui_ui_textarea",
+                            "args":[
+                                "{page.xui_ui_textarea.getUIValue()}",
+                                "temp",
+                                "json"
+                            ],
+                            "method":"getUIValue",
+                            "redirection":"other:callback:call",
+                            "event":1
+                        },
+                        {
+                            "desc":"post msg",
+                            "type":"control",
+                            "target":"xui_messageservice1",
+                            "args":[
+                                "{page.xui_messageservice1.broadcast()}",
+                                "none",
+                                "",
+                                "mainpage",
+                                "{page.properties.path}",
+                                "{temp.json}"
+                            ],
+                            "method":"broadcast",
+                            "redirection":"other:callback:call"
+                        }
+                    ]
+                })
+            );
+            
+            append(
+                xui.create("xui.MessageService")
+                .setHost(host,"xui_messageservice1")
             );
             
             return children;
