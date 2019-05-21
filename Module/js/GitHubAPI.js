@@ -88,6 +88,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             // save to cookie
             if(paras.access_token){
                 ns.setToken(paras.access_token);
+                if(ns.loginLayer){
+                  ns.loginLayer.hide();
+                }            
             }
             ns.ensureGithubAuth();
         },
