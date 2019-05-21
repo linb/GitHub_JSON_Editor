@@ -72,6 +72,7 @@ xui.Class('Module.Editor', 'xui.Module',{
                                 "",
                                 "mainpage",
                                 "{page.properties.path}",
+                                "{page.properties.sha}",
                                 "{temp.json}"
                             ],
                             "method":"broadcast",
