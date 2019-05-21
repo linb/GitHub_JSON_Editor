@@ -191,7 +191,7 @@ xui.Class('App', 'xui.Module',{
                                 "{global.repoName}",
                                 "{args[1].id}",
                                 "{true}",
-                                "callback"
+                                "{temp.newbies.clfjj5fi.functions.setjson}"
                             ],
                             "method":"$Functions.readFile",
                             "redirection":"other:callback:call"
