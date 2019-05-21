@@ -161,6 +161,17 @@ xui.Class('App', 'xui.Module',{
                             "type":"module",
                             "target":"{temp.newbies.clfjj5fi}",
                             "args":[
+                                {
+                                    "path":"{args[1].id}"
+                                }
+                            ],
+                            "method":"setProperties"
+                        },
+                        {
+                            "desc":"show mdl",
+                            "type":"module",
+                            "target":"{temp.newbies.clfjj5fi}",
+                            "args":[
                                 "{page.xui_tabs_json}",
                                 "{args[1].id}"
                             ],
