@@ -134,6 +134,26 @@ xui.Class('Module.Editor', 'xui.Module',{
                         ],
                         "method":"setUIValue",
                         "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"freeUI",
+                        "type":"control",
+                        "target":"xui_ui_block19",
+                        "args":[ ],
+                        "method":"free"
+                    }
+                ]
+            },
+            "busyUI":{
+                "desc":"",
+                "params":[ ],
+                "actions":[
+                    {
+                        "desc":"Action 1",
+                        "type":"control",
+                        "target":"xui_ui_block19",
+                        "args":[ ],
+                        "method":"busy"
                     }
                 ]
             }
