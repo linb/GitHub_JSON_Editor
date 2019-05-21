@@ -100,6 +100,11 @@ xui.Class('Module.Editor', 'xui.Module',{
                 "desc":"",
                 "params":[
                     {
+                        "id":"id",
+                        "type":"String",
+                        "desc":""
+                    },
+                    {
                         "id":"json",
                         "type":"String",
                         "desc":""
@@ -114,7 +119,7 @@ xui.Class('Module.Editor', 'xui.Module',{
                             "{page.xui_ui_textarea.setUIValue()}",
                             undefined,
                             undefined,
-                            "{args[0]}"
+                            "{args[1]}"
                         ],
                         "method":"setUIValue",
                         "redirection":"other:callback:call"
