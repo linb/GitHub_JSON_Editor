@@ -237,6 +237,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 content: encode? Base64.encode( content ) : content
             }).then(function(rsp){
                 var args = [requestId, path, rsp.data.content.sha];
+                debugger;
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onUpdateGithubFile", args);                    
             }).catch(function(e){
