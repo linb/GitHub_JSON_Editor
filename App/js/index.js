@@ -172,7 +172,7 @@ xui.Class('App', 'xui.Module',{
                             "target":"callback",
                             "args":[
                                 "setJson",
-                                "{temp.newbies.clfjj5fi.functions.setjson()}"
+                                "{temp.newbies.clfjj5fi.functions.setjson}"
                             ],
                             "method":"setmp"
                         },
