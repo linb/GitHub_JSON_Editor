@@ -118,7 +118,7 @@ xui.Class('App', 'xui.Module',{
                 .setTagCmds([
                     {
                         "id":"new",
-                        "itemClass":"xuicon xui-icon-file",
+                        "itemClass":"xuicon xui-uicmd-add",
                         "tag":"branch"
                     },
                     {
