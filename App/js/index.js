@@ -110,7 +110,7 @@ xui.Class('App', 'xui.Module',{
                 ])
                 .onItemSelected({
                     "newbies":{
-                        "ha4nz8ly":"xui.UI.Input"
+                        "6lfjj5fi":"Module.Editor"
                     },
                     "actions":[
                         {
@@ -157,24 +157,9 @@ xui.Class('App', 'xui.Module',{
                             "method":"setValue"
                         },
                         {
-                            "desc":"crete textarea",
-                            "type":"control",
-                            "target":"{temp.newbies.ha4nz8ly}",
-                            "args":[
-                                {
-                                    "multiLines":true,
-                                    "dock":"fill",
-                                    "dirtyMark":false,
-                                    "showDirtyMark":false
-                                },
-                                { }
-                            ],
-                            "method":"setProperties"
-                        },
-                        {
-                            "desc":"add textarea",
-                            "type":"control",
-                            "target":"{temp.newbies.ha4nz8ly}",
+                            "desc":"crete inputmodule",
+                            "type":"module",
+                            "target":"{temp.newbies.6lfjj5fi}",
                             "args":[
                                 "{page.xui_tabs_json}",
                                 "{args[1].id}"
