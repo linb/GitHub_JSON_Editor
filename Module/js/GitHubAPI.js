@@ -228,7 +228,6 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         updateFile : function(requestId, repo, path, sha, content, encode, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();              
-            debugger;
             clientWithAuth.repos.updateFile({
                 owner:api.getGithubUser(),
                 repo:repo,
@@ -238,7 +237,6 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 content: encode? Base64.encode( content ) : content
             }).then(function(rsp){
                 var args = [requestId, path, rsp.data.content.sha];
-                debugger;
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onUpdateGithubFile", args);                    
             }).catch(function(e){
