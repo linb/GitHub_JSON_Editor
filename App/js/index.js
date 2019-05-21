@@ -187,7 +187,7 @@ xui.Class('App', 'xui.Module',{
                                 "setJson",
                                 "{temp.newbies.clfjj5fi.functions.setjson}"
                             ],
-                            "method":"setmp"
+                            "method":"set"
                         },
                         {
                             "desc":"to read file",
@@ -764,7 +764,7 @@ xui.Class('App', 'xui.Module',{
                             "freeUI",
                             "{xui.free}"
                         ],
-                        "method":"setmp"
+                        "method":"set"
                     },
                     {
                         "desc":"save",
