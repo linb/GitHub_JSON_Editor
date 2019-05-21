@@ -110,7 +110,7 @@ xui.Class('App', 'xui.Module',{
                 ])
                 .onItemSelected({
                     "newbies":{
-                        "6lfjj5fi":"Module.Editor"
+                        "clfjj5fi":"Module.Editor"
                     },
                     "actions":[
                         {
@@ -159,7 +159,7 @@ xui.Class('App', 'xui.Module',{
                         {
                             "desc":"crete inputmodule",
                             "type":"module",
-                            "target":"{temp.newbies.6lfjj5fi}",
+                            "target":"{temp.newbies.clfjj5fi}",
                             "args":[
                                 "{page.xui_tabs_json}",
                                 "{args[1].id}"
@@ -172,7 +172,7 @@ xui.Class('App', 'xui.Module',{
                             "target":"callback",
                             "args":[
                                 "setJson",
-                                "{temp.newbies.6lfjj5fi.functions.setjson()}"
+                                "{temp.newbies.clfjj5fi.functions.setjson()}"
                             ],
                             "method":"setmp"
                         },
