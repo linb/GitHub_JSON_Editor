@@ -228,6 +228,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         updateFile : function(requestId, repo, path, sha, content, encode, onSuccess, onFail){
             var api=this,
                 clientWithAuth = this.getGithubClient();              
+            debugger;
             clientWithAuth.repos.updateFile({
                 owner:api.getGithubUser(),
                 repo:repo,
