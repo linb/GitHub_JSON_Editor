@@ -706,47 +706,6 @@ xui.Class('App', 'xui.Module',{
             );
             
             append(
-                xui.create("xui.MessageService")
-                .setHost(host,"xui_messageservice3")
-                .setRecipientType("mainpage")
-                .onMessageReceived({
-                    "newbies":{ },
-                    "actions":[
-                        {
-                            "desc":"set fun",
-                            "type":"other",
-                            "target":"callback",
-                            "args":[
-                                "free",
-                                "{xui.free}"
-                            ],
-                            "method":"setmp"
-                        },
-                        {
-                            "desc":"save",
-                            "type":"module",
-                            "target":"module_githubapi1",
-                            "args":[
-                                "{page.module_githubapi1.updateFile}",
-                                undefined,
-                                undefined,
-                                "updateFile",
-                                "{global.repoName}",
-                                "{args[1]}",
-                                "{args[2]}",
-                                "{args[3]}",
-                                "{true}",
-                                "{temp.free}",
-                                "{temp.free}"
-                            ],
-                            "method":"$Functions.updateFile",
-                            "redirection":"other:callback:call"
-                        }
-                    ]
-                })
-            );
-            
-            append(
                 xui.create("xui.UI.CSSBox")
                 .setHost(host,"xui_ui_cssbox1")
                 .setClassName("xui-css-can")
@@ -792,7 +751,49 @@ xui.Class('App', 'xui.Module',{
                     "method":"$Functions.ensureGithubAuth",
                     "redirection":"other:callback:call"
                 }
-            ]
+            ],
+            "onGlobalMessage":{
+                "newbies":{ },
+                "actions":[
+                    {
+                        "desc":"set callback",
+                        "type":"other",
+                        "target":"callback",
+                        "args":[
+                            "freeUI",
+                            "{xui.free}"
+                        ],
+                        "method":"setmp"
+                    },
+                    {
+                        "desc":"save",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.updateFile}",
+                            undefined,
+                            undefined,
+                            "{args[0]}",
+                            "{global.repoName}",
+                            "{args[1]}",
+                            "{args[2]}",
+                            "{args[3]}",
+                            "{true}",
+                            "{temp.freeUI}",
+                            "{temp.freeUI}"
+                        ],
+                        "method":"$Functions.updateFile",
+                        "conditions":[
+                            {
+                                "left":"{args[0]}",
+                                "symbol":"=",
+                                "right":"saveFile"
+                            }
+                        ],
+                        "redirection":"other:callback:call"
+                    }
+                ]
+            }
         },
         properties:{
             "cur_repo":null,
