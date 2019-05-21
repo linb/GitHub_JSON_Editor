@@ -76,6 +76,7 @@ xui.Class('App', 'xui.Module',{
                 .setDirtyMark(false)
                 .setLeft("0em")
                 .setTop("0em")
+                .setSelMode("none")
                 .onGetContent([
                     {
                         "desc":"fetchFolderContent",
@@ -215,22 +216,6 @@ xui.Class('App', 'xui.Module',{
                 xui.create("xui.UI.ToolBar")
                 .setHost(host,"xui_tb_files")
                 .setItems([
-                    {
-                        "id":"grp1",
-                        "sub":[
-                            {
-                                "id":"new",
-                                "caption":"New",
-                                "imageClass":"xui-icon-file"
-                            },
-                            {
-                                "id":"delete",
-                                "caption":"Delete",
-                                "imageClass":"xui-uicmd-close"
-                            }
-                        ],
-                        "caption":"grp1"
-                    },
                     {
                         "id":"grp2",
                         "sub":[
