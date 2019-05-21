@@ -705,6 +705,35 @@ xui.Class('App', 'xui.Module',{
             );
             
             append(
+                xui.create("xui.MessageService")
+                .setHost(host,"xui_messageservice3")
+                .setRecipientType("mainpage")
+                .onMessageReceived({
+                    "newbies":{ },
+                    "actions":[
+                        {
+                            "desc":"save",
+                            "type":"module",
+                            "target":"module_githubapi1",
+                            "args":[
+                                "{page.module_githubapi1.updateFile}",
+                                undefined,
+                                undefined,
+                                "updateFile",
+                                "{global.repoName}",
+                                "{args[1]}",
+                                "{args[2]}",
+                                "{args[3]}",
+                                "{true}"
+                            ],
+                            "method":"$Functions.updateFile",
+                            "redirection":"other:callback:call"
+                        }
+                    ]
+                })
+            );
+            
+            append(
                 xui.create("xui.UI.CSSBox")
                 .setHost(host,"xui_ui_cssbox1")
                 .setClassName("xui-css-can")
