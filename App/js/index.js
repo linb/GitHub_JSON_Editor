@@ -173,6 +173,7 @@ xui.Class('App', 'xui.Module',{
                             "type":"module",
                             "target":"{temp.newbies.clfjj5fi}",
                             "args":[
+                                undefined,
                                 "{page.xui_tabs_json}",
                                 "{args[1].id}"
                             ],
