@@ -89,11 +89,6 @@ xui.Class('Module.Editor', 'xui.Module',{
                 })
             );
             
-            append(
-                xui.create("xui.MessageService")
-                .setHost(host,"xui_messageservice1")
-            );
-            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
