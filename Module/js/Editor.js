@@ -53,6 +53,33 @@ xui.Class('Module.Editor', 'xui.Module',{
         },
         // To determine how properties affects this module
         propSetAction : function(prop){
+        },
+        functions:{
+            "set json":{
+                "desc":"",
+                "params":[
+                    {
+                        "id":"json",
+                        "type":"String",
+                        "desc":""
+                    }
+                ],
+                "actions":[
+                    {
+                        "desc":"Action 1",
+                        "type":"control",
+                        "target":"xui_ui_textarea",
+                        "args":[
+                            "{page.xui_ui_textarea.setUIValue()}",
+                            undefined,
+                            undefined,
+                            "{args[0]}"
+                        ],
+                        "method":"setUIValue",
+                        "redirection":"other:callback:call"
+                    }
+                ]
+            }
         }
     },
     // export
