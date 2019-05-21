@@ -59,23 +59,22 @@ xui.Class('Module.Editor', 'xui.Module',{
                                 "json"
                             ],
                             "method":"getUIValue",
-                            "redirection":"other:callback:call",
-                            "event":1
+                            "redirection":"other:callback:call"
                         },
                         {
                             "desc":"post msg",
-                            "type":"control",
-                            "target":"xui_messageservice1",
+                            "type":"other",
+                            "target":"msg",
                             "args":[
-                                "{page.xui_messageservice1.broadcast()}",
+                                "{xui.broadcast()}",
                                 "none",
                                 "",
-                                "mainpage",
-                                "{page.properties.path}",
+                                "saveFile",
+                                "{page.properties.pash}",
                                 "{page.properties.sha}",
                                 "{temp.json}"
                             ],
-                            "method":"broadcast",
+                            "method":"gbroadcast",
                             "redirection":"other:callback:call"
                         },
                         {
