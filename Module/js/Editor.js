@@ -20,7 +20,7 @@ xui.Class('Module.Editor', 'xui.Module',{
             
             append(
                 xui.create("xui.UI.Input")
-                .setHost(host,"xui_ui_input1")
+                .setHost(host,"xui_ui_textarea")
                 .setDirtyMark(false)
                 .setDock("fill")
                 .setLeft("5.833333333333333em")
@@ -37,6 +37,15 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setLeft("14.166666666666666em")
                 .setTop("25em")
                 .setHeight("3.3333333333333335em")
+            );
+            
+            host.xui_ui_block19.append(
+                xui.create("xui.UI.HTMLButton")
+                .setHost(host,"xui_ui_save")
+                .setLeft("1.6666666666666667em")
+                .setTop("0.6666666666666666em")
+                .setWidth("10em")
+                .setCaption("Save")
             );
             
             return children;
