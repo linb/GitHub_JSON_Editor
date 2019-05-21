@@ -71,12 +71,62 @@ xui.Class('App', 'xui.Module',{
             );
             
             host.xui_panel_left.append(
+                xui.create("xui.UI.ToolBar")
+                .setHost(host,"xui_tb_files")
+                .setItems([
+                    {
+                        "id":"grp2",
+                        "sub":[
+                            {
+                                "id":"refresh",
+                                "caption":"Refresh",
+                                "imageClass":"xui-uicmd-refresh"
+                            }
+                        ],
+                        "caption":"grp2"
+                    }
+                ])
+                .setTop("7.5em")
+                .onClick([
+                    {
+                        "desc":"refresh",
+                        "type":"other",
+                        "target":"callback",
+                        "args":[
+                            "{page.functions.refreshRoot}"
+                        ],
+                        "method":"call",
+                        "conditions":[
+                            {
+                                "left":"{args[1].id}",
+                                "symbol":"=",
+                                "right":"refresh"
+                            }
+                        ],
+                        "event":3
+                    }
+                ])
+            );
+            
+            host.xui_panel_left.append(
                 xui.create("xui.UI.TreeView")
                 .setHost(host,"xui_tv_folders")
                 .setDirtyMark(false)
                 .setLeft("0em")
                 .setTop("0em")
                 .setSelMode("none")
+                .setTagCmds([
+                    {
+                        "id":"new",
+                        "itemClass":"xuicon xui-icon-file",
+                        "tag":"branch"
+                    },
+                    {
+                        "id":"delete",
+                        "itemClass":"xuicon xui-uicmd-close",
+                        "tag":"leaf"
+                    }
+                ])
                 .onGetContent([
                     {
                         "desc":"fetchFolderContent",
@@ -214,44 +264,6 @@ xui.Class('App', 'xui.Module',{
                         }
                     ]
                 })
-            );
-            
-            host.xui_panel_left.append(
-                xui.create("xui.UI.ToolBar")
-                .setHost(host,"xui_tb_files")
-                .setItems([
-                    {
-                        "id":"grp2",
-                        "sub":[
-                            {
-                                "id":"refresh",
-                                "caption":"Refresh",
-                                "imageClass":"xui-uicmd-refresh"
-                            }
-                        ],
-                        "caption":"grp2"
-                    }
-                ])
-                .setTop("7.5em")
-                .onClick([
-                    {
-                        "desc":"refresh",
-                        "type":"other",
-                        "target":"callback",
-                        "args":[
-                            "{page.functions.refreshRoot}"
-                        ],
-                        "method":"call",
-                        "conditions":[
-                            {
-                                "left":"{args[1].id}",
-                                "symbol":"=",
-                                "right":"refresh"
-                            }
-                        ],
-                        "event":3
-                    }
-                ])
             );
             
             host.xui_ui_layout3.append(
