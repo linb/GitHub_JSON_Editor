@@ -119,11 +119,13 @@ xui.Class('App', 'xui.Module',{
                     {
                         "id":"new",
                         "itemClass":"xuicon xui-uicmd-add",
+                        "tips":"Add new json",
                         "tag":"branch"
                     },
                     {
                         "id":"delete",
                         "itemClass":"xuicon xui-uicmd-close",
+                        "tips":"Delete this one",
                         "tag":"leaf"
                     }
                 ])
