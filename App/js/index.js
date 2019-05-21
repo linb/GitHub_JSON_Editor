@@ -114,6 +114,22 @@ xui.Class('App', 'xui.Module',{
                     },
                     "actions":[
                         {
+                            "desc":"exists?",
+                            "type":"none",
+                            "target":"none",
+                            "args":[ ],
+                            "method":"none",
+                            "conditions":[
+                                {
+                                    "left":"{page.xui_tabs_json.getItems()}",
+                                    "symbol":"objarrhaskey",
+                                    "right":"{args[1].id}"
+                                }
+                            ],
+                            "return":false,
+                            "event":2
+                        },
+                        {
                             "desc":"pick item",
                             "type":"other",
                             "target":"var",
