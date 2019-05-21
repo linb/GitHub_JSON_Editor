@@ -77,6 +77,13 @@ xui.Class('Module.Editor', 'xui.Module',{
                             ],
                             "method":"broadcast",
                             "redirection":"other:callback:call"
+                        },
+                        {
+                            "desc":"busy UI",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[ ],
+                            "method":"busy"
                         }
                     ]
                 })
