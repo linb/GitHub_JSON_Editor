@@ -710,7 +710,42 @@ xui.Class('App', 'xui.Module',{
                             ],
                             "method":"call"
                         }
-                    ]
+                    ],
+                    "onUpdateGithubFile":{
+                        "newbies":{ },
+                        "actions":[
+                            {
+                                "desc":"make item",
+                                "type":"other",
+                                "target":"var",
+                                "args":[
+                                    "updateItem.sha",
+                                    "{args[2]}"
+                                ],
+                                "method":"temp"
+                            },
+                            {
+                                "desc":"update tv",
+                                "type":"control",
+                                "target":"xui_tv_folders",
+                                "args":[
+                                    "{args[0]}",
+                                    "{temp.updateItem}"
+                                ],
+                                "method":"updateItem"
+                            },
+                            {
+                                "desc":"update tab",
+                                "type":"control",
+                                "target":"xui_tabs_json",
+                                "args":[
+                                    "{args[0]}",
+                                    "{temp.updateItem}"
+                                ],
+                                "method":"updateItem"
+                            }
+                        ]
+                    }
                 })
             );
             
@@ -973,7 +1008,7 @@ xui.Class('App', 'xui.Module',{
             },
             "refreshRoot":{
                 "desc":"refresh root files",
-                 "params":[ ],
+                "params":[ ],
                 "actions":[
                     {
                         "desc":"fetchFiles",
