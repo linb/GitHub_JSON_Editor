@@ -253,7 +253,25 @@ xui.Class('App', 'xui.Module',{
                 .setHost(host,"xui_tabs_json")
                 .setLeft("0em")
                 .setTop("0em")
-                .setValue("a"),
+                .setValue("a")
+                .afterPageClose({
+                    "newbies":{ },
+                    "actions":[
+                        {
+                            "desc":"Action 1",
+                            "type":"control",
+                            "target":"xui_tabs_json",
+                            "args":[
+                                "{page.xui_tabs_json.setUIValue()}",
+                                undefined,
+                                undefined,
+                                "{}"
+                            ],
+                            "method":"setUIValue",
+                            "redirection":"other:callback:call"
+                        }
+                    ]
+                }),
                 "main"
             );
             
