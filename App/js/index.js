@@ -743,6 +743,18 @@ xui.Class('App', 'xui.Module',{
                                     "{temp.updateItem}"
                                 ],
                                 "method":"updateItem"
+                            },
+                            {
+                                "desc":"message",
+                                "type":"other",
+                                "target":"msg",
+                                "args":[
+                                    undefined,
+                                    "Saved!",
+                                    200,
+                                    5000
+                                ],
+                                "method":"message"
                             }
                         ]
                     }
