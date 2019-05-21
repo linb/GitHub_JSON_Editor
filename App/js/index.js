@@ -713,6 +713,16 @@ xui.Class('App', 'xui.Module',{
                     "newbies":{ },
                     "actions":[
                         {
+                            "desc":"set fun",
+                            "type":"other",
+                            "target":"callback",
+                            "args":[
+                                "free",
+                                "{xui.free}"
+                            ],
+                            "method":"setmp"
+                        },
+                        {
                             "desc":"save",
                             "type":"module",
                             "target":"module_githubapi1",
@@ -725,7 +735,9 @@ xui.Class('App', 'xui.Module',{
                                 "{args[1]}",
                                 "{args[2]}",
                                 "{args[3]}",
-                                "{true}"
+                                "{true}",
+                                "{temp.free}",
+                                "{temp.free}"
                             ],
                             "method":"$Functions.updateFile",
                             "redirection":"other:callback:call"
