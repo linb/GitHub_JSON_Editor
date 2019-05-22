@@ -138,17 +138,65 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"msg",
                         "args":[
-                            "",
-                            "add new to root"
+                            "Specify a name (.json)",
+                            "Name ( [a-zA-Z0-9_] only , no \".josn\" please )",
+                            ""
                         ],
-                        "method":"message",
+                        "method":"prompt",
                         "conditions":[
                             {
                                 "left":"{args[1].id}",
                                 "symbol":"=",
                                 "right":"new"
                             }
+                        ],
+                        "okFlag":"_prompt_ok",
+                        "koFlag":"_prompt_cancel",
+                        "onOK":3,
+                        "onKO":4
+                    },
+                    {
+                        "desc":"set var",
+                        "type":"other",
+                        "target":"var",
+                        "args":[
+                            "fileName",
+                            "{temp.okData}"
+                        ],
+                        "method":"temp",
+                        "conditions":[
+                            {
+                                "left":"{args[1].id}",
+                                "symbol":"=",
+                                "right":"new"
+                            },
+                            {
+                                "left":"{temp._prompt_ok}",
+                                "symbol":"non-empty",
+                                "right":""
+                            }
                         ]
+                    },
+                    {
+                        "desc":"try to creata file",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            "{xui.broadcast()}",
+                            undefined,
+                            undefined,
+                            "newFile",
+                            "{temp.fileName} +\".json\""
+                        ],
+                        "method":"gbroadcast",
+                        "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"ui busy",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[ ],
+                        "method":"busy"
                     }
                 ])
             );
