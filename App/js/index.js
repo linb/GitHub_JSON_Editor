@@ -1126,8 +1126,6 @@ xui.Class('App', 'xui.Module',{
                         "target":"xui_ui_pagebar5",
                         "args":[
                             "{page.xui_ui_pagebar5.setUIValue()}",
-                            undefined,
-                            undefined,
                             "1:1:1"
                         ],
                         "method":"setUIValue",
@@ -1139,8 +1137,6 @@ xui.Class('App', 'xui.Module',{
                         "target":"xui_sel_repo",
                         "args":[
                             "{page.xui_sel_repo.popUp()}",
-                            undefined,
-                            undefined,
                             "{page.xui_btn_popRepoList}"
                         ],
                         "method":"popUp",
@@ -1152,8 +1148,6 @@ xui.Class('App', 'xui.Module',{
                         "target":"module_githubapi1",
                         "args":[
                             "{page.module_githubapi1.listRepos}",
-                            undefined,
-                            undefined,
                             "forSelectRepo",
                             "{1}",
                             "{page.xui_ui_pagebar5.getPageCount()}"
@@ -1179,8 +1173,6 @@ xui.Class('App', 'xui.Module',{
                         "target":"module_githubapi1",
                         "args":[
                             "{page.module_githubapi1.listRepos}",
-                            undefined,
-                            undefined,
                             "forSelectRepo",
                             "{args[0]}",
                             "{page.xui_ui_pagebar5.getPageCount()}",
@@ -1212,8 +1204,6 @@ xui.Class('App', 'xui.Module',{
                         "target":"xui_panel_left",
                         "args":[
                             "{page.xui_panel_left.setCaption()}",
-                            undefined,
-                            undefined,
                             "Repo: {args[0]}"
                         ],
                         "method":"setCaption",
@@ -1235,11 +1225,8 @@ xui.Class('App', 'xui.Module',{
                         "target":"module_githubapi1",
                         "args":[
                             "{page.module_githubapi1.listFiles}",
-                            undefined,
-                            undefined,
                             "fetchRoot",
                             "{global.repoName}",
-                            undefined,
                             "all",
                             "json"
                         ],
@@ -1258,11 +1245,8 @@ xui.Class('App', 'xui.Module',{
                         "target":"module_githubapi1",
                         "args":[
                             "{page.module_githubapi1.listFiles}",
-                            undefined,
-                            undefined,
                             "fetchRoot",
                             "{global.repoName}",
-                            undefined,
                             "all",
                             "json"
                         ],
@@ -1296,6 +1280,21 @@ xui.Class('App', 'xui.Module',{
                         "onKO":4
                     },
                     {
+                        "desc":"check prompt",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{temp._prompt_cancel}",
+                                "symbol":"defined",
+                                "right":""
+                            }
+                        ],
+                        "return":false
+                    },
+                    {
                         "desc":"check input",
                         "type":"other",
                         "target":"msg",
@@ -1305,11 +1304,10 @@ xui.Class('App', 'xui.Module',{
                         "conditions":[
                             {
                                 "left":"{temp.okData}",
-                                "symbol":"empty",
+                                "symbol":"defined",
                                 "right":""
                             }
-                        ],
-                        "return":false
+                        ]
                     },
                     {
                         "desc":"busyUI",
@@ -1324,14 +1322,11 @@ xui.Class('App', 'xui.Module',{
                         "target":"module_githubapi1",
                         "args":[
                             "{page.module_githubapi1.createFile}",
-                            undefined,
-                            undefined,
                             "createFile",
                             "{global.repoName}",
                             "{args[0]}{temp.okData}.json",
                             "{global.dftFileContent}",
                             "{true}",
-                            undefined,
                             "{xui.free}"
                         ],
                         "method":"$Functions.createFile",
