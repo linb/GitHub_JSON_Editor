@@ -984,6 +984,18 @@ xui.Class('App', 'xui.Module',{
                                 }
                             ]
                         }
+                    ],
+                    "onDeleteGithubFile":[
+                        {
+                            "desc":"Action 1",
+                            "type":"control",
+                            "target":"xui_tv_folders",
+                            "args":[
+                                undefined,
+                                "{args[1]}"
+                            ],
+                            "method":"removeItems"
+                        }
                     ]
                 })
             );
