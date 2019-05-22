@@ -134,7 +134,7 @@ xui.Class('App', 'xui.Module',{
                         "event":3
                     },
                     {
-                        "desc":"add",
+                        "desc":"add prompt",
                         "type":"other",
                         "target":"msg",
                         "args":[
@@ -156,6 +156,26 @@ xui.Class('App', 'xui.Module',{
                         "onKO":4
                     },
                     {
+                        "desc":"add check",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{args[1].id}",
+                                "symbol":"=",
+                                "right":"new"
+                            },
+                            {
+                                "left":"{temp._prompt_cancel}",
+                                "symbol":"non-empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false
+                    },
+                    {
                         "desc":"set var",
                         "type":"other",
                         "target":"var",
@@ -169,35 +189,28 @@ xui.Class('App', 'xui.Module',{
                                 "left":"{args[1].id}",
                                 "symbol":"=",
                                 "right":"new"
-                            },
-                            {
-                                "left":"{temp._prompt_ok}",
-                                "symbol":"non-empty",
-                                "right":""
                             }
                         ]
                     },
                     {
                         "desc":"try to creata file",
                         "type":"other",
-                        "target":"msg",
+                        "target":"callback",
                         "args":[
-                            "{xui.broadcast()}",
+                            "{page.functions.createFile}",
                             undefined,
                             undefined,
-                            "newFile",
-                            "",
-                            "{temp.fileName} +\".json\""
+                            undefined,
+                            "{temp.okData}"
                         ],
-                        "method":"gbroadcast",
-                        "redirection":"other:callback:call"
-                    },
-                    {
-                        "desc":"ui busy",
-                        "type":"other",
-                        "target":"msg",
-                        "args":[ ],
-                        "method":"busy"
+                        "method":"call",
+                        "conditions":[
+                            {
+                                "left":"{args[1].id}",
+                                "symbol":"=",
+                                "right":"new"
+                            }
+                        ]
                     }
                 ])
             );
@@ -1236,6 +1249,35 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"$Functions.listFiles",
                         "redirection":"other:callback:call"
+                    }
+                ]
+            },
+            "createFile":{
+                "desc":"",
+                "params":[
+                    {
+                        "id":"dir",
+                        "type":"String",
+                        "desc":""
+                    },
+                    {
+                        "id":"fileName",
+                        "type":"String",
+                        "desc":""
+                    }
+                ],
+                "actions":[
+                    {
+                        "desc":"Action 1",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            "{args[1]}",
+                            "{args[0]}",
+                            200,
+                            5000
+                        ],
+                        "method":"message"
                     }
                 ]
             }
