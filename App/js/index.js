@@ -1293,6 +1293,21 @@ xui.Class('App', 'xui.Module',{
                         "onKO":4
                     },
                     {
+                        "desc":"check input",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{temp.okData}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false
+                    },
+                    {
                         "desc":"busyUI",
                         "type":"other",
                         "target":"msg",
