@@ -94,7 +94,14 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             }
             ns.ensureGithubAuth();
         },
-
+        githubLogout:function(){
+            var ns=this;
+            
+            xui.Cookies.remove("access_token");
+            delete ns._githubAccessToken;
+            
+            ns.ensureGithubAuth();
+        },
         // APIs
         listRepos : function(requestId, page, per_page, nameIn, sort, order, onSuccess, onFail){
             var api=this,
