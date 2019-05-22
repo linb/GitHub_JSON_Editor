@@ -179,7 +179,7 @@ xui.Class('App', 'xui.Module',{
                 ])
                 .onCmd([
                     {
-                        "desc":"Action 1",
+                        "desc":"new",
                         "type":"other",
                         "target":"callback",
                         "args":[
@@ -197,6 +197,26 @@ xui.Class('App', 'xui.Module',{
                             }
                         ],
                         "event":3
+                    },
+                    {
+                        "desc":"delete",
+                        "type":"other",
+                        "target":"callback",
+                        "args":[
+                            "{page.functions.deleteFile}",
+                            undefined,
+                            undefined,
+                            "{args[1].id}",
+                            "{args[1].sha}"
+                        ],
+                        "method":"call",
+                        "conditions":[
+                            {
+                                "left":"{args[2]}",
+                                "symbol":"=",
+                                "right":"delete"
+                            }
+                        ]
                     }
                 ])
                 .onGetContent([
@@ -1349,6 +1369,63 @@ xui.Class('App', 'xui.Module',{
                             "{xui.free}"
                         ],
                         "method":"$Functions.createFile",
+                        "redirection":"other:callback:call"
+                    }
+                ]
+            },
+            "deleteFile":{
+                "desc":"delete file",
+                "params":[
+                    {
+                        "id":"path",
+                        "type":"String",
+                        "desc":""
+                    },
+                    {
+                        "id":"sha",
+                        "type":"String",
+                        "desc":""
+                    }
+                ],
+                "actions":[
+                    {
+                        "desc":"check",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{args[0]}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false
+                    },
+                    {
+                        "desc":"busyUI",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[ ],
+                        "method":"busy"
+                    },
+                    {
+                        "desc":"delete",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.deleteFile}",
+                            undefined,
+                            undefined,
+                            "delete",
+                            "{global.repoName}",
+                            "{args[0]}",
+                            "{args[1]}",
+                            "{xui.free}",
+                            "{xui.free}"
+                        ],
+                        "method":"$Functions.deleteFile",
                         "redirection":"other:callback:call"
                     }
                 ]
