@@ -99,6 +99,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             
             xui.Cookies.remove("access_token");
             delete ns._githubAccessToken;
+            delete ns.clientWithAuth;
+            delete ns._userProfile;
             
             ns.ensureGithubAuth();
         },
@@ -287,6 +289,8 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
     Static:{
         $Functions:{
             ensureGithubAuth : function(){},
+            githubLogout : function(){},
+            
             setLastActionConf : function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){},
             listRepos : function(requestId /*String, requestid*/, 
                                   page /*Number, current page*/,
