@@ -477,6 +477,29 @@ xui.Class('App', 'xui.Module',{
                 .setSelMode("none")
                 .setLabelSize("8.333333333333334em")
                 .setLabelPos("none")
+                .onItemSelected([
+                    {
+                        "desc":"clr global var",
+                        "type":"other",
+                        "target":"var",
+                        "args":[
+                            "repoName",
+                            "{null}"
+                        ],
+                        "method":"global",
+                        "event":2
+                    },
+                    {
+                        "desc":"logout",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.githubLogout}"
+                        ],
+                        "method":"$Functions.githubLogout",
+                        "redirection":"other:callback:call"
+                    }
+                ])
                 .setCustomStyle({
                     "ITEM":{
                         "font-family":"arial black,avant garde",
