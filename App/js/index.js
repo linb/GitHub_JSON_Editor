@@ -186,7 +186,7 @@ xui.Class('App', 'xui.Module',{
                             "{page.functions.createFile}",
                             undefined,
                             undefined,
-                            "{args[1].id}"
+                            "{args[1].id}/"
                         ],
                         "method":"call",
                         "conditions":[
