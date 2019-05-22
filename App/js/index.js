@@ -90,10 +90,15 @@ xui.Class('App', 'xui.Module',{
                 .onClick([
                     {
                         "desc":"check",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            "Select a repo please!",
+                            "No repo selected",
+                            200,
+                            5000
+                        ],
+                        "method":"message",
                         "conditions":[
                             {
                                 "left":"{global.repoName}",
