@@ -235,7 +235,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                     type: info.type,
                     sha: info.sha,
                     tagVar:info
-                }, path.replace(/\/[^\/]*$/,'')];
+                }, path.replace(/[^\/]*$/,'').replace(/\/$/,'')];
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onCreateGithubFile", args);                
             }).catch(function(e){
