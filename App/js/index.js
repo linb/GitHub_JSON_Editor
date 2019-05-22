@@ -503,6 +503,20 @@ xui.Class('App', 'xui.Module',{
                         ],
                         "method":"$Functions.githubLogout",
                         "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"clr tabs",
+                        "type":"control",
+                        "target":"xui_tabs_json",
+                        "args":[ ],
+                        "method":"clearItems"
+                    },
+                    {
+                        "desc":"clr tree",
+                        "type":"control",
+                        "target":"xui_tv_folders",
+                        "args":[ ],
+                        "method":"clearItems"
                     }
                 ])
                 .setCustomStyle({
