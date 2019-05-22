@@ -186,6 +186,7 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             undefined,
                             "newFile",
+                            "",
                             "{temp.fileName} +\".json\""
                         ],
                         "method":"gbroadcast",
