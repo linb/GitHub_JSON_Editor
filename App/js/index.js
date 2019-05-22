@@ -237,10 +237,13 @@ xui.Class('App', 'xui.Module',{
                     "actions":[
                         {
                             "desc":"exists?",
-                            "type":"none",
-                            "target":"none",
-                            "args":[ ],
-                            "method":"none",
+                            "type":"control",
+                            "target":"xui_tabs_json",
+                            "args":[
+                                undefined,
+                                "{args[1].id}"
+                            ],
+                            "method":"setValue",
                             "conditions":[
                                 {
                                     "left":"{page.xui_tabs_json.getItems()}",
@@ -1294,10 +1297,11 @@ xui.Class('App', 'xui.Module',{
                     },
                     {
                         "desc":"check input",
-                        "type":"none",
-                        "target":"none",
+                        "type":"other",
+                        "target":"msg",
                         "args":[ ],
-                        "method":"none",
+                        "method":"log",
+                        "return":false,
                         "conditions":[
                             {
                                 "left":"{temp.okData}",
