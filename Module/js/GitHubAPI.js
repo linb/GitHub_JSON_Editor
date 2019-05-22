@@ -89,19 +89,19 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             if(paras.access_token){
                 ns.setToken(paras.access_token);
                 if(ns.loginLayer){
-                  ns.loginLayer.hide();
+                    ns.loginLayer.hide();
                 }            
             }
             ns.ensureGithubAuth();
         },
         githubLogout:function(){
             var ns=this;
-            
+
             xui.Cookies.remove("access_token");
             delete ns._githubAccessToken;
             delete ns.clientWithAuth;
             delete ns._userProfile;
-            
+
             ns.ensureGithubAuth();
         },
         // APIs
@@ -227,7 +227,15 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 message:"Created by CrossUI Github JSON Editor",
                 content: encode ? Base64.encode( content||"" ) : content
             }).then(function(rsp){
-                var args = [requestId, rsp.data.content.name, rsp.data.content.path, rst.data.sha];
+                var info = rsp.data.content;
+                var args = [requestId,{
+                    id: info.path,
+                    path: info.path,
+                    caption: info.name,
+                    type: info.type,
+                    sha: info.sha,
+                    tagVar:info
+                }, path];
                 if(false !== xui.tryF(onSuccess, args))
                     api.fireEvent("onCreateGithubFile", args);                
             }).catch(function(e){
@@ -290,7 +298,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
         $Functions:{
             ensureGithubAuth : function(){},
             githubLogout : function(){},
-            
+
             setLastActionConf : function(lastActionConf/*Object, {fun:Function, scope:Object, params:Array}*/){},
             listRepos : function(requestId /*String, requestid*/, 
                                   page /*Number, current page*/,
@@ -307,9 +315,9 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                   filter /*Function, filter*/, 
                                   onSuccess /*Function*/, onFail/*Function*/){},
             fileExist:function(requestId /*String, requestid*/, 
-                               repo /*String, repo name */, 
-                               path/*String, file path*/, 
-                               onSuccess /*Function*/, onFail/*Function*/){},
+                                repo /*String, repo name */, 
+                                path/*String, file path*/, 
+                                onSuccess /*Function*/, onFail/*Function*/){},
             readFile:function(requestId /*String, requestid*/, 
                                repo /*String, repo name */, 
                                path/*String, file path*/, 
@@ -348,21 +356,20 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                                           per_page /*Number, per page count*/
                                          ){},
             onListGithubFiles : function(requestId /*String, requestid*/, 
-                                          fileItems /*List{id,name,type,sha}, result list*/, 
+                                          fileItems /*List, result list, [{id,name,type,sha}]*/, 
                                           parentPath /*String, parent path*/
                                          ){},
             onIfGithubFileExists : function(requestId /*String, requestid*/, 
-                                          path /*String, parent path*/
-                                         ){},
+                                             path /*String, parent path*/
+                                            ){},
             onReadGithubFile : function(requestId /*String, requestid*/, 
                                          content /*String, file content*/, 
                                          sha/*String, GitHub file sha*/, 
                                          decoded /*Boolean, decoded?*/
                                         ){},
             onCreateGithubFile : function(requestId /*String, requestid*/, 
-                                           path /*String, file path*/, 
-                                           name /*String, file name*/, 
-                                           sha/*String, GitHub file sha*/
+                                          fileItem /*Object, {id,name,type,sha}*/, 
+                                          parentPath /*String, parent path*/
                                           ){},
             onUpdateGithubFile : function(requestId /*String, requestid*/, 
                                            path /*String, file path*/, 
