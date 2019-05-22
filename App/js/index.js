@@ -191,7 +191,7 @@ xui.Class('App', 'xui.Module',{
                         "method":"call",
                         "conditions":[
                             {
-                                "left":"{args[1].id}",
+                                "left":"{args[2]}",
                                 "symbol":"=",
                                 "right":"new"
                             }
