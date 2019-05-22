@@ -19,18 +19,6 @@ xui.Class('Module.Editor', 'xui.Module',{
             var host=this, children=[], append=function(child){children.push(child.get(0));};
             
             append(
-                xui.create("xui.UI.Input")
-                .setHost(host,"xui_ui_textarea")
-                .setDirtyMark(false)
-                .setDock("fill")
-                .setLeft("5.833333333333333em")
-                .setTop("2.5em")
-                .setWidth("18em")
-                .setHeight("10em")
-                .setMultiLines(true)
-            );
-            
-            append(
                 xui.create("xui.UI.Block")
                 .setHost(host,"xui_ui_block19")
                 .setDock("bottom")
@@ -89,6 +77,39 @@ xui.Class('Module.Editor', 'xui.Module',{
                 })
             );
             
+            append(
+                xui.create("xui.UI.Div")
+                .setHost(host,"xui_ui_div36")
+                .setDock("fill")
+                .setLeft("30em")
+                .setTop("5em")
+                .setConDockFlexFill("width")
+            );
+            
+            host.xui_ui_div36.append(
+                xui.create("xui.UI.Div")
+                .setHost(host,"xui_ui_div37")
+                .setDock("left")
+                .setLeft("25.833333333333332em")
+                .setTop("11.666666666666666em")
+            );
+            
+            host.xui_ui_div37.append(
+                xui.create("xui.Module.JSONEditor", "xui.Module")
+                .setHost(host,"xui_module_jsoneditor4")
+            );
+            
+            host.xui_ui_div36.append(
+                xui.create("xui.UI.Input")
+                .setHost(host,"xui_ui_textarea")
+                .setDirtyMark(false)
+                .setDock("left")
+                .setLeft("1.6666666666666667em")
+                .setTop("5em")
+                .setHeight("10em")
+                .setMultiLines(true)
+            );
+            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
@@ -123,7 +144,7 @@ xui.Class('Module.Editor', 'xui.Module',{
                         "adjust":"{xui.Coder.formatText}"
                     },
                     {
-                        "desc":"set json",
+                        "desc":"set json to txt",
                         "type":"control",
                         "target":"xui_ui_textarea",
                         "args":[
@@ -134,6 +155,13 @@ xui.Class('Module.Editor', 'xui.Module',{
                         ],
                         "method":"setUIValue",
                         "redirection":"other:callback:call"
+                    },
+                    {
+                        "desc":"set json to eidtor",
+                        "type":"module",
+                        "target":"xui_module_jsoneditor4",
+                        "args":[ ],
+                        "method":"setValue"
                     },
                     {
                         "desc":"freeUI",
