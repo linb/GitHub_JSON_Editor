@@ -1306,10 +1306,25 @@ xui.Class('App', 'xui.Module',{
                         "conditions":[
                             {
                                 "left":"{temp._prompt_cancel}",
-                                "symbol":"non-empty",
-                                "right":""
+                                "symbol":"=",
+                                "right":"{true}"
                             }
                         ]
+                    },
+                    {
+                        "desc":"check filename",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{temp.okData}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false
                     },
                     {
                         "desc":"busyUI",
