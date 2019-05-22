@@ -908,7 +908,20 @@ xui.Class('App', 'xui.Module',{
                                 "redirection":"other:callback:call"
                             }
                         ]
-                    }
+                    },
+                    "onError":[
+                        {
+                            "desc":"show error",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[
+                                "Error",
+                                "{args[0]}"
+                            ],
+                            "method":"alert",
+                            "onOK":2
+                        }
+                    ]
                 })
             );
             
@@ -1256,8 +1269,7 @@ xui.Class('App', 'xui.Module',{
                                 "symbol":"non-empty",
                                 "right":""
                             }
-                        ],
-                        "return":false
+                        ]
                     },
                     {
                         "desc":"busyUI",
@@ -1276,7 +1288,7 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             "createFile",
                             "{global.repoName}",
-                            "{args[0]}",
+                            "{args[0]}/{temp.okData}",
                             "{global.dftFileContent}",
                             "{true}",
                             undefined,
