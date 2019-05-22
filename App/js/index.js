@@ -1312,14 +1312,14 @@ xui.Class('App', 'xui.Module',{
                     },
                     {
                         "desc":"check input",
-                        "type":"other",
-                        "target":"msg",
+                        "type":"none",
+                        "target":"none",
                         "args":[ ],
-                        "method":"log",
+                        "method":"none",
                         "conditions":[
                             {
                                 "left":"{temp.okData}",
-                                "symbol":"defined",
+                                "symbol":"undefined",
                                 "right":""
                             }
                         ],
