@@ -995,11 +995,20 @@ xui.Class('App', 'xui.Module',{
                     ],
                     "onDeleteGithubFile":[
                         {
-                            "desc":"Action 1",
+                            "desc":"remove from tree",
                             "type":"control",
                             "target":"xui_tv_folders",
                             "args":[
                                 "{args[1]}",
+                                "{args[1]}"
+                            ],
+                            "method":"removeItems"
+                        },
+                        {
+                            "desc":"remove from tabs",
+                            "type":"control",
+                            "target":"xui_tabs_json",
+                            "args":[
                                 "{args[1]}"
                             ],
                             "method":"removeItems"
