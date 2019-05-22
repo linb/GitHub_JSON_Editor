@@ -89,6 +89,22 @@ xui.Class('App', 'xui.Module',{
                 .setTop("7.5em")
                 .onClick([
                     {
+                        "desc":"check",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{global.repoName}",
+                                "symbol":"empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false,
+                        "event":3
+                    },
+                    {
                         "desc":"refresh",
                         "type":"other",
                         "target":"callback",
