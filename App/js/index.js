@@ -1240,16 +1240,50 @@ xui.Class('App', 'xui.Module',{
                         "onKO":4
                     },
                     {
-                        "desc":"Action 1",
+                        "desc":"check prompt",
                         "type":"other",
                         "target":"msg",
                         "args":[
-                            "{args[0]}{temp.okData}.json",
-                            "{args[0]}",
+                            "",
+                            "",
                             200,
                             5000
                         ],
-                        "method":"message"
+                        "method":"message",
+                        "conditions":[
+                            {
+                                "left":"{temp._prompt_cancel}",
+                                "symbol":"non-empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false
+                    },
+                    {
+                        "desc":"busyUI",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[ ],
+                        "method":"busy"
+                    },
+                    {
+                        "desc":"create file",
+                        "type":"module",
+                        "target":"module_githubapi1",
+                        "args":[
+                            "{page.module_githubapi1.createFile}",
+                            undefined,
+                            undefined,
+                            "createFile",
+                            "{global.repoName}",
+                            "{args[0]}",
+                            "{global.dftFileContent}",
+                            "{true}",
+                            undefined,
+                            "{xui.free}"
+                        ],
+                        "method":"$Functions.createFile",
+                        "redirection":"other:callback:call"
                     }
                 ]
             }
