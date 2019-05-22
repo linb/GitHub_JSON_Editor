@@ -1403,7 +1403,7 @@ xui.Class('App', 'xui.Module',{
                             "{args[0]}{temp.okData}.json",
                             "{global.dftFileContent}",
                             "{true}",
-                            undefined,
+                            "{xui.free}",
                             "{xui.free}"
                         ],
                         "method":"$Functions.createFile",
