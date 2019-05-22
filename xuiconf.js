@@ -99,7 +99,8 @@ xui.$cache.functions = {
 xui.$cache.data = {
     "$DATE_FORMAT":"gmt",
     "treeviewCallback":null,
-    "repoName":null
+    "repoName":null,
+    "dftFileContent":"{}"
 };
 // ]]Global Data
 // [[Constant Data
