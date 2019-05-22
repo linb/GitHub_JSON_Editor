@@ -978,8 +978,8 @@ xui.Class('App', 'xui.Module',{
                             "target":"xui_tv_folders",
                             "args":[
                                 "{args[1]}",
-                                "",
-                                "",
+                                null,
+                                null,
                                 false
                             ],
                             "method":"insertItems",
