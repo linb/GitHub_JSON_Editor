@@ -921,6 +921,20 @@ xui.Class('App', 'xui.Module',{
                             "method":"alert",
                             "onOK":2
                         }
+                    ],
+                    "onCreateGithubFile":[
+                        {
+                            "desc":"Action 1",
+                            "type":"control",
+                            "target":"xui_tv_folders",
+                            "args":[
+                                "{args[1]}",
+                                "{args[2]}",
+                                "",
+                                false
+                            ],
+                            "method":"insertItems"
+                        }
                     ]
                 })
             );
