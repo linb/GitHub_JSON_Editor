@@ -980,11 +980,16 @@ xui.Class('App', 'xui.Module',{
                             "args":[
                                 "{args[1]}",
                                 "{args[2]}",
-                                "",
+                                null,
                                 false
                             ],
                             "method":"insertItems",
                             "conditions":[
+                                {
+                                    "left":"{page.xui_tv_folders.isSubInited}",
+                                    "symbol":"=",
+                                    "right":"{true}"
+                                },
                                 {
                                     "left":"{args[2]}",
                                     "symbol":"non-empty",
