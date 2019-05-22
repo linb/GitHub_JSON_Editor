@@ -1293,40 +1293,6 @@ xui.Class('App', 'xui.Module',{
                         "onKO":4
                     },
                     {
-                        "desc":"check prompt",
-                        "type":"other",
-                        "target":"msg",
-                        "args":[
-                            "",
-                            "",
-                            200,
-                            5000
-                        ],
-                        "method":"message",
-                        "conditions":[
-                            {
-                                "left":"{temp._prompt_cancel}",
-                                "symbol":"=",
-                                "right":"{true}"
-                            }
-                        ]
-                    },
-                    {
-                        "desc":"check filename",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
-                        "conditions":[
-                            {
-                                "left":"{temp.okData}",
-                                "symbol":"empty",
-                                "right":""
-                            }
-                        ],
-                        "return":false
-                    },
-                    {
                         "desc":"busyUI",
                         "type":"other",
                         "target":"msg",
