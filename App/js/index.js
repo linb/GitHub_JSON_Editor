@@ -286,7 +286,7 @@ xui.Class('App', 'xui.Module',{
                             "type":"control",
                             "target":"xui_tabs_json",
                             "args":[
-                                undefined,
+                                "{args[1].id}",
                                 "{args[1].id}"
                             ],
                             "method":"setValue",
