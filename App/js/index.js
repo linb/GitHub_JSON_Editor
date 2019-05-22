@@ -1302,7 +1302,7 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             "createFile",
                             "{global.repoName}",
-                            "{args[0]}/{temp.okData}",
+                            "{args[0]}{temp.okData}.json",
                             "{global.dftFileContent}",
                             "{true}",
                             undefined,
