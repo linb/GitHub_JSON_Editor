@@ -924,7 +924,26 @@ xui.Class('App', 'xui.Module',{
                     ],
                     "onCreateGithubFile":[
                         {
-                            "desc":"Action 1",
+                            "desc":"add to root",
+                            "type":"control",
+                            "target":"xui_tv_folders",
+                            "args":[
+                                "{args[1]}",
+                                "",
+                                "",
+                                false
+                            ],
+                            "method":"insertItems",
+                            "conditions":[
+                                {
+                                    "left":"{args[2]}",
+                                    "symbol":"empty",
+                                    "right":""
+                                }
+                            ]
+                        },
+                        {
+                            "desc":"add to folder",
                             "type":"control",
                             "target":"xui_tv_folders",
                             "args":[
@@ -933,7 +952,14 @@ xui.Class('App', 'xui.Module',{
                                 "",
                                 false
                             ],
-                            "method":"insertItems"
+                            "method":"insertItems",
+                            "conditions":[
+                                {
+                                    "left":"{args[2]}",
+                                    "symbol":"non-empty",
+                                    "right":""
+                                }
+                            ]
                         }
                     ]
                 })
