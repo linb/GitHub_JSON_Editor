@@ -199,6 +199,27 @@ xui.Class('App', 'xui.Module',{
                         "event":3
                     },
                     {
+                        "desc":"if delete",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            "Delete?",
+                            "Are you sure to delete this file?"
+                        ],
+                        "method":"confirm",
+                        "okFlag":"_confirm_yes",
+                        "koFlag":"_confirm_no",
+                        "conditions":[
+                            {
+                                "left":"{args[2]}",
+                                "symbol":"=",
+                                "right":"delete"
+                            }
+                        ],
+                        "onOK":2,
+                        "onKO":3
+                    },
+                    {
                         "desc":"delete",
                         "type":"other",
                         "target":"callback",
@@ -215,6 +236,11 @@ xui.Class('App', 'xui.Module',{
                                 "left":"{args[2]}",
                                 "symbol":"=",
                                 "right":"delete"
+                            },
+                            {
+                                "left":"{temp._confirm_yes}",
+                                "symbol":"defined",
+                                "right":""
                             }
                         ]
                     }
