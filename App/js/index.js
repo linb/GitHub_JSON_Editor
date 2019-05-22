@@ -1150,6 +1150,8 @@ xui.Class('App', 'xui.Module',{
                             "{page.module_githubapi1.listRepos}",
                             "forSelectRepo",
                             "{1}",
+                            "forSelectRepo",
+                            "1",
                             "{page.xui_ui_pagebar5.getPageCount()}"
                         ],
                         "method":"$Functions.listRepos",
