@@ -193,7 +193,7 @@ xui.Class('App', 'xui.Module',{
                             {
                                 "left":"{args[1].id}",
                                 "symbol":"=",
-                                "right":"add"
+                                "right":"new"
                             }
                         ],
                         "event":3
@@ -1234,32 +1234,17 @@ xui.Class('App', 'xui.Module',{
                             "Name ( [a-zA-Z_] only, no \".json\" please )"
                         ],
                         "method":"prompt",
-                        "onOK":3,
-                        "onKO":4,
                         "okFlag":"_prompt_ok",
-                        "koFlag":"_prompt_cancel"
-                    },
-                    {
-                        "desc":"check",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
-                        "conditions":[
-                            {
-                                "left":"{temp._prompt_cancel}",
-                                "symbol":"non-empty",
-                                "right":""
-                            }
-                        ],
-                        "return":false
+                        "koFlag":"_prompt_cancel",
+                        "onOK":3,
+                        "onKO":4
                     },
                     {
                         "desc":"Action 1",
                         "type":"other",
                         "target":"msg",
                         "args":[
-                            "{args[0]} + {temp.okData}",
+                            "{args[0]}{temp.okData}",
                             "{args[0]}",
                             200,
                             5000
