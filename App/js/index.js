@@ -134,74 +134,15 @@ xui.Class('App', 'xui.Module',{
                         "event":3
                     },
                     {
-                        "desc":"add prompt",
-                        "type":"other",
-                        "target":"msg",
-                        "args":[
-                            "Specify a name (.json)",
-                            "Name ( [a-zA-Z0-9_] only , no \".josn\" please )",
-                            ""
-                        ],
-                        "method":"prompt",
-                        "conditions":[
-                            {
-                                "left":"{args[1].id}",
-                                "symbol":"=",
-                                "right":"new"
-                            }
-                        ],
-                        "okFlag":"_prompt_ok",
-                        "koFlag":"_prompt_cancel",
-                        "onOK":3,
-                        "onKO":4
-                    },
-                    {
-                        "desc":"add check",
-                        "type":"none",
-                        "target":"none",
-                        "args":[ ],
-                        "method":"none",
-                        "conditions":[
-                            {
-                                "left":"{args[1].id}",
-                                "symbol":"=",
-                                "right":"new"
-                            },
-                            {
-                                "left":"{temp._prompt_cancel}",
-                                "symbol":"non-empty",
-                                "right":""
-                            }
-                        ],
-                        "return":false
-                    },
-                    {
-                        "desc":"set var",
-                        "type":"other",
-                        "target":"var",
-                        "args":[
-                            "fileName",
-                            "{temp.okData}"
-                        ],
-                        "method":"temp",
-                        "conditions":[
-                            {
-                                "left":"{args[1].id}",
-                                "symbol":"=",
-                                "right":"new"
-                            }
-                        ]
-                    },
-                    {
-                        "desc":"try to creata file",
+                        "desc":"new",
                         "type":"other",
                         "target":"callback",
                         "args":[
                             "{page.functions.createFile}",
                             undefined,
                             undefined,
-                            undefined,
-                            "{temp.okData}"
+                            "{}",
+                            ""
                         ],
                         "method":"call",
                         "conditions":[
@@ -234,6 +175,28 @@ xui.Class('App', 'xui.Module',{
                         "itemClass":"xuicon xui-uicmd-close",
                         "tips":"Delete this one",
                         "tag":"leaf"
+                    }
+                ])
+                .onCmd([
+                    {
+                        "desc":"Action 1",
+                        "type":"other",
+                        "target":"callback",
+                        "args":[
+                            "{page.functions.createFile}",
+                            undefined,
+                            undefined,
+                            "{args[1].id}"
+                        ],
+                        "method":"call",
+                        "conditions":[
+                            {
+                                "left":"{args[1].id}",
+                                "symbol":"=",
+                                "right":"add"
+                            }
+                        ],
+                        "event":3
                     }
                 ])
                 .onGetContent([
@@ -1259,20 +1222,44 @@ xui.Class('App', 'xui.Module',{
                         "id":"dir",
                         "type":"String",
                         "desc":""
-                    },
-                    {
-                        "id":"fileName",
-                        "type":"String",
-                        "desc":""
                     }
                 ],
                 "actions":[
+                    {
+                        "desc":"prompt",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            "Specify json name",
+                            "Name ( [a-zA-Z_] only, no \".json\" please )"
+                        ],
+                        "method":"prompt",
+                        "onOK":3,
+                        "onKO":4,
+                        "okFlag":"_prompt_ok",
+                        "koFlag":"_prompt_cancel"
+                    },
+                    {
+                        "desc":"check",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{temp._prompt_cancel}",
+                                "symbol":"non-empty",
+                                "right":""
+                            }
+                        ],
+                        "return":false
+                    },
                     {
                         "desc":"Action 1",
                         "type":"other",
                         "target":"msg",
                         "args":[
-                            "{args[1]}",
+                            "{args[0]} + {temp.okData}",
                             "{args[0]}",
                             200,
                             5000
