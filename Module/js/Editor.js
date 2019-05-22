@@ -97,6 +97,20 @@ xui.Class('Module.Editor', 'xui.Module',{
             host.xui_ui_div37.append(
                 xui.create("xui.Module.JSONEditor", "xui.Module")
                 .setHost(host,"xui_module_jsoneditor4")
+                .setEvents({
+                    "onchange":[
+                        {
+                            "desc":"Action 1",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[
+                                "JSONEditor",
+                                "{args[1]}"
+                            ],
+                            "method":"log"
+                        }
+                    ]
+                })
             );
             
             host.xui_ui_div36.append(
@@ -108,6 +122,18 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setTop("5em")
                 .setHeight("10em")
                 .setMultiLines(true)
+                .onChange([
+                    {
+                        "desc":"Action 1",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            "Txt",
+                            "{args[2]}"
+                        ],
+                        "method":"log"
+                    }
+                ])
             );
             
             return children;
@@ -160,8 +186,14 @@ xui.Class('Module.Editor', 'xui.Module',{
                         "desc":"set json to eidtor",
                         "type":"module",
                         "target":"xui_module_jsoneditor4",
-                        "args":[ ],
-                        "method":"setValue"
+                        "args":[
+                            "{page.xui_module_jsoneditor4.setValue}",
+                            undefined,
+                            undefined,
+                            "{args[1]}"
+                        ],
+                        "method":"$Functions.setValue",
+                        "redirection":"other:callback:call"
                     },
                     {
                         "desc":"freeUI",
