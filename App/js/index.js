@@ -1244,7 +1244,7 @@ xui.Class('App', 'xui.Module',{
                         "type":"other",
                         "target":"msg",
                         "args":[
-                            "{args[0]}{temp.okData}",
+                            "{args[0]}{temp.okData}.json",
                             "{args[0]}",
                             200,
                             5000
