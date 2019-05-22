@@ -991,7 +991,7 @@ xui.Class('App', 'xui.Module',{
                             "type":"control",
                             "target":"xui_tv_folders",
                             "args":[
-                                undefined,
+                                "{args[1]}",
                                 "{args[1]}"
                             ],
                             "method":"removeItems"
