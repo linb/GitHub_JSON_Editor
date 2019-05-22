@@ -78,9 +78,16 @@ xui.Class('App', 'xui.Module',{
                         "id":"grp2",
                         "sub":[
                             {
+                                "id":"new",
+                                "caption":"New",
+                                "imageClass":"xui-uicmd-add",
+                                "tips":"Add a new json file to root"
+                            },
+                            {
                                 "id":"refresh",
                                 "caption":"Refresh",
-                                "imageClass":"xui-uicmd-refresh"
+                                "imageClass":"xui-uicmd-refresh",
+                                "tips":"Refresh the tree"
                             }
                         ],
                         "caption":"grp2"
@@ -125,6 +132,23 @@ xui.Class('App', 'xui.Module',{
                             }
                         ],
                         "event":3
+                    },
+                    {
+                        "desc":"add",
+                        "type":"other",
+                        "target":"msg",
+                        "args":[
+                            "",
+                            "add new to root"
+                        ],
+                        "method":"message",
+                        "conditions":[
+                            {
+                                "left":"{args[1].id}",
+                                "symbol":"=",
+                                "right":"new"
+                            }
+                        ]
                     }
                 ])
             );
