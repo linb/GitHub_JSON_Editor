@@ -225,7 +225,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 repo:repo,
                 path: path,
                 message:"Created by CrossUI Github JSON Editor",
-                content: encode ? Base64.encode( content ) : content
+                content: encode ? Base64.encode( content||"" ) : content
             }).then(function(rsp){
                 var args = [requestId, rsp.data.content.name, rsp.data.content.path, rst.data.sha];
                 if(false !== xui.tryF(onSuccess, args))
