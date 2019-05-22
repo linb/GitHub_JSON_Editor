@@ -1216,7 +1216,7 @@ xui.Class('App', 'xui.Module',{
                 ]
             },
             "createFile":{
-                "desc":"",
+                "desc":"create json",
                 "params":[
                     {
                         "id":"dir",
