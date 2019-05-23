@@ -1,6 +1,9 @@
 ## GitHub_JSON_Editor
 
-This is an online tool for editing JSON files in your Repo.
+[Online tool for editing JSON files in your Repo](https://linb.github.io/GitHub_JSON_Editor).
+
+You can use this online tool to log in your Github account, select you repositories, list files, and edit any json file.
+
 <hr>
 This project was created by codeless programming Builder: https://crossui.com/RADGithub <br>
 
