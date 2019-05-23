@@ -923,10 +923,10 @@ xui.Class('App', 'xui.Module',{
                             "type":"other",
                             "target":"msg",
                             "args":[
-                                "{args[1]} was saved!",
+                                "File \"{args[1]}\" was saved!",
                                 "Saved",
-                                200,
-                                5000
+                                300,
+                                2000
                             ],
                             "method":"message"
                         },
