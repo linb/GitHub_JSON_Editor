@@ -84,35 +84,16 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setDock("fill")
                 .setLeft("30em")
                 .setTop("5em")
-                .setConDockSpacing({
-                    "width":1,
-                    "height":0
-                })
                 .setConDockFlexFill("width")
             );
             
             host.xui_ui_div36.append(
-                xui.create("xui.UI.Div")
+                xui.create("xui.UI.Panel")
                 .setHost(host,"xui_ui_div37")
                 .setDock("left")
                 .setLeft("25.833333333333332em")
                 .setTop("11.666666666666666em")
-            );
-            
-            host.xui_ui_div37.append(
-                xui.create("xui.UI.HTMLButton")
-                .setHost(host,"xui_ui_htmlbutton18")
-                .setClassName("xui-css-csj")
-                .setDock("top")
-                .setLeft("15.833333333333334em")
-                .setTop("19.166666666666668em")
-                .setHeight("3.3333333333333335em")
-                .setCaption("ADVANCED EDITOR")
-                .setCustomStyle({
-                    "KEY":{
-                        "cursor":"default"
-                    }
-                })
+                .setCaption("Advanced")
             );
             
             host.xui_ui_div37.append(
@@ -172,12 +153,12 @@ xui.Class('Module.Editor', 'xui.Module',{
             );
             
             host.xui_ui_div36.append(
-                xui.create("xui.UI.Div")
+                xui.create("xui.UI.Panel")
                 .setHost(host,"xui_ui_div58")
                 .setDock("left")
-                .setLeft("37.5em")
                 .setTop("0.8333333333333334em")
                 .setWidth("6em")
+                .setCaption("Basic")
             );
             
             host.xui_ui_div58.append(
@@ -211,22 +192,6 @@ xui.Class('Module.Editor', 'xui.Module',{
                         ]
                     }
                 ])
-            );
-            
-            host.xui_ui_div58.append(
-                xui.create("xui.UI.HTMLButton")
-                .setHost(host,"xui_ui_htmlbutton13")
-                .setClassName("xui-css-csj")
-                .setDock("top")
-                .setLeft("15em")
-                .setTop("18.333333333333332em")
-                .setHeight("3.3333333333333335em")
-                .setCaption("BASIC EDITOR")
-                .setCustomStyle({
-                    "KEY":{
-                        "cursor":"default"
-                    }
-                })
             );
             
             append(
