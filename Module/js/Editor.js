@@ -151,11 +151,31 @@ xui.Class('Module.Editor', 'xui.Module',{
                 })
             );
             
-            host.xui_ui_div36.append(
+            host.xui_ui_div37.append(
+                xui.create("xui.UI.HTMLButton")
+                .setHost(host,"xui_ui_htmlbutton18")
+                .setDock("top")
+                .setLeft("15.833333333333334em")
+                .setTop("19.166666666666668em")
+                .setHeight("3.3333333333333335em")
+                .setCaption("ADVANCED EDITOR")
+                .setDisabled(true)
+            );
+            
+            append(
+                xui.create("xui.UI.Div")
+                .setHost(host,"xui_ui_div58")
+                .setDock("left")
+                .setLeft("37.5em")
+                .setTop("0.8333333333333334em")
+                .setWidth("30em")
+            );
+            
+            host.xui_ui_div58.append(
                 xui.create("xui.UI.Input")
                 .setHost(host,"xui_ui_textarea")
                 .setDirtyMark(false)
-                .setDock("left")
+                .setDock("fill")
                 .setLeft("1.6666666666666667em")
                 .setTop("5em")
                 .setHeight("10em")
@@ -182,6 +202,17 @@ xui.Class('Module.Editor', 'xui.Module',{
                         ]
                     }
                 ])
+            );
+            
+            host.xui_ui_div58.append(
+                xui.create("xui.UI.HTMLButton")
+                .setHost(host,"xui_ui_htmlbutton13")
+                .setDisabled(true)
+                .setDock("top")
+                .setLeft("15em")
+                .setTop("18.333333333333332em")
+                .setHeight("3.3333333333333335em")
+                .setCaption("TEXT EDITOR")
             );
             
             return children;
