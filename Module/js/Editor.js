@@ -118,7 +118,7 @@ xui.Class('Module.Editor', 'xui.Module',{
                                 "{page.xui_ui_textarea.setUIValue()}",
                                 undefined,
                                 undefined,
-                                "{args[1]}"
+                                "{temp.format}"
                             ],
                             "method":"setUIValue",
                             "redirection":"other:callback:call"
