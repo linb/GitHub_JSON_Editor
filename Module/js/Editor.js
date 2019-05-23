@@ -102,7 +102,7 @@ xui.Class('Module.Editor', 'xui.Module',{
             host.xui_ui_div37.append(
                 xui.create("xui.UI.HTMLButton")
                 .setHost(host,"xui_ui_htmlbutton18")
-                .setDisabled(true)
+                .setClassName("xui-css-csj")
                 .setDock("top")
                 .setLeft("15.833333333333334em")
                 .setTop("19.166666666666668em")
@@ -216,16 +216,47 @@ xui.Class('Module.Editor', 'xui.Module',{
             host.xui_ui_div58.append(
                 xui.create("xui.UI.HTMLButton")
                 .setHost(host,"xui_ui_htmlbutton13")
-                .setDisabled(true)
+                .setClassName("xui-css-csj")
                 .setDock("top")
                 .setLeft("15em")
                 .setTop("18.333333333333332em")
                 .setHeight("3.3333333333333335em")
-                .setCaption("TEXT EDITOR")
+                .setCaption("BASIC EDITOR")
                 .setCustomStyle({
                     "KEY":{
                         "cursor":"default"
                     }
+                })
+            );
+            
+            append(
+                xui.create("xui.UI.CSSBox")
+                .setHost(host,"xui_ui_cssbox8")
+                .setClassName("xui-css-csj")
+                .setNormalStatus({
+                    "color":"#eeeeee",
+                    "border-radius":"6px",
+                    "box-shadow":"inset 0px 1px 0px #C6E8F8",
+                    "text-shadow":"0 1px 0 #275588 ",
+                    "$gradient":{
+                        "stops":[
+                            {
+                                "pos":"0%",
+                                "clr":"#76bdd1"
+                            },
+                            {
+                                "pos":"100%",
+                                "clr":"#6bbed2"
+                            }
+                        ],
+                        "type":"linear",
+                        "orient":"T"
+                    },
+                    "cursor":"pointer",
+                    "border-top":"solid #6bbed2 1px",
+                    "border-right":"solid #6bbed2 1px",
+                    "border-bottom":"solid #6bbed2 1px",
+                    "border-left":"solid #6bbed2 1px"
                 })
             );
             
