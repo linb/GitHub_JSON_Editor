@@ -341,7 +341,7 @@ xui.Class('App', 'xui.Module',{
                             "args":[
                                 "{args[1].id}"
                             ],
-                            "method":"setValue"
+                            "method":"fireItemClickEvent"
                         },
                         {
                             "desc":"crete inputmodule",
