@@ -887,67 +887,64 @@ xui.Class('App', 'xui.Module',{
                             "method":"call"
                         }
                     ],
-                    "onUpdateGithubFile":{
-                        "newbies":{ },
-                        "actions":[
-                            {
-                                "desc":"make item",
-                                "type":"other",
-                                "target":"var",
-                                "args":[
-                                    "updateItem.sha",
-                                    "{args[2]}"
-                                ],
-                                "method":"temp"
-                            },
-                            {
-                                "desc":"update tv",
-                                "type":"control",
-                                "target":"xui_tv_folders",
-                                "args":[
-                                    "{args[1]}",
-                                    "{temp.updateItem}"
-                                ],
-                                "method":"updateItem"
-                            },
-                            {
-                                "desc":"update tab",
-                                "type":"control",
-                                "target":"xui_tabs_json",
-                                "args":[
-                                    "{args[1]}",
-                                    "{temp.updateItem}"
-                                ],
-                                "method":"updateItem"
-                            },
-                            {
-                                "desc":"message",
-                                "type":"other",
-                                "target":"msg",
-                                "args":[
-                                    undefined,
-                                    "Saved!",
-                                    200,
-                                    5000
-                                ],
-                                "method":"message"
-                            },
-                            {
-                                "desc":"to module",
-                                "type":"other",
-                                "target":"msg",
-                                "args":[
-                                    "{xui.broadcast()}",
-                                    undefined,
-                                    undefined,
-                                    "{args[1]}",
-                                    "{args[2]}"
-                                ],
-                                "method":"gbroadcast",
-                                "redirection":"other:callback:call"
-                            }
-                        ]
-                    },
+                    "onUpdateGithubFile":[
+                        {
+                            "desc":"make item",
+                            "type":"other",
+                            "target":"var",
+                            "args":[
+                                "updateItem.sha",
+                                "{args[2]}"
+                            ],
+                            "method":"temp"
+                        },
+                        {
+                            "desc":"update tv",
+                            "type":"control",
+                            "target":"xui_tv_folders",
+                            "args":[
+                                "{args[1]}",
+                                "{temp.updateItem}"
+                            ],
+                            "method":"updateItem"
+                        },
+                        {
+                            "desc":"update tab",
+                            "type":"control",
+                            "target":"xui_tabs_json",
+                            "args":[
+                                "{args[1]}",
+                                "{temp.updateItem}"
+                            ],
+                            "method":"updateItem"
+                        },
+                        {
+                            "desc":"message",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[
+                                "{args[1]} was saved!",
+                                "Saved",
+                                200,
+                                5000
+                            ],
+                            "method":"message"
+                        },
+                        {
+                            "desc":"to module",
+                            "type":"other",
+                            "target":"msg",
+                            "args":[
+                                "{xui.broadcast()}",
+                                undefined,
+                                undefined,
+                                "{args[1]}",
+                                "{args[2]}"
+                            ],
+                            "method":"gbroadcast",
+                            "redirection":"other:callback:call"
+                        }
+                    ],
                     "onError":[
                         {
                             "desc":"show error",
