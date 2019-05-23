@@ -1378,7 +1378,7 @@ xui.Class('App', 'xui.Module',{
                         "conditions":[
                             {
                                 "left":"{temp.okData}",
-                                "symbol":"undefined",
+                                "symbol":"empty",
                                 "right":""
                             }
                         ],
