@@ -122,6 +122,29 @@ xui.Class('Module.Editor', 'xui.Module',{
                             ],
                             "method":"setUIValue",
                             "redirection":"other:callback:call"
+                        },
+                        {
+                            "desc":"stop set back",
+                            "type":"other",
+                            "target":"var",
+                            "args":[
+                                "DontSetBackNow",
+                                "{true}"
+                            ],
+                            "method":"global",
+                            "adjust":""
+                        },
+                        {
+                            "desc":"clear the stop",
+                            "type":"other",
+                            "target":"var",
+                            "args":[
+                                "DontSetBackNow",
+                                "{false}"
+                            ],
+                            "method":"global",
+                            "timeout":0,
+                            "resetid":""
                         }
                     ]
                 })
@@ -151,9 +174,9 @@ xui.Class('Module.Editor', 'xui.Module',{
                         "redirection":"other:callback:call",
                         "conditions":[
                             {
-                                "left":"{args[2]}",
+                                "left":"{global.DontSetBackNow}",
                                 "symbol":"!=",
-                                "right":"{{page.xui_module_jsoneditor4.getValue()}"
+                                "right":"{true}"
                             }
                         ]
                     }
