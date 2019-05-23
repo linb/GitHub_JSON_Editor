@@ -153,7 +153,7 @@ xui.Class('Module.Editor', 'xui.Module',{
                             {
                                 "left":"{args[2]}",
                                 "symbol":"!=",
-                                "right":"{args[1]}"
+                                "right":"{{page.xui_module_jsoneditor4.getValue()}"
                             }
                         ]
                     }
