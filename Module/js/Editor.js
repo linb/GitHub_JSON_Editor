@@ -108,6 +108,11 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setTop("19.166666666666668em")
                 .setHeight("3.3333333333333335em")
                 .setCaption("ADVANCED EDITOR")
+                .setCustomStyle({
+                    "KEY":{
+                        "cursor":"default"
+                    }
+                })
             );
             
             host.xui_ui_div37.append(
@@ -217,6 +222,11 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setTop("18.333333333333332em")
                 .setHeight("3.3333333333333335em")
                 .setCaption("TEXT EDITOR")
+                .setCustomStyle({
+                    "KEY":{
+                        "cursor":"default"
+                    }
+                })
             );
             
             return children;
