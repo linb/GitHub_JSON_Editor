@@ -100,6 +100,17 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setEvents({
                     "onchange":[
                         {
+                            "desc":"stop set back",
+                            "type":"other",
+                            "target":"var",
+                            "args":[
+                                "DontSetBackNow",
+                                "{true}"
+                            ],
+                            "method":"global",
+                            "adjust":""
+                        },
+                        {
                             "desc":"format",
                             "type":"other",
                             "target":"var",
@@ -122,17 +133,6 @@ xui.Class('Module.Editor', 'xui.Module',{
                             ],
                             "method":"setUIValue",
                             "redirection":"other:callback:call"
-                        },
-                        {
-                            "desc":"stop set back",
-                            "type":"other",
-                            "target":"var",
-                            "args":[
-                                "DontSetBackNow",
-                                "{true}"
-                            ],
-                            "method":"global",
-                            "adjust":""
                         },
                         {
                             "desc":"clear the stop",
