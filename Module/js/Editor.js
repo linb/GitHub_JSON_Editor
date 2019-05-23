@@ -159,6 +159,7 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setTop("0.8333333333333334em")
                 .setWidth("6em")
                 .setCaption("Basic")
+                .setBorderType("none")
             );
             
             host.xui_ui_div58.append(
