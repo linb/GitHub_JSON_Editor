@@ -5,7 +5,9 @@
 You can use this online tool to log in your Github account, select you repositories, list files, and edit any json file.
 
 <hr>
+
 The entire program is done with codeless programming. The GitHub login function uses a cloud service module - [GitHubSimpleAPI](https://github.com/linb/CrossUI_Assets/tree/master/assets/modules/Services/xui_module_tpl_GitHubAPISimple), which works out of the box, enable your users log in to GitHub and operate their repositories directly. In [CrossUI Builder](https://crossui.com/RADGithub), you can add it to your own project from CrossUI templates library.
+
 <hr>
 
 This project was created by codeless programming Builder: https://crossui.com/RADGithub <br>
