@@ -100,14 +100,28 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setEvents({
                     "onchange":[
                         {
-                            "desc":"Action 1",
+                            "desc":"format",
                             "type":"other",
-                            "target":"msg",
+                            "target":"var",
                             "args":[
-                                "JSONEditor",
+                                "format",
                                 "{args[1]}"
                             ],
-                            "method":"log"
+                            "method":"temp",
+                            "adjust":"{xui.Coder.formatText}"
+                        },
+                        {
+                            "desc":"sync text",
+                            "type":"control",
+                            "target":"xui_ui_textarea",
+                            "args":[
+                                "{page.xui_ui_textarea.setUIValue()}",
+                                undefined,
+                                undefined,
+                                "{args[1]}"
+                            ],
+                            "method":"setUIValue",
+                            "redirection":"other:callback:call"
                         }
                     ]
                 })
@@ -124,14 +138,17 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setMultiLines(true)
                 .onChange([
                     {
-                        "desc":"Action 1",
-                        "type":"other",
-                        "target":"msg",
+                        "desc":"sync editor",
+                        "type":"module",
+                        "target":"xui_module_jsoneditor4",
                         "args":[
-                            "Txt",
+                            "{page.xui_module_jsoneditor4.setValue}",
+                            undefined,
+                            undefined,
                             "{args[2]}"
                         ],
-                        "method":"log"
+                        "method":"$Functions.setValue",
+                        "redirection":"other:callback:call"
                     }
                 ])
             );
