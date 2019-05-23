@@ -148,7 +148,14 @@ xui.Class('Module.Editor', 'xui.Module',{
                             "{args[2]}"
                         ],
                         "method":"$Functions.setValue",
-                        "redirection":"other:callback:call"
+                        "redirection":"other:callback:call",
+                        "conditions":[
+                            {
+                                "left":"{args[2]}",
+                                "symbol":"!=",
+                                "right":"{args[1]}"
+                            }
+                        ]
                     }
                 ])
             );
