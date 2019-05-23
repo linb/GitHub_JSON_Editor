@@ -19,7 +19,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
             if(this.clientWithAuth){
                 return this.clientWithAuth;
             }else{
-                this.ensureGithubAuth();
+                // this.ensureGithubAuth();
                 throw new Error("No github auth yet!");
             }
         },
