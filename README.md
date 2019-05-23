@@ -5,6 +5,9 @@
 You can use this online tool to log in your Github account, select you repositories, list files, and edit any json file.
 
 <hr>
+The entire program is done with codeless programming. The GitHub login function uses a GitHubSimpleAPI module from CrossUI template library, which you can select and add it to your own project directly.
+<hr>
+
 This project was created by codeless programming Builder: https://crossui.com/RADGithub <br>
 
 > The release url is: https://linb.github.io/GitHub_JSON_Editor/index.html
