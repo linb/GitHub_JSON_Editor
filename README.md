@@ -1,4 +1,4 @@
-## GitHub_JSON_Editor
+## GitHub JSON Editor
 
 [Online tool for editing JSON files in your Repo](https://linb.github.io/GitHub_JSON_Editor).
 
