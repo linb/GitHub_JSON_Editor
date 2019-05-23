@@ -716,6 +716,21 @@ xui.Class('App', 'xui.Module',{
                 .setPageCount(3)
                 .onPageSet([
                     {
+                        "desc":"check",
+                        "type":"none",
+                        "target":"none",
+                        "args":[ ],
+                        "method":"none",
+                        "conditions":[
+                            {
+                                "left":"{args[4]}",
+                                "symbol":"=",
+                                "right":"inited"
+                            }
+                        ],
+                        "return":false
+                    },
+                    {
                         "desc":"busy ui",
                         "type":"other",
                         "target":"msg",
@@ -734,14 +749,7 @@ xui.Class('App', 'xui.Module',{
                             undefined,
                             "{args[1]}"
                         ],
-                        "method":"call",
-                        "conditions":[
-                            {
-                                "left":"{args[4]}",
-                                "symbol":"!=",
-                                "right":"inited"
-                            }
-                        ]
+                        "method":"call"
                     }
                 ])
             );
