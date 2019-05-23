@@ -234,29 +234,50 @@ xui.Class('Module.Editor', 'xui.Module',{
                 .setHost(host,"xui_ui_cssbox8")
                 .setClassName("xui-css-csj")
                 .setNormalStatus({
-                    "color":"#eeeeee",
+                    "color":"#222222",
                     "border-radius":"6px",
-                    "box-shadow":"inset 0px 1px 0px #C6E8F8",
-                    "text-shadow":"0 1px 0 #275588 ",
+                    "box-shadow":"inset 0px 1px 0px #ffffff",
+                    "text-shadow":"0 1px 0 #ffffff",
                     "$gradient":{
                         "stops":[
                             {
                                 "pos":"0%",
-                                "clr":"#76bdd1"
+                                "clr":"#7fe0f8"
                             },
                             {
                                 "pos":"100%",
-                                "clr":"#6bbed2"
+                                "clr":"#9bf1ff"
                             }
                         ],
                         "type":"linear",
                         "orient":"T"
                     },
                     "cursor":"pointer",
-                    "border-top":"solid #6bbed2 1px",
-                    "border-right":"solid #6bbed2 1px",
-                    "border-bottom":"solid #6bbed2 1px",
-                    "border-left":"solid #6bbed2 1px"
+                    "border-top":"solid #9bf1ff 1px",
+                    "border-right":"solid #9bf1ff 1px",
+                    "border-bottom":"solid #9bf1ff 1px",
+                    "border-left":"solid #9bf1ff 1px"
+                })
+                .setHoverStatus({
+                    "$gradient":{
+                        "stops":[
+                            {
+                                "pos":"0%",
+                                "clr":"#9bf1ff"
+                            },
+                            {
+                                "pos":"100%",
+                                "clr":"#4fd4f5"
+                            }
+                        ],
+                        "type":"linear",
+                        "orient":"T"
+                    }
+                })
+                .setActiveStatus({
+                    "box-shadow":"inset 0px 1px 2px #239397 ",
+                    "background-image":"none",
+                    "background-color":"#cef8ff"
                 })
             );
             
