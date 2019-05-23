@@ -31,8 +31,9 @@ xui.Class('Module.Editor', 'xui.Module',{
                 xui.create("xui.UI.HTMLButton")
                 .setHost(host,"xui_ui_save")
                 .setLeft("1.6666666666666667em")
-                .setTop("0.6666666666666666em")
+                .setTop("0.5em")
                 .setWidth("10em")
+                .setHeight("2.3333333333333335em")
                 .setCaption("Save")
                 .onClick({
                     "newbies":{ },
