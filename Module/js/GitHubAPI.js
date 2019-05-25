@@ -224,7 +224,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 owner:api.getGithubUser(),
                 repo:repo,
                 path: path,
-                message:"Created by CrossUI Github JSON Editor",
+                message:"Created by CrossUI Github API",
                 content: encode ? Base64.encode( content||"" ) : content
             }).then(function(rsp){
                 var info = rsp.data.content;
@@ -253,7 +253,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 repo:repo,
                 path:path,
                 sha:sha,                    
-                message:"Updated by CrossUI GitHub JSON Editor",
+                message:"Updated by CrossUI Github API",
                 content: encode? Base64.encode( content ) : content
             }).then(function(rsp){
                 var args = [requestId, path, rsp.data.content.sha];
@@ -274,7 +274,7 @@ xui.Class('Module.GitHubAPI', 'xui.Module',{
                 repo:repo,
                 path:path,
                 sha:sha,                    
-                message:"Deleted by CrossUI GitHub JSON Editor"
+                message:"Deleted by CrossUI Github API"
             }).then(function(rsp){
                 var args = [requestId, path, sha];
                 if(false !== xui.tryF(onSuccess, args))
