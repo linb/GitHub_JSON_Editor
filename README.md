@@ -21,5 +21,6 @@ This project was created by codeless programming Builder: https://crossui.com/RA
 ![Snapshot](https://raw.githubusercontent.com/linb/GitHub_JSON_Editor/master/snapshot.png)
 
 > Dependencies: [@octokit/rest.js](https://github.com/octokit/rest.js)
-<hr>
+<hr/>
+
 > <i style="text-align:right;">Powered by [CrossUI](https://crossui.com)</i>
