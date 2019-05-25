@@ -1,6 +1,6 @@
 ## GitHub JSON Editor
 
-[Online tool for editing JSON files in your Repo](https://linb.github.io/GitHub_JSON_Editor).
+[Online tool for editing JSON files in your GitHub Repositories](https://linb.github.io/GitHub_JSON_Editor).
 
 You can use this online tool to log in your Github account, select you repositories, list files, and edit any json file.
 
