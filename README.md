@@ -2,7 +2,7 @@
 
 [Online tool for editing JSON files in your GitHub Repositories](https://linb.github.io/GitHub_JSON_Editor).
 
-You can use this online tool to log in your Github account, select you repositorie, list JSON files, and edit any json file in browser.
+You can use this online tool to log in your Github account, select repositorie, list JSON files, and edit any json file in browser.
 
 <hr>
 
