@@ -22,7 +22,7 @@ This project was created by codeless programming Builder: https://crossui.com/RA
 
 > Dependencies: [@octokit/rest.js](https://github.com/octokit/rest.js)
 
-> Sibling Project: https://linb.github.io/GitHub_JSON_Editor
+> Sibling Project: https://github.com/linb/GitHub_Code_Editor / https://linb.github.io/GitHub_Code_Editor
 
 <hr/>
 
